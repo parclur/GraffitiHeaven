@@ -1,0 +1,10 @@
+syntax: regexp
+Project3Demo/Library/*
+syntax: glob
+Project3Demo/Unity.TextMeshPro.csproj
+Project3Demo/Unity.Analytics.DataPrivacy.csproj
+Project3Demo/Unity.CollabProxy.Editor.csproj
+Project3Demo/Unity.PackageManagerUI.Editor.csproj
+Project3Demo/Unity.Postprocessing.Editor.csproj
+Project3Demo/Unity.Postprocessing.Runtime.csproj
+Project3Demo/Unity.TextMeshPro.Editor.csproj
