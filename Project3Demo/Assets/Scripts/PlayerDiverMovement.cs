@@ -16,8 +16,9 @@ public class PlayerDiverMovement : MonoBehaviour
 
     [SerializeField] private int hitsToDie;
 
+    [SerializeField] private float slowDurtaion = 4f;
 
-    [SerializeField] private float slowDurtaion = 2f;
+    [SerializeField] private bool doCC;
 
     private float slowTimer = 0f;
 
@@ -29,7 +30,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private bool isInGodPeriod = false;
 
-    private Rigidbody body;
+    CharacterController cc;
 
     int hitCount = 0;
 
@@ -37,16 +38,25 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private Player rewiredPlayer;
 
+    private Vector3 gravity = Physics.gravity;
 
+    private Animator anim;
 
-
+    private Rigidbody rb;
 
     private void Start()
     {
-        body = GetComponent<Rigidbody>();
+        if(doCC){
+            cc = GetComponent<CharacterController>();
+        }
+        else {
+            rb = GetComponent<Rigidbody>();
+        }
+        
         playerTransform = gameObject.transform;
         
         rewiredPlayer = ReInput.players.GetPlayer(playerAttachedToo); //Gets the rewired players
+        anim = GetComponent<Animator>();
 
     }
 
@@ -72,6 +82,9 @@ public class PlayerDiverMovement : MonoBehaviour
         float xAxis = rewiredPlayer.GetAxis("HorizontalAxisMOVE");
         float yAxis = rewiredPlayer.GetAxis("VerticalAxisMOVE");
 
+        anim.SetFloat("Forward", yAxis);
+        anim.SetFloat("Turn", xAxis);
+
         RotatePlayer(xAxis);
         HorizontalMovment(yAxis);
     }
@@ -89,23 +102,30 @@ public class PlayerDiverMovement : MonoBehaviour
 
     void HorizontalMovment(float yAxis) //Will add force based on the y axis of the stick
     {
+        float acceleration;
         Vector3 forward = playerTransform.forward * yAxis; 
         
         if(!isSlowed)
         {
-            body.AddForce(forward * movementAcceleration, ForceMode.Acceleration); //Applies movment (normal)
+            acceleration = movementAcceleration; //Applies movment (normal)
         }    
         else
         {
-            body.AddForce(forward * slowedSpeed, ForceMode.Acceleration); //Applies movment (slowed)
-        }
-        
-        //Cap for the velocity
-        if(body.velocity.magnitude > maxVelocity)
-        {
-            body.velocity = body.velocity.normalized * maxVelocity;
+            acceleration = slowedSpeed; //Applies movment (slowed)
         }
 
+        if(doCC){
+            cc.Move(forward * acceleration + gravity);
+        }
+        else {
+            rb.AddForce(forward * acceleration, ForceMode.Acceleration);
+
+            //Cap for the velocity
+            if(rb.velocity.magnitude > maxVelocity)
+            {
+                rb.velocity = rb.velocity.normalized * maxVelocity;
+            }
+        }
     }
 
     void HandleSlowTimer() //Handles the logic for the slow timer. To start the timer set isSlowed to true

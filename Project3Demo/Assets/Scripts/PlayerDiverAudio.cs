@@ -8,6 +8,10 @@ public class PlayerDiverAudio : MonoBehaviour
 
     private AudioSource footstepAudio;
 
+    private CharacterController cc;
+
+    private Rigidbody rb;
+
     void Start()
     {
         AudioManager.instance.AddAudio("Ambience1", 1f, 0f, true);
@@ -15,6 +19,8 @@ public class PlayerDiverAudio : MonoBehaviour
 
         robotAudio = AudioManager.instance.AddAudio("ElectricMotor2", 0.25f, 0f, true);
         footstepAudio = AudioManager.instance.AddAudio("Footsteps", 1f, 0f, true);
+        cc = gameObject.GetComponent<CharacterController>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -30,7 +36,7 @@ public class PlayerDiverAudio : MonoBehaviour
             robotAudio.volume = 0f;
         }
 
-        if (gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0.5f)
+        if ((cc && cc.velocity.magnitude > 0.5f) || (!cc && rb.velocity.magnitude > 0.5f))
         {
             footstepAudio.volume = 1f;
         }
