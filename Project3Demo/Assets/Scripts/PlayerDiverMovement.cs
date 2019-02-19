@@ -38,7 +38,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private Player rewiredPlayer;
 
-    private Vector3 gravity = Physics.gravity;
+    private Vector3 gravity = Physics.gravity / 250;
 
     private Animator anim;
 
