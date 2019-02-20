@@ -11,11 +11,15 @@ public class PlayerDiverMovement : MonoBehaviour
 
     [SerializeField] private float rotateSpeed;
 
+    [SerializeField] private float fallingRotateSpeed;
+
     [SerializeField] private float movementAcceleration; //Ramps up by this every frame
 
     [SerializeField] private float maxVelocity; //Maximum velocity the player can move at
 
     [SerializeField] private float slowedSpeed;
+
+    [SerializeField] private float fallingHorizontalSpeed;
 
     [SerializeField] private int hitsToDie;
 
@@ -26,6 +30,8 @@ public class PlayerDiverMovement : MonoBehaviour
     private float slowTimer = 0f;
 
     private bool isSlowed = false;
+
+    private bool isGrounded = true;
 
     [SerializeField] private float godPeriod = 2f;
 
@@ -47,6 +53,10 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    private float distanceToGround;
+
+    private CapsuleCollider feetCollider;
+
     List<GameObject> keys;
 
     private void Start()
@@ -64,6 +74,10 @@ public class PlayerDiverMovement : MonoBehaviour
         rewiredPlayer = ReInput.players.GetPlayer(playerAttachedToo); //Gets the rewired players
         anim = GetComponent<Animator>();
 
+        //distanceToGround = GetComponent<Collider>().bounds.extents.y;
+
+        feetCollider = gameObject.GetComponent<CapsuleCollider>();
+
     }
 
     private void Update()
@@ -80,6 +94,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckGrounded();
         MovePlayer();
     }
 
@@ -98,29 +113,46 @@ public class PlayerDiverMovement : MonoBehaviour
     void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick
     {
         Vector3 direction = playerTransform.localEulerAngles;
-        if(xAxis != 0)
-            direction.y += xAxis * rotateSpeed ;
-        direction.z = 0;
-        direction.x = 0;
+
+        if(isGrounded) //If the player is grounded roate normally
+        {
+            if(xAxis != 0)
+                direction.y += xAxis * rotateSpeed ;
+            direction.z = 0;
+            direction.x = 0;
+        }
+        else //If the player is not grounded roate at a diffrent speed
+        {
+            if(xAxis != 0)
+                direction.y += xAxis * fallingRotateSpeed ;
+            direction.z = 0;
+            direction.x = 0;
+        }
 
         playerTransform.localEulerAngles  = direction;
     }
 
     void HorizontalMovment(float yAxis) //Will add force based on the y axis of the stick
     {
-        float acceleration;
+        float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
         Vector3 forward = playerTransform.forward * yAxis; 
-        
-        if(!isSlowed)
+        //bool isGrounded = CheckGrounded();
+
+        // if(!isSlowed && isGrounded) //If it is not slowed & is grounded, 
+        // {
+        //     acceleration = movementAcceleration; //Applies movment (normal)
+        // }    
+        if(!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
         {
-            acceleration = movementAcceleration; //Applies movment (normal)
-        }    
-        else
+            acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
+        }
+        else if (isSlowed) //Checks to see if the player is slowed, then applies new accleration
         {
             acceleration = slowedSpeed; //Applies movment (slowed)
         }
 
-        if(doCC){
+        if (doCC)
+        {
             cc.Move(forward * acceleration + gravity);
         }
         else {
@@ -158,6 +190,25 @@ public class PlayerDiverMovement : MonoBehaviour
             godTimer = 0f;
             isInGodPeriod = false;
         }
+    }
+
+    void CheckGrounded() //Limits the player's movment while they are in the air
+    {
+        //An altered lowerbound of the feet colider to be slightly underneith to account for some slight inconsistancies in the floor
+        Vector3 endPointAltered = new Vector3(feetCollider.bounds.center.x, 
+        feetCollider.bounds.min.y - 0.1f, feetCollider.bounds.center.z);
+
+        //This will check a capsule slightly under the player's feet, and return if it is grounded or not
+        //Set to layermask 11, this layer is set to ignore objsticals and the player for collisions
+        isGrounded = Physics.CheckCapsule(feetCollider.bounds.center, endPointAltered, .18f, 11);
+
+        //Debug spam for debugging purposoes! 
+        if (isGrounded)
+            Debug.Log("Is grounded!");
+        else
+            Debug.Log("Isn't groudned!");
+
+
     }
 
     public void ApplySlow() //Apply's the slow if the player is not in a god period
