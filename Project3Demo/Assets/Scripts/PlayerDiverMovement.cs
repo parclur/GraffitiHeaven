@@ -51,6 +51,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private void Start()
     {
+        keys = new List<GameObject>();
         if(doCC){
             cc = GetComponent<CharacterController>();
         }

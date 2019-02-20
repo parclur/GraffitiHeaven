@@ -10,6 +10,7 @@ TagManager:
   - Hazard
   - Flare
   - Box
+  - Key
   layers:
   - Default
   - TransparentFX
