@@ -8,3 +8,11 @@ Project3Demo/.vs/Project3Demo/v15/Server/sqlite3/db.lock
 Project3Demo/.vs/Project3Demo/v15/Server/sqlite3/storage.ide
 Project3Demo/Library/**
 Project3Demo/obj/**
+Project3Demo/Project3Demo.Editor.csproj
+Project3Demo/Unity.Analytics.DataPrivacy.csproj
+Project3Demo/Unity.CollabProxy.Editor.csproj
+Project3Demo/Unity.PackageManagerUI.Editor.csproj
+Project3Demo/Unity.Postprocessing.Editor.csproj
+Project3Demo/Unity.Postprocessing.Runtime.csproj
+Project3Demo/Unity.TextMeshPro.Editor.csproj
+Project3Demo/Unity.TextMeshPro.csproj
