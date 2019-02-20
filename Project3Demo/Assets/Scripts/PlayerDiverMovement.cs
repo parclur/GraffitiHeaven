@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using Rewired;
 using UnityEngine.Rendering;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class PlayerDiverMovement : MonoBehaviour
 {
@@ -43,6 +46,8 @@ public class PlayerDiverMovement : MonoBehaviour
     private Animator anim;
 
     private Rigidbody rb;
+
+    List<GameObject> keys;
 
     private void Start()
     {
@@ -166,5 +171,15 @@ public class PlayerDiverMovement : MonoBehaviour
 
         if (hitCount >= hitsToDie)
             SceneLoader.instance.LoseGame();
+    }
+
+    public List<GameObject> getKeyList()
+    {
+        return keys;
+    }
+
+    public void addKey(GameObject toBeAdded)
+    {
+        keys.Add(toBeAdded);
     }
 }

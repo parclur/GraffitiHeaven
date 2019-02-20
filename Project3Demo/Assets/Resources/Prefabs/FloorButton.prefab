@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: FloorButton
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5507716bf4bcb5e4ba9cc4f4535ae06f, type: 2}
+  - {fileID: 2100000, guid: be36b9fd549fe4246a2f7cdc5cfc09be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

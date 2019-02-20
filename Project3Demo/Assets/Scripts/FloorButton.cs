@@ -8,7 +8,7 @@ public class FloorButton : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Diver" || collision.gameObject.tag == "Box")
+        if (collision.gameObject.tag == "Box")
         {
             //AudioManager.instance.PlayOneShot("ButtonStoodOn", 1f, 0f);
             StartCoroutine(ShiftDown());

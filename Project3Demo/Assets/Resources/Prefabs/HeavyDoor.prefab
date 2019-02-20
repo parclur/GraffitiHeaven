@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: HeavyDoor
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4db76c1c1949b2d4db876b5961dd1290, type: 2}
+  - {fileID: 2100000, guid: 45332fb1294373a47a4fbb3016ef9a8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
