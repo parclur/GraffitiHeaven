@@ -31,7 +31,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private bool isSlowed = false;
 
-    public bool isGrounded = true;
+    private bool isGrounded = true;
 
     [SerializeField] private float godPeriod = 2f;
 
@@ -103,7 +103,17 @@ public class PlayerDiverMovement : MonoBehaviour
         float xAxis = rewiredPlayer.GetAxis("HorizontalAxisMOVE");
         float yAxis = rewiredPlayer.GetAxis("VerticalAxisMOVE");
 
-        
+        //Handles animation variables
+        if(isGrounded)
+        {
+            anim.SetFloat("Forward", yAxis);
+            anim.SetFloat("Turn", xAxis);
+        }
+        else
+        {
+            anim.SetFloat("Forward", yAxis /2);
+            anim.SetFloat("Turn", xAxis /2);
+        }
 
         RotatePlayer(xAxis);
         HorizontalMovment(yAxis);
@@ -112,14 +122,13 @@ public class PlayerDiverMovement : MonoBehaviour
     void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick
     {
         Vector3 direction = playerTransform.localEulerAngles;
-        anim.SetFloat("Turn", xAxis);
-        if (isGrounded) //If the player is grounded roate normally
+
+        if(isGrounded) //If the player is grounded roate normally
         {
             if(xAxis != 0)
                 direction.y += xAxis * rotateSpeed ;
             direction.z = 0;
             direction.x = 0;
-            
         }
         else //If the player is not grounded roate at a diffrent speed
         {
@@ -127,7 +136,6 @@ public class PlayerDiverMovement : MonoBehaviour
                 direction.y += xAxis * fallingRotateSpeed ;
             direction.z = 0;
             direction.x = 0;
-
         }
 
         playerTransform.localEulerAngles  = direction;
@@ -155,8 +163,6 @@ public class PlayerDiverMovement : MonoBehaviour
         if (doCC)
         {
             cc.Move(forward * acceleration + gravity);
-            anim.SetFloat("Forward", yAxis);
-            
         }
         else {
             rb.AddForce(forward * acceleration, ForceMode.Acceleration);
@@ -206,9 +212,8 @@ public class PlayerDiverMovement : MonoBehaviour
         isGrounded = Physics.CheckCapsule(feetCollider.bounds.center, endPointAltered, .18f, 11);
 
         //Debug spam for debugging purposoes! 
-        if (isGrounded){
-            //Debug.Log("Is grounded!");
-        }
+        if (isGrounded)
+            Debug.Log("Is grounded!");
         else
             Debug.Log("Isn't groudned!");
 
