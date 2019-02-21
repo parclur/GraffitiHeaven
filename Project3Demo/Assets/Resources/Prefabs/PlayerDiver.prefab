@@ -26,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869424712606544813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.1, y: 66.9, z: 13.5}
-  m_LocalScale: {x: 15.421953, y: 11.729004, z: 32.276016}
+  m_LocalRotation: {x: -0.4939046, y: -0.4939041, z: -0.5060219, w: -0.50602263}
+  m_LocalPosition: {x: 0.23611826, y: -0.18923664, z: -0.05617426}
+  m_LocalScale: {x: 0.2705606, y: 0.20577206, z: 0.566246}
   m_Children: []
-  m_Father: {fileID: 8123870964430799841}
-  m_RootOrder: 1
+  m_Father: {fileID: 3544802915268662355}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8623707383115907919
 MeshFilter:
@@ -351,7 +351,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.440892e-18, y: 0.2726064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1495562083478018812}
   m_Father: {fileID: 3544802915268662357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -879,7 +880,7 @@ Transform:
   - {fileID: 3544802915268662399}
   - {fileID: 3544802915268662337}
   m_Father: {fileID: 8123870964430799841}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3544802915268692055
 GameObject:
@@ -1100,7 +1101,7 @@ GameObject:
   - component: {fileID: 8123870964431036364}
   - component: {fileID: 8123870964431036354}
   - component: {fileID: 8123870964431036365}
-  - component: {fileID: 1709599149}
+  - component: {fileID: 1098735309753250748}
   m_Layer: 0
   m_Name: PlayerDiver
   m_TagString: Diver
@@ -1120,7 +1121,6 @@ Transform:
   m_LocalScale: {x: 0.0175, y: 0.0175, z: 0.0175}
   m_Children:
   - {fileID: 8123870964430799843}
-  - {fileID: 1495562083478018812}
   - {fileID: 3544802915268662389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1211,9 +1211,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttachedToo: Diver
   rotateSpeed: 2
+  fallingRotateSpeed: 0
   movementAcceleration: 0.05
   maxVelocity: 35
   slowedSpeed: 0.03
+  fallingHorizontalSpeed: 0
   hitsToDie: 2
   slowDurtaion: 4
   doCC: 1
@@ -1237,7 +1239,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1709599149
+--- !u!114 &1098735309753250748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1246,7 +1248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8123870964431036353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd6502b678e41e44096b735d3e709442, type: 3}
+  m_Script: {fileID: 11500000, guid: 65669bdc28ed0c74f9f16994bbbd7869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8123870964431036355

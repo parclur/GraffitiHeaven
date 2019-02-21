@@ -11,7 +11,7 @@ public class HeavyDoor : MonoBehaviour
 
     [SerializeField] private float keyDistance;
 
-    public bool testForAll = true;
+    public bool testForAll;
 
     private Vector3 startingPos;
 
@@ -37,8 +37,13 @@ public class HeavyDoor : MonoBehaviour
         StartCoroutine(MoveDoor());
     }
 
+    private void Update()
+    {
+        KeyActivate();
+    }
+
     public void KeyActivate(){
-        if(Vector3.Distance(player.transform.position, transform.position) > keyDistance && !isDoorOpen){
+        if(Vector3.Distance(player.transform.position, transform.position) < keyDistance && !isDoorOpen){
             if(rewiredPlayer.GetButton("Interact")){
                 bool doorOpen;
                 if(testForAll){

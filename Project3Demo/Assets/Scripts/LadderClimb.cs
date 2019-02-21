@@ -8,7 +8,7 @@ public class LadderClimb : MonoBehaviour
     {
         if (other.gameObject.tag == "Diver")
         {
-            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            gameObject.GetComponent<PlayerDiverMovement>().isGrounded = false;
         }
     }
 
@@ -16,7 +16,7 @@ public class LadderClimb : MonoBehaviour
     {
         if (other.gameObject.tag == "Diver")
         {
-            other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * upwardRate);
+            other.gameObject.GetComponent<CharacterController>().Move(Vector3.up * upwardRate);
         }
     }
 }

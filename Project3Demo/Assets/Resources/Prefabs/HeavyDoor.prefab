@@ -107,6 +107,6 @@ MonoBehaviour:
   openPos: {x: 0, y: 10, z: 0}
   moveTime: 10
   keyDistance: 3
-  testForAll: 1
+  testForAll: 0
   requiredKeys:
   - {fileID: 0}
