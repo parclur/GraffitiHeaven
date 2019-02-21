@@ -103,8 +103,17 @@ public class PlayerDiverMovement : MonoBehaviour
         float xAxis = rewiredPlayer.GetAxis("HorizontalAxisMOVE");
         float yAxis = rewiredPlayer.GetAxis("VerticalAxisMOVE");
 
-        anim.SetFloat("Forward", yAxis);
-        anim.SetFloat("Turn", xAxis);
+        //Handles animation variables
+        if(isGrounded)
+        {
+            anim.SetFloat("Forward", yAxis);
+            anim.SetFloat("Turn", xAxis);
+        }
+        else
+        {
+            anim.SetFloat("Forward", yAxis /2);
+            anim.SetFloat("Turn", xAxis /2);
+        }
 
         RotatePlayer(xAxis);
         HorizontalMovment(yAxis);
