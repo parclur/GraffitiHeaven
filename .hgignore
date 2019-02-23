@@ -1,3 +1,5 @@
 syntax: regexp
 Project3Demo/Library/*
+Project3Demo/.vs/*
+Project3Demo/obj/*
 syntax: glob
