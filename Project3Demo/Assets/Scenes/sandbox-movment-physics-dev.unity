@@ -2973,6 +2973,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2d278be1221f1384cb2c3a18a6da77e4,
         type: 2}
+    - target: {fileID: 1955386480, guid: fceb0b85911608e499efc2245d52f1cf, type: 3}
+      propertyPath: playerRiseDesendSpeed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fceb0b85911608e499efc2245d52f1cf, type: 3}
 --- !u!1 &2145336473
