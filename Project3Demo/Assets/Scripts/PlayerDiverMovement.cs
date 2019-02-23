@@ -13,6 +13,8 @@ public class PlayerDiverMovement : MonoBehaviour
 
     [SerializeField] private float fallingRotateSpeed;
 
+    [SerializeField] private float movingRotateSpeed; //Speed the diver moves while moving forward / backwards
+
     [SerializeField] private float movementAcceleration; //Ramps up by this every frame
 
     [SerializeField] private float maxVelocity; //Maximum velocity the player can move at
@@ -31,7 +33,9 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private bool isSlowed = false;
 
-    private bool isGrounded = true;
+    public bool isGrounded = true;
+
+    private bool isMovingHorizontal = false;
 
     [SerializeField] private float godPeriod = 2f;
 
@@ -125,15 +129,32 @@ public class PlayerDiverMovement : MonoBehaviour
 
         if(isGrounded) //If the player is grounded roate normally
         {
-            if(xAxis != 0)
-                direction.y += xAxis * rotateSpeed ;
-            direction.z = 0;
-            direction.x = 0;
+            if(isMovingHorizontal)
+            {
+                if (xAxis != 0)
+                {
+                    direction.y += xAxis * movingRotateSpeed;
+                }
+                direction.z = 0;
+                direction.x = 0;
+            }
+            else
+            {
+                if (xAxis != 0)
+                {
+                    direction.y += xAxis * rotateSpeed;
+                }
+                direction.z = 0;
+                direction.x = 0;
+            }
+
         }
         else //If the player is not grounded roate at a diffrent speed
         {
             if(xAxis != 0)
-                direction.y += xAxis * fallingRotateSpeed ;
+            {
+                direction.y += xAxis * fallingRotateSpeed;
+            }
             direction.z = 0;
             direction.x = 0;
         }
@@ -145,12 +166,7 @@ public class PlayerDiverMovement : MonoBehaviour
     {
         float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
         Vector3 forward = playerTransform.forward * yAxis; 
-        //bool isGrounded = CheckGrounded();
-
-        // if(!isSlowed && isGrounded) //If it is not slowed & is grounded, 
-        // {
-        //     acceleration = movementAcceleration; //Applies movment (normal)
-        // }    
+  
         if(!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
         {
             acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
@@ -172,6 +188,15 @@ public class PlayerDiverMovement : MonoBehaviour
             {
                 rb.velocity = rb.velocity.normalized * maxVelocity;
             }
+        }
+
+        if (forward.x != 0.0 && forward.z != 0) //If player is moving in either z or x direction
+        {
+            isMovingHorizontal = true;
+        }
+        else
+        {
+            isMovingHorizontal = false;
         }
     }
 
