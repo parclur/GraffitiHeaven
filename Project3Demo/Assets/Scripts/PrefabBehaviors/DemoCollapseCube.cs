@@ -15,7 +15,7 @@ public class DemoCollapseCube : MonoBehaviour, ITriggerable
         float time = 0f;
 
         Vector3 startPos = gameObject.transform.position;
-        Vector3 endPos = startPos + (Vector3.down * 2.5f);
+        Vector3 endPos = startPos + (Vector3.down * 4f);
 
         while (time < collapseTime)
         {

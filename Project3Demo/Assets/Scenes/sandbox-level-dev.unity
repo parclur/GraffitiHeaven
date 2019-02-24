@@ -2451,8 +2451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideCamera: {fileID: 185062982}
   controller: {fileID: 956701734}
-  snapDuration: 2
-  focusDuration: 3
+  snapDuration: 5
+  focusDuration: 1
   focalPoint: {fileID: 1852262280}
   checkLineOfSight: 0
 --- !u!114 &1852262285
@@ -2479,7 +2479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cda9443fea5d24e829d29393b06ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collapseTime: 6
+  collapseTime: 5
 --- !u!4 &8123870964430799841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8123870964430799841, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,

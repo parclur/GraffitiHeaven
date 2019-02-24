@@ -45,12 +45,10 @@ public class TriggeredEventCameraOverride : MonoBehaviour
 
         float time = 0f;
 
-        Quaternion startRot = overrideCamera.transform.rotation;
-        Quaternion endRot = focalPoint.rotation;
-
         while (time < snapDuration) // Slerp to the focal point
         {
-            overrideCamera.transform.rotation = Quaternion.Slerp(startRot, endRot, (time / snapDuration));
+            Quaternion rot = Quaternion.LookRotation(focalPoint.position - controller.transform.position);
+            overrideCamera.transform.rotation = Quaternion.Slerp(overrideCamera.transform.rotation, rot, (time / snapDuration));
             time += Time.deltaTime;
 
             yield return new WaitForEndOfFrame();

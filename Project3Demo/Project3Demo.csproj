@@ -11,13 +11,16 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.3.2f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -699,28 +702,28 @@
     <Compile Include="Assets\Rewired\Internal\Scripts\InputManager.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
-    <Compile Include="Assets\Scripts\CharacterControllerCollisions.cs" />
-    <Compile Include="Assets\Scripts\FlareGun.cs" />
-    <Compile Include="Assets\Scripts\FloorButton.cs" />
-    <Compile Include="Assets\Scripts\HeavyDoor.cs" />
-    <Compile Include="Assets\Scripts\LadderClimb.cs" />
-    <Compile Include="Assets\Scripts\LadderFall.cs" />
+    <Compile Include="Assets\Scripts\Controls\CharacterControllerCollisions.cs" />
+    <Compile Include="Assets\Scripts\Controls\FlareGun.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerDiverAudio.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerDiverMovement.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerROVMovement.cs" />
+    <Compile Include="Assets\Scripts\Events\ObjectiveTrigger.cs" />
+    <Compile Include="Assets\Scripts\Events\TriggeredEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\TriggeredEventCameraOverride.cs" />
+    <Compile Include="Assets\Scripts\Events\TriggeredEventZone.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PostProcessingManager.cs" />
-    <Compile Include="Assets\Scripts\ObjectiveTrigger.cs" />
-    <Compile Include="Assets\Scripts\PlayerDiverAudio.cs" />
-    <Compile Include="Assets\Scripts\PlayerDiverMovement.cs" />
-    <Compile Include="Assets\Scripts\PlayerROVMovement.cs" />
+    <Compile Include="Assets\Scripts\Managers\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\DemoCollapseCube.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\Flare.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\FloorButton.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\HazardBehavior.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\HazardCollision.cs" />
-    <Compile Include="Assets\Scripts\PushBox.cs" />
-    <Compile Include="Assets\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\TriggeredEvent.cs" />
-    <Compile Include="Assets\Scripts\TriggeredEventCameraOverride.cs" />
-    <Compile Include="Assets\Scripts\TriggeredEventZone.cs" />
-    <Compile Include="Assets\Scripts\WallButton.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\HeavyDoor.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\LadderClimb.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\LadderFall.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\PushBox.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\WallButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
