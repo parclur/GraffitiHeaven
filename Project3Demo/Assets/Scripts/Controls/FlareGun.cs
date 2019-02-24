@@ -72,7 +72,7 @@ public class FlareGun : MonoBehaviour
 
     void AimThroughCamera()
     {
-        Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         Physics.Raycast(ray, out hit); 
 

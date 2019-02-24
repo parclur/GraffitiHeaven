@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+public interface ITriggerable
+{
+    void TriggerEvent();
+}
+
 public class TriggeredEvent : MonoBehaviour
 {
     private TriggeredEventCameraOverride overrideBehavior;

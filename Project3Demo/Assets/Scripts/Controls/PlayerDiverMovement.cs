@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using Rewired;
-using UnityEngine.Rendering;
-using System.Collections;
 using System.Collections.Generic;
-using System;
 
 public class PlayerDiverMovement : MonoBehaviour
 {
@@ -210,7 +207,7 @@ public class PlayerDiverMovement : MonoBehaviour
             slowTimer = 0f;
             isSlowed = false;
             hitCount = 0;
-            PostProssesingEffectsManager.instance.DisableStaticEffect();           
+            PostProcessingManager.instance.DisableStaticEffect();           
         }
     }
 
@@ -237,10 +234,10 @@ public class PlayerDiverMovement : MonoBehaviour
         isGrounded = Physics.CheckCapsule(feetCollider.bounds.center, endPointAltered, .18f, 11);
 
         //Debug spam for debugging purposoes! 
-        if (isGrounded)
-            Debug.Log("Is grounded!");
-        else
-            Debug.Log("Isn't groudned!");
+        //if (isGrounded)
+        //    Debug.Log("Is grounded!");
+        //else
+        //    Debug.Log("Isn't groudned!");
 
 
     }
@@ -252,7 +249,7 @@ public class PlayerDiverMovement : MonoBehaviour
             isSlowed = true;
             isInGodPeriod = true;
             hitCount++;
-            PostProssesingEffectsManager.instance.EnableStaticEffect();
+            PostProcessingManager.instance.EnableStaticEffect();
         }
 
         if (hitCount >= hitsToDie)

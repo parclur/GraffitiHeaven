@@ -425,6 +425,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControlling: Drone
   playerDirectionalSpeed: 17
-  playerRiseDesendSpeed: 0
+  playerRiseDesendSpeed: 15
   playerVerticalRotateSpeed: 0.4
   playerHorizontalRotateSpeed: 0.5

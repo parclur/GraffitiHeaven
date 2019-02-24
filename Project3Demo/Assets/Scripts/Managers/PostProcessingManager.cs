@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class PostProssesingEffectsManager : MonoBehaviour
+public class PostProcessingManager : MonoBehaviour
 {
-    [HideInInspector] public static PostProssesingEffectsManager instance;
+    [HideInInspector] public static PostProcessingManager instance;
 
     [Header("Static Effect Variables")]
     [SerializeField] private float staticEffectGrain; //The value that the grain will be set to when the player is hit
