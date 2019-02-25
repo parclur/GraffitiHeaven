@@ -1095,13 +1095,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8123870964430799841}
   - component: {fileID: 5388243515421834559}
-  - component: {fileID: 703733019275848902}
-  - component: {fileID: 6758891515910403607}
-  - component: {fileID: 4718625571355188227}
   - component: {fileID: 8123870964431036364}
-  - component: {fileID: 8123870964431036354}
   - component: {fileID: 8123870964431036365}
   - component: {fileID: 1098735309753250748}
+  - component: {fileID: 703733019275848902}
+  - component: {fileID: 8123870964431036354}
   m_Layer: 0
   m_Name: PlayerDiver
   m_TagString: Diver
@@ -1139,46 +1137,6 @@ CapsuleCollider:
   m_Height: 38.09296
   m_Direction: 1
   m_Center: {x: 0, y: 13.54008, z: 0}
---- !u!114 &703733019275848902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269a2dd572b71e54bb510449f6b2393a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  robot: {fileID: 0}
---- !u!65 &6758891515910403607
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Material: {fileID: 13400000, guid: 4f37acaa2d9e97844883ec2eab4bf286, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 33.446476, y: 100, z: 28.186924}
-  m_Center: {x: 0, y: 50, z: 0}
---- !u!136 &4718625571355188227
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 20
-  m_Height: 100
-  m_Direction: 1
-  m_Center: {x: 0, y: 50, z: 0}
 --- !u!143 &8123870964431036364
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1197,31 +1155,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 50, z: 0}
---- !u!114 &8123870964431036354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fdd942734685d342bfbb5241b800995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAttachedToo: Diver
-  rotateSpeed: 2
-  fallingRotateSpeed: 0
-  movingRotateSpeed: 0
-  movementAcceleration: 0.05
-  maxVelocity: 35
-  slowedSpeed: 0.03
-  fallingHorizontalSpeed: 0
-  hitsToDie: 2
-  slowDurtaion: 4
-  doCC: 1
-  isGrounded: 1
-  godPeriod: 2
 --- !u!95 &8123870964431036365
 Animator:
   serializedVersion: 3
@@ -1253,6 +1186,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65669bdc28ed0c74f9f16994bbbd7869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &703733019275848902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123870964431036353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269a2dd572b71e54bb510449f6b2393a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 0}
+--- !u!114 &8123870964431036354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123870964431036353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdd942734685d342bfbb5241b800995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAttachedToo: Diver
+  rotateSpeed: 2
+  fallingRotateSpeed: 0
+  movingRotateSpeed: 0
+  movementAcceleration: 0.05
+  maxVelocity: 35
+  slowedSpeed: 0.03
+  fallingHorizontalSpeed: 0
+  hitsToDie: 2
+  slowDurtaion: 4
+  doCC: 1
+  isGrounded: 1
+  godPeriod: 2
 --- !u!1 &8123870964431036355
 GameObject:
   m_ObjectHideFlags: 0
