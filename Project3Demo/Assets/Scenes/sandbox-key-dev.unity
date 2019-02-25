@@ -31173,24 +31173,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1709599149, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6, type: 3}
---- !u!1 &1305244935 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8123870964431036353, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1305244934}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1305244936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305244935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65669bdc28ed0c74f9f16994bbbd7869, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1318550480
 Mesh:
   m_ObjectHideFlags: 0
@@ -40597,11 +40579,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 294187738528813441, guid: 2ca56f5d81ff3924f8d20803be748214,
-        type: 3}
-      propertyPath: upwardRate
-      value: 0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ca56f5d81ff3924f8d20803be748214, type: 3}
