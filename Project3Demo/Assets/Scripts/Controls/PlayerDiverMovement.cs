@@ -62,12 +62,15 @@ public class PlayerDiverMovement : MonoBehaviour
 
     //For controller test during QA, unless we decide that we want multiple maps for final product this can be cut in the future
     //------------------------------------------------------------
-    enum ControllerMaps
+    private enum ControllerMaps
     {
         LayoutA, LayoutB, LayoutC
     };
 
-    ControllerMaps currentControllerMap = ControllerMaps.LayoutA;
+    private ControllerMaps currentControllerMap = ControllerMaps.LayoutA;
+
+    private Camera cameraMain;
+    private Transform cameraTransform;
 
     //------------------------------------------------------------
 
@@ -89,6 +92,9 @@ public class PlayerDiverMovement : MonoBehaviour
         //distanceToGround = GetComponent<Collider>().bounds.extents.y;
 
         feetCollider = gameObject.GetComponent<CapsuleCollider>();
+
+        cameraMain = Camera.main;
+        cameraTransform = cameraMain.transform;
 
         //rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverA");
         //currentControllerMap = ControllerMaps.LayoutA;
@@ -136,8 +142,16 @@ public class PlayerDiverMovement : MonoBehaviour
             anim.SetFloat("Turn", xAxis /2);
         }
 
-        RotatePlayer(xAxis);
-        HorizontalMovment(yAxis);
+        if(currentControllerMap == ControllerMaps.LayoutC)
+        {
+            ThreeDirectionalMovment(xAxis, yAxis);
+        }
+        else
+        {
+            RotatePlayer(xAxis);
+            HorizontalMovment(yAxis);
+        }
+
     }
 
     void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick
@@ -182,9 +196,9 @@ public class PlayerDiverMovement : MonoBehaviour
     void HorizontalMovment(float yAxis) //Will add force based on the y axis of the stick
     {
         float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
-        Vector3 forward = playerTransform.forward * yAxis; 
-  
-        if(!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
+        Vector3 forward = playerTransform.forward * yAxis;
+
+        if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
         {
             acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
         }
@@ -215,6 +229,35 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             isMovingHorizontal = false;
         }
+    }
+
+    void ThreeDirectionalMovment(float xAxis, float yAxis)
+    {
+        Vector3 forward= cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+        float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
+
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
+        {
+            acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
+        }
+        else if (isSlowed) //Checks to see if the player is slowed, then applies new accleration
+        {
+            acceleration = slowedSpeed; //Applies movment (slowed)
+        }
+
+        Vector3 desiredMoveDirection = forward * yAxis + right * xAxis;
+        if(desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(desiredMoveDirection);
+        }
+
+        cc.Move(desiredMoveDirection * acceleration + gravity);
     }
 
     void HandleSlowTimer() //Handles the logic for the slow timer. To start the timer set isSlowed to true
