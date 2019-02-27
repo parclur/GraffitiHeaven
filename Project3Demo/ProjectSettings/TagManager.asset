@@ -11,6 +11,7 @@ TagManager:
   - Flare
   - Box
   - Key
+  - Door
   layers:
   - Default
   - TransparentFX
