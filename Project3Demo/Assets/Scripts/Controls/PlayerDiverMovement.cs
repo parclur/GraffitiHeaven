@@ -60,6 +60,17 @@ public class PlayerDiverMovement : MonoBehaviour
 
     List<GameObject> keys;
 
+    //For controller test during QA, unless we decide that we want multiple maps for final product this can be cut in the future
+    //------------------------------------------------------------
+    enum ControllerMaps
+    {
+        LayoutA, LayoutB, LayoutC
+    };
+
+    ControllerMaps currentControllerMap = ControllerMaps.LayoutA;
+
+    //------------------------------------------------------------
+
     private void Start()
     {
         keys = new List<GameObject>();
@@ -85,9 +96,9 @@ public class PlayerDiverMovement : MonoBehaviour
     {
         HandleSlowTimer();
         HandleGodPeriod();
+        HandleControllerMapSwaping();
 
-
-        if(Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             ApplySlow();
         }
@@ -242,6 +253,28 @@ public class PlayerDiverMovement : MonoBehaviour
 
     }
 
+    void HandleControllerMapSwaping() //NOTE: Used for swaping controller map, can be cut later if feature not need after QA
+    {
+        if(rewiredPlayer.GetButtonDown("MoveToLayout1"))
+        {
+            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverA");
+            currentControllerMap = ControllerMaps.LayoutA;
+            Debug.Log("CurrentLayout: A");
+        }
+        if (rewiredPlayer.GetButtonDown("MoveToLayout2"))
+        {
+            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverB");
+            currentControllerMap = ControllerMaps.LayoutB;
+            Debug.Log("CurrentLayout: B");
+        }
+        if (rewiredPlayer.GetButtonDown("MoveToLayout3"))
+        {
+            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverC");
+            currentControllerMap = ControllerMaps.LayoutC;
+            Debug.Log("CurrentLayout: C");
+        }
+    }
+
     public void ApplySlow() //Apply's the slow if the player is not in a god period
     {
         if (!isInGodPeriod)
@@ -265,4 +298,5 @@ public class PlayerDiverMovement : MonoBehaviour
     {
         keys.Add(toBeAdded);
     }
+
 }
