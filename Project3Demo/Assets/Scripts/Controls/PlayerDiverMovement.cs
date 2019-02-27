@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Rewired;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerDiverMovement : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private Camera cameraMain;
     private Transform cameraTransform;
+    [SerializeField] Text outputText;
 
     //------------------------------------------------------------
 
@@ -315,6 +317,7 @@ public class PlayerDiverMovement : MonoBehaviour
             rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey"); //Enable keyboard controlls
             currentControllerMap = ControllerMaps.LayoutA;
             Debug.Log("CurrentLayout: A");
+            outputText.text = "LayoutA";
         }
         if (rewiredPlayer.GetButtonDown("MoveToLayout2"))
         {
@@ -324,6 +327,7 @@ public class PlayerDiverMovement : MonoBehaviour
             rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey");//Enable keyboard controlls
             currentControllerMap = ControllerMaps.LayoutB;
             Debug.Log("CurrentLayout: B");
+            outputText.text = "LayoutB";
         }
         if (rewiredPlayer.GetButtonDown("MoveToLayout3"))
         {
@@ -333,6 +337,7 @@ public class PlayerDiverMovement : MonoBehaviour
             rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey");//Enable keyboard controlls
             currentControllerMap = ControllerMaps.LayoutC;
             Debug.Log("CurrentLayout: C");
+            outputText.text = "LayoutC";
         }
     }
 
