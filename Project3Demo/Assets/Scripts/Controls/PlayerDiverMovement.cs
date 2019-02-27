@@ -90,6 +90,8 @@ public class PlayerDiverMovement : MonoBehaviour
 
         feetCollider = gameObject.GetComponent<CapsuleCollider>();
 
+        //rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverA");
+        //currentControllerMap = ControllerMaps.LayoutA;
     }
 
     private void Update()
@@ -264,19 +266,28 @@ public class PlayerDiverMovement : MonoBehaviour
     {
         if(rewiredPlayer.GetButtonDown("MoveToLayout1"))
         {
-            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverA");
+            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverA"); //Ensures new layout is loaded
+            rewiredPlayer.controllers.maps.SetAllMapsEnabled(false); //Disables all previous layouts
+            rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverA"); //Enable new layout
+            rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey"); //Enable keyboard controlls
             currentControllerMap = ControllerMaps.LayoutA;
             Debug.Log("CurrentLayout: A");
         }
         if (rewiredPlayer.GetButtonDown("MoveToLayout2"))
         {
-            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverB");
+            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverB");//Ensures new layout is loaded
+            rewiredPlayer.controllers.maps.SetAllMapsEnabled(false);//Disables all previous layouts
+            rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverB");//Enable new layout
+            rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey");//Enable keyboard controlls
             currentControllerMap = ControllerMaps.LayoutB;
             Debug.Log("CurrentLayout: B");
         }
         if (rewiredPlayer.GetButtonDown("MoveToLayout3"))
         {
-            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverC");
+            rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverC");//Ensures new layout is loaded
+            rewiredPlayer.controllers.maps.SetAllMapsEnabled(false);//Disables all previous layouts
+            rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverC");//Enable new layout
+            rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey");//Enable keyboard controlls
             currentControllerMap = ControllerMaps.LayoutC;
             Debug.Log("CurrentLayout: C");
         }

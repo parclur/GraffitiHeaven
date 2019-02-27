@@ -196,6 +196,12 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 2
+      - _enabled: 0
+        _categoryId: 0
+        _layoutId: 5
+      - _enabled: 0
+        _categoryId: 0
+        _layoutId: 6
       _defaultMouseMaps: []
       _defaultKeyboardMaps:
       - _enabled: 1
@@ -398,11 +404,11 @@ MonoBehaviour:
     - _name: Default
       _descriptiveName: Default
       _id: 0
-    - _name: DiverLayout
-      _descriptiveName: DiverLayout
+    - _name: DiverLayoutKey
+      _descriptiveName: DiverLayoutKey
       _id: 1
-    - _name: DroneLayout
-      _descriptiveName: DroneLayout
+    - _name: DroneLayoutKey
+      _descriptiveName: DroneLayoutKey
       _id: 2
     mouseLayouts:
     - _name: Default
