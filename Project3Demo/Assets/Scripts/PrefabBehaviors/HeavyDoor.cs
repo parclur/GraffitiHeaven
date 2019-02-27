@@ -42,17 +42,26 @@ public class HeavyDoor : MonoBehaviour
         KeyActivate();
     }
 
-    public void KeyActivate(){
-        if(Vector3.Distance(player.transform.position, transform.position) < keyDistance && !isDoorOpen){
-            if(rewiredPlayer.GetButton("Interact")){
+    public void KeyActivate()
+    {
+
+        // NOTE: This is really inefficient at large scale, perhaps use a trigger zone?
+        if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && !isDoorOpen)
+        {
+            if (rewiredPlayer.GetButton("Interact"))
+            {
                 bool doorOpen;
-                if(testForAll){
-                    doorOpen = testAllrequiredKeys(player.GetComponent<PlayerDiverMovement>().getKeyList());
+                if (testForAll)
+                {
+                    doorOpen = TestAllRequiredKeys(player.GetComponent<PlayerDiverMovement>().getKeyList());
                 }
-                else {
-                    doorOpen = testSingleKey(player.GetComponent<PlayerDiverMovement>().getKeyList());
+                else
+                {
+                    doorOpen = TestSingleKey(player.GetComponent<PlayerDiverMovement>().getKeyList());
                 }
-                if(doorOpen){
+
+                if (doorOpen)
+                {              
                     AudioManager.instance.PlayOneShot("MetalDoorOpen");
                     StartCoroutine(MoveDoor());
                 }
@@ -60,7 +69,7 @@ public class HeavyDoor : MonoBehaviour
         }
     }
 
-    bool testSingleKey(List<GameObject> playerKeys) //Tests to see if the player has a single one of the required requiredKeys
+    bool TestSingleKey(List<GameObject> playerKeys) //Tests to see if the player has a single one of the required requiredKeys
     {
         foreach(GameObject testKey in playerKeys) //Passed in requiredKeys
         {
@@ -74,7 +83,7 @@ public class HeavyDoor : MonoBehaviour
 
     }
     
-    bool testAllrequiredKeys(List<GameObject> playerKeys) //Test to see if the player has ALL the required Keys
+    bool TestAllRequiredKeys(List<GameObject> playerKeys) //Test to see if the player has ALL the required Keys
     {
         bool testBool = false;
 
@@ -82,7 +91,7 @@ public class HeavyDoor : MonoBehaviour
         {
             foreach (GameObject testKey in playerKeys) //requiredKeys assigned to door
             {
-                if(requiredkey == testKey)
+                if (requiredkey == testKey)
                 {
                     testBool = true;
                     break;

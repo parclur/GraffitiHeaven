@@ -703,7 +703,6 @@
     <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
     <Compile Include="Assets\Scripts\Controls\CharacterControllerCollisions.cs" />
-    <Compile Include="Assets\Scripts\Controls\FlareGun.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerDiverAudio.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerDiverMovement.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerROVMovement.cs" />
@@ -716,6 +715,7 @@
     <Compile Include="Assets\Scripts\Managers\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\DemoCollapseCube.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\Flare.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\FlareGun.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\FloorButton.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\HazardBehavior.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\HazardCollision.cs" />

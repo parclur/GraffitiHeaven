@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1869424712606544813
+--- !u!1 &739313148
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1495562083478018812}
-  - component: {fileID: 8623707383115907919}
-  - component: {fileID: 5192383678348348886}
-  - component: {fileID: 6966937284953837139}
+  - component: {fileID: 739313149}
+  - component: {fileID: 739313152}
+  - component: {fileID: 739313151}
+  - component: {fileID: 739313150}
   m_Layer: 0
-  m_Name: Gun
-  m_TagString: Diver
+  m_Name: FlareGun
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1495562083478018812
+  m_IsActive: 1
+--- !u!4 &739313149
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869424712606544813}
-  m_LocalRotation: {x: -0.4939046, y: -0.4939041, z: -0.5060219, w: -0.50602263}
-  m_LocalPosition: {x: 0.23611826, y: -0.18923664, z: -0.05617426}
-  m_LocalScale: {x: 0.2705606, y: 0.20577206, z: 0.566246}
+  m_GameObject: {fileID: 739313148}
+  m_LocalRotation: {x: -0.09412704, y: -0.0000001537128, z: -0.0022815452, w: 0.9955576}
+  m_LocalPosition: {x: 0.066, y: 0.063, z: -0.067}
+  m_LocalScale: {x: 0.3, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 3544802915268662355}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8623707383115907919
+  m_LocalEulerAnglesHint: {x: -10.802, y: 0.025, z: -0.26500002}
+--- !u!33 &739313152
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869424712606544813}
+  m_GameObject: {fileID: 739313148}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5192383678348348886
+--- !u!23 &739313151
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869424712606544813}
+  m_GameObject: {fileID: 739313148}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,25 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6966937284953837139
+--- !u!114 &739313150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869424712606544813}
+  m_GameObject: {fileID: 739313148}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0bc69f35f5570c4b85daa2291b35065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControlling: Diver
-  aimCamera: {fileID: 0}
-  bulletPrefab: {fileID: 7825669349883872258, guid: 9159713bf04441340b7b10e4e68bf0d1,
-    type: 3}
-  aimReticle: {fileID: 0}
-  bulletSpeed: 10
-  delay: 2
+  reloadTime: 4
 --- !u!1 &3544802915268692001
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +346,7 @@ Transform:
   m_LocalPosition: {x: -4.440892e-18, y: 0.2726064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1495562083478018812}
+  - {fileID: 739313149}
   m_Father: {fileID: 3544802915268662357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -939,7 +933,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b07343f88c0c4bb4c9caca22970167c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1095,14 +1089,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8123870964430799841}
   - component: {fileID: 5388243515421834559}
-  - component: {fileID: 703733019275848902}
-  - component: {fileID: 6758891515910403607}
-  - component: {fileID: 4718625571355188227}
   - component: {fileID: 8123870964431036364}
-  - component: {fileID: 8123870964431036354}
   - component: {fileID: 8123870964431036365}
+  - component: {fileID: 703733019275848902}
+  - component: {fileID: 8123870964431036354}
   - component: {fileID: 1098735309753250748}
-  - component: {fileID: 2063607548922696990}
   m_Layer: 0
   m_Name: PlayerDiver
   m_TagString: Diver
@@ -1119,7 +1110,7 @@ Transform:
   m_GameObject: {fileID: 8123870964431036353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0225, y: 0.0225, z: 0.0225}
+  m_LocalScale: {x: 0.022500008, y: 0.0225, z: 0.022500008}
   m_Children:
   - {fileID: 8123870964430799843}
   - {fileID: 3544802915268662389}
@@ -1140,46 +1131,6 @@ CapsuleCollider:
   m_Height: 38.09296
   m_Direction: 1
   m_Center: {x: 0, y: 13.54008, z: 0}
---- !u!114 &703733019275848902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269a2dd572b71e54bb510449f6b2393a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  robot: {fileID: 0}
---- !u!65 &6758891515910403607
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Material: {fileID: 13400000, guid: 4f37acaa2d9e97844883ec2eab4bf286, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 33.446476, y: 100, z: 28.186924}
-  m_Center: {x: 0, y: 50, z: 0}
---- !u!136 &4718625571355188227
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 20
-  m_Height: 100
-  m_Direction: 1
-  m_Center: {x: 0, y: 50, z: 0}
 --- !u!143 &8123870964431036364
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1198,6 +1149,38 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 50, z: 0}
+--- !u!95 &8123870964431036365
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123870964431036353}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1384f7804c0f39d4aac26cdf4f7c2a61, type: 3}
+  m_Controller: {fileID: 9100000, guid: 4088dbb7927687d4ea2536e42f939b4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &703733019275848902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123870964431036353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269a2dd572b71e54bb510449f6b2393a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 0}
 --- !u!114 &8123870964431036354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,38 +1206,7 @@ MonoBehaviour:
   doCC: 1
   isGrounded: 1
   godPeriod: 2
---- !u!95 &8123870964431036365
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1384f7804c0f39d4aac26cdf4f7c2a61, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4088dbb7927687d4ea2536e42f939b4f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1098735309753250748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8123870964431036353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65669bdc28ed0c74f9f16994bbbd7869, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2063607548922696990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
