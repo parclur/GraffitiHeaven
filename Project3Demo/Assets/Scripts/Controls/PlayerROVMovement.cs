@@ -50,14 +50,14 @@ public class PlayerROVMovement : MonoBehaviour
         }
 
         //----------------------------------------ROTATE AXIS----------------------------------------------
-        float yAxisAim = rewiredPlayer.GetAxis("HorizontalAxisAIM");
-        float xAxisAim = rewiredPlayer.GetAxis("VerticalAxisAIM");
+        float xAxisAim = rewiredPlayer.GetAxis("UpDownAim");
+        float yAxisAim = rewiredPlayer.GetAxis("LeftRightAim");
 
         RotatePlayer(xAxisAim, yAxisAim);
 
         //----------------------------------------MOVE AXIS----------------------------------------------
-        float xAxisMove = rewiredPlayer.GetAxis("HorizontalAxisMOVE");
-        float yAxisMove = rewiredPlayer.GetAxis("VerticalAxisMOVE");
+        float yAxisMove = rewiredPlayer.GetAxis("UpDownMovment");
+        float xAxisMove = rewiredPlayer.GetAxis("LeftRightMovement");
 
         MoveDirectional(xAxisMove, yAxisMove);
     }

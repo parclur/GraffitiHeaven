@@ -112,8 +112,15 @@ public class PlayerDiverMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        float xAxis = rewiredPlayer.GetAxis("HorizontalAxisMOVE");
-        float yAxis = rewiredPlayer.GetAxis("VerticalAxisMOVE");
+        float yAxis = rewiredPlayer.GetAxis("UpDownMovment");
+        float xAxisMove = rewiredPlayer.GetAxis("LeftRightMovement");
+        float xAxisAim = rewiredPlayer.GetAxis("LeftRightAim");
+        float xAxis = xAxisMove;
+
+        if(xAxisAim != 0) //When using layout 2 the aiming will have AIM axis be an override when being used (will not effect other layouts)
+        {
+            xAxis = xAxisAim;
+        }
 
         //Handles animation variables
         if(isGrounded)
