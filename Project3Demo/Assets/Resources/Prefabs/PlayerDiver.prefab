@@ -1196,16 +1196,17 @@ MonoBehaviour:
   playerAttachedToo: Diver
   rotateSpeed: 2
   fallingRotateSpeed: 0
-  movingRotateSpeed: 0
-  movementAcceleration: 0.05
+  movingRotateSpeed: 2
+  movementAcceleration: 0.02
   maxVelocity: 35
-  slowedSpeed: 0.03
-  fallingHorizontalSpeed: 0
+  slowedSpeed: 0
+  fallingHorizontalSpeed: 0.01
   hitsToDie: 2
   slowDurtaion: 4
   doCC: 1
   isGrounded: 1
   godPeriod: 2
+  outputText: {fileID: 0}
 --- !u!114 &1098735309753250748
 MonoBehaviour:
   m_ObjectHideFlags: 0
