@@ -16,3 +16,5 @@ Project3Demo/Unity.Postprocessing.Editor.csproj
 Project3Demo/Unity.Postprocessing.Runtime.csproj
 Project3Demo/Unity.TextMeshPro.Editor.csproj
 Project3Demo/Unity.TextMeshPro.csproj
+syntax: regexp
+Project3Demo/Temp/*
