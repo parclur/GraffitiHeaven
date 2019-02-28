@@ -135,8 +135,8 @@ public class PlayerDiverMovement : MonoBehaviour
         //Handles animation variables
         if(isGrounded)
         {
-            anim.SetFloat("Forward", yAxis);
-            anim.SetFloat("Turn", xAxis);
+            anim.SetFloat("Forward", yAxis / 1.15f);
+            anim.SetFloat("Turn", xAxis / 1.15f);
         }
         else
         {
