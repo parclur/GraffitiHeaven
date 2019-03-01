@@ -707,6 +707,7 @@
     <Compile Include="Assets\Scripts\Events\TriggeredEvent.cs" />
     <Compile Include="Assets\Scripts\Events\TriggeredEventCameraOverride.cs" />
     <Compile Include="Assets\Scripts\Events\TriggeredEventZone.cs" />
+    <Compile Include="Assets\Scripts\HitDoorWithLight.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PostProcessingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SceneLoader.cs" />
