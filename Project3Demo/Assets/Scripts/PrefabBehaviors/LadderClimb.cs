@@ -4,6 +4,8 @@ public class LadderClimb : MonoBehaviour
 {
     [SerializeField] private float upwardRate;
 
+    // TODO: This needs all kinds of reworking! Use a held button to translate upward!
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Diver")
