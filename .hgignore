@@ -16,5 +16,7 @@ Project3Demo/Unity.Postprocessing.Editor.csproj
 Project3Demo/Unity.Postprocessing.Runtime.csproj
 Project3Demo/Unity.TextMeshPro.Editor.csproj
 Project3Demo/Unity.TextMeshPro.csproj
+Project3Demo/Assets/ProCore/ProBuilder/About
+Project3Demo/Assets/ProCore/ProBuilder/Icons
 syntax: regexp
 Project3Demo/Temp/*
