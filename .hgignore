@@ -1,0 +1,4 @@
+syntax: regexp
+Project3Demo/.vs/Project3Demo/v15/*
+syntax: glob
+Project3Demo/Library/*
