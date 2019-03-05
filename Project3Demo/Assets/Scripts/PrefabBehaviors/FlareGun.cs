@@ -5,13 +5,13 @@ public class FlareGun : MonoBehaviour
 {
     [SerializeField] private float reloadTime;
 
+    [SerializeField] private int flareCount;
+
     private GameObject flarePrefab;
 
     private Camera aimCamera;
 
     private Player fireController;
-
-    private Vector3 firingOffset;
 
     private bool canFire = true;
 
@@ -27,23 +27,30 @@ public class FlareGun : MonoBehaviour
 
         // Get input from the Diver player
         fireController = ReInput.players.GetPlayer("Diver");
-
-        // Get the offset so as to not shoot ourselves in the foot
-        firingOffset = gameObject.transform.position + Vector3.forward;
     }
 
     private void Update()
     {
-        // Is there a flare available? Is the player firing?
-        if (canFire && fireController.GetButtonDown("Shoot"))
+        if (fireController.GetButtonDown("Shoot"))
         {
-            FireFlare(); // Create Flare instance
+            if (flareCount > 0)
+            {
+                if (canFire)
+                {
+                    FireFlare(); // Create Flare instance
 
-            AudioManager.instance.PlayOneShot("Flare", 1f);
+                    AudioManager.instance.PlayOneShot("Flare", 1f);
 
-            canFire = false; // Disable firing
+                    canFire = false; // Disable firing
+                }
+            }
+            else
+            {
+                //AudioManager.instance.PlayOneShot("EmptyFlareGunClick");
+            }
         }
-        else if (currentReloadTime > reloadTime) // Reset firing ability
+   
+        if (currentReloadTime > reloadTime) // Reset firing ability
         {
             canFire = true;
 
@@ -55,18 +62,31 @@ public class FlareGun : MonoBehaviour
         }
     }
 
-    private void FireFlare() //Fires a bullet prefab from the bulletSpawn point
+    private void FireFlare() 
     {
+        GameObject flare = Instantiate(flarePrefab, gameObject.transform.position, flarePrefab.transform.rotation);
+
         // Only raycasts when firing, more effecient
         Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
-        // Create the flare
-        GameObject flare = Instantiate(flarePrefab, gameObject.transform.position /*firingOffset*/, flarePrefab.transform.rotation);
+        Vector3 hitVec = (aimCamera.gameObject.transform.position - hit.point).normalized;
+        Vector3 aimVec = gameObject.transform.right.normalized;
+     
+        // If the camera is aiming toward the player's aim
+        if (Vector3.Dot(aimVec, hitVec) > 0.866)
+        {
+            flare.transform.LookAt(hit.point);
+        }
+ 
+        flare.GetComponent<Flare>().Ignite(gameObject.transform.right);
 
-        // Make the flare aim correctly
-        flare.transform.LookAt(hit.collider.gameObject.transform.position);
-        flare.transform.Rotate(Vector3.left * -90f);
+        flareCount--;
+    }
+
+    public void AddFlares(int count)
+    {
+        flareCount += count;
     }
 }
