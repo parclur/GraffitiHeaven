@@ -80,10 +80,11 @@ public class HeavyDoor : MonoBehaviour {
     public void KeyActivate()
     {
 
-        // NOTE: This is really inefficient at large scale, perhaps use a trigger zone?
-        if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && !doorOpening)
+        // NOTE: This is really inefficient at large scale, perhaps use a trigger zone? - Ill try reversing the variables but if that still drops performance 
+        //then ill add a trigger zone or something like that
+        if (rewiredPlayer.GetButton("Interact"))
         {
-            if (rewiredPlayer.GetButton("Interact"))
+            if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && !doorOpening)
             {
                 bool doorOpen;
                 if (testForAll)
