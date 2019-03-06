@@ -36,10 +36,6 @@ public class PlayerDiverMovement : MonoBehaviour
 
     [SerializeField] private float rotationDistanceForForwardMovment; //The minimum angle for forward movment
 
-    //[SerializeField] private float movmentSpeedMin; //The minimum momvent speed that will be applied when the player enters the angle range
-
-    //[SerializeField] private float movmentSpeedRamp; //The amount of speed the player will increase by as they approch the desired angle
-
     //----------------------------------------Timer variables-------------------------------
 
     private float slowTimer = 0f;
@@ -145,17 +141,6 @@ public class PlayerDiverMovement : MonoBehaviour
             xAxis = xAxisAim;
         }
 
-        //Handles animation variables
-        if(isGrounded)
-        {
-            anim.SetFloat("Forward", yAxis);
-            anim.SetFloat("Turn", xAxis);
-        }
-        else
-        {
-            anim.SetFloat("Forward", yAxis /2);
-            anim.SetFloat("Turn", xAxis /2);
-        }
 
         if(currentControllerMap == ControllerMaps.LayoutC)
         {
@@ -165,6 +150,18 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             RotatePlayer(xAxis);
             HorizontalMovment(yAxis);
+
+            //Handles animation variables
+            if (isGrounded)
+            {
+                anim.SetFloat("Forward", yAxis);
+                anim.SetFloat("Turn", xAxis);
+            }
+            else
+            {
+                anim.SetFloat("Forward", yAxis / 2);
+                anim.SetFloat("Turn", xAxis / 2);
+            }
         }
 
     }
@@ -185,6 +182,15 @@ public class PlayerDiverMovement : MonoBehaviour
         if(desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
             distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
+                                                                         //Handles animation variables
+            if (isGrounded)
+            {
+                anim.SetFloat("Turn", distanceToRotate/20);
+            }
+            else
+            {
+                anim.SetFloat("Turn", (distanceToRotate/20) / 2);
+            }
         }
 
         if(distanceToRotate < rotationDistanceForForwardMovment) //If the player is able to move forward
@@ -197,6 +203,32 @@ public class PlayerDiverMovement : MonoBehaviour
             {
                 acceleration = slowedSpeed; //Applies movment (slowed)
             }
+
+            if(yAxis != 0)
+            {
+                //Handles animation variables
+                if (isGrounded)
+                {
+                    anim.SetFloat("Forward", yAxis);
+                }
+                else
+                {
+                    anim.SetFloat("Forward", yAxis / 2);
+                }
+            }
+            if(xAxis != 0)
+            {
+                //Handles animation variables
+                if (isGrounded)
+                {
+                    anim.SetFloat("Forward", xAxis);
+                }
+                else
+                {
+                    anim.SetFloat("Forward", xAxis / 2);
+                }
+            }
+
 
             cc.Move(desiredMoveDirection * acceleration + gravity);
         }
