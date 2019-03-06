@@ -1195,19 +1195,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttachedToo: Diver
-  rotateSpeed: 2
+  rotateSpeed: 0.03
   fallingRotateSpeed: 0
   movingRotateSpeed: 2
   movementAcceleration: 0.02
-  maxVelocity: 35
   slowedSpeed: 0
   fallingHorizontalSpeed: 0.01
   hitsToDie: 2
   slowDurtaion: 4
-  doCC: 1
-  isGrounded: 1
   godPeriod: 2
-  outputText: {fileID: 0}
+  rotationDistanceForForwardMovment: 20
+  isGrounded: 1
 --- !u!114 &1098735309753250748
 MonoBehaviour:
   m_ObjectHideFlags: 0
