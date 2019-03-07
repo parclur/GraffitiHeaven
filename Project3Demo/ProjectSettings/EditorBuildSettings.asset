@@ -8,16 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Provisional Scenes/QA-Scene_V2.unity
-    guid: 995e32b035578a34592081f0f10e230b
   - enabled: 0
-    path: Assets/Scenes/QA-Scene.unity
-    guid: 527a36f6de399ac49983bb1247b94a09
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Win-Scene.unity
-    guid: fa9dcf4ca2a896f49a056c2e1a7849a6
-  - enabled: 1
-    path: Assets/Scenes/Lose-Scene.unity
-    guid: 5d4e78645ea52924cbe9a57287e9b3b1
+    path: Assets/Scenes/sandbox-key-dev.unity
+    guid: abbc43fea01df6e4cb6193375de57e11
   m_configObjects: {}
