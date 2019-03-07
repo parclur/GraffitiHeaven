@@ -101369,6 +101369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnglerFish
       objectReference: {fileID: 0}
+    - target: {fileID: 7318962779123377021, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Angler
+      objectReference: {fileID: 0}
     - target: {fileID: 7318962779123377020, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101459,9 +101464,32 @@ PrefabInstance:
       propertyPath: moveTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5291007632738762056, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: windTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291007632738762056, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: chaseTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291007632738762056, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: stunTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 460620774, guid: 713bdc9d8285e8f4c9579bdb1f9605ec, type: 3}
       propertyPath: m_TagString
-      value: Angler
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 460620776, guid: 713bdc9d8285e8f4c9579bdb1f9605ec, type: 3}
+      propertyPath: m_Size.x
+      value: 8.024658
+      objectReference: {fileID: 0}
+    - target: {fileID: 460620776, guid: 713bdc9d8285e8f4c9579bdb1f9605ec, type: 3}
+      propertyPath: m_Center.x
+      value: -0.27879333
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713bdc9d8285e8f4c9579bdb1f9605ec, type: 3}
