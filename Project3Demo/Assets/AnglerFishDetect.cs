@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnglerFishDetect : MonoBehaviour {
-
-    GameObject diver;
-
-    void Start(){
-        diver = GameObject.FindGameObjectWithTag("Diver");
+    void OnTriggerEnter(Collider col){
+        if(col.tag == "Diver"){
+            GetComponentInParent<AnglerFish>().playerDetected = true;
+        }
     }
-    
-    void Update(){
-        
+
+    void OnTriggerStay(Collider col){
+        if(col.tag == "Diver"){
+            GetComponentInParent<AnglerFish>().playerDetected = true;
+        }
     }
 }
