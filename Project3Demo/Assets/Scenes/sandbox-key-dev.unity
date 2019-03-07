@@ -43449,7 +43449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688010837, guid: 173cec603d697094fb1e68163276d12a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 638262971, guid: 173cec603d697094fb1e68163276d12a, type: 3}
       propertyPath: m_Layer
@@ -103631,6 +103631,21 @@ PrefabInstance:
     - target: {fileID: 460620776, guid: 713bdc9d8285e8f4c9579bdb1f9605ec, type: 3}
       propertyPath: m_Center.x
       value: -0.27879333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318962778895135147, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318962778895135147, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.014492754
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318962778895135147, guid: 713bdc9d8285e8f4c9579bdb1f9605ec,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713bdc9d8285e8f4c9579bdb1f9605ec, type: 3}
