@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 739313152}
   - component: {fileID: 739313151}
   - component: {fileID: 739313150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FlareGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,13 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739313148}
-  m_LocalRotation: {x: -0.15675405, y: -0.2808811, z: -0.11432186, w: 0.93992794}
-  m_LocalPosition: {x: 0.06599997, y: 0.062999666, z: -0.067}
-  m_LocalScale: {x: 0.3, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 3544802915268662355}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -21.032001, y: -31.824001, z: -7.8110003}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.235, y: 1.387, z: 0.234}
+  m_LocalScale: {x: 0.3000001, y: 0.100000046, z: 0.100000024}
+  m_Children:
+  - {fileID: 5538257053801836085}
+  m_Father: {fileID: 3544802915268662389}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &739313152
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -91,8 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadTime: 4
-  flareCount: 5
-  playerFOV: {fileID: 0}
+  flareCount: 9999
+  playerFOV: {fileID: 1947622509757337547}
+  flareGunSpawnPoint: {fileID: 4491766282478446771}
 --- !u!1 &1947622509757337547
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,8 +393,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.440892e-18, y: 0.2726064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 739313149}
+  m_Children: []
   m_Father: {fileID: 3544802915268662357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -919,6 +920,7 @@ Transform:
   - {fileID: 3544802915268662391}
   - {fileID: 3544802915268662399}
   - {fileID: 3544802915268662337}
+  - {fileID: 739313149}
   m_Father: {fileID: 8123870964430799841}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1125,6 +1127,45 @@ Transform:
   m_Father: {fileID: 3544802915268662389}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4491766282478446771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5538257053801836085}
+  - component: {fileID: 2252330497917218828}
+  m_Layer: 0
+  m_Name: FlareSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5538257053801836085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4491766282478446771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.48, y: -1.42, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 739313149}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2252330497917218828
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4491766282478446771}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8123870964431036353
 GameObject:
   m_ObjectHideFlags: 0

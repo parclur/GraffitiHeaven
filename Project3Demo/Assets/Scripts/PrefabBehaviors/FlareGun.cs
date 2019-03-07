@@ -9,6 +9,8 @@ public class FlareGun : MonoBehaviour
 
     [SerializeField] private GameObject playerFOV;
 
+    [SerializeField] private GameObject flareGunSpawnPoint;
+
     private GameObject flarePrefab;
 
     private Camera aimCamera;
@@ -22,6 +24,8 @@ public class FlareGun : MonoBehaviour
     private Transform flareGunTransform;
 
     private Transform cameraTransform;
+
+    private Transform flareSpawnPointTransform;
 
     private BoxCollider playerFOVBoxCollider;
 
@@ -41,6 +45,8 @@ public class FlareGun : MonoBehaviour
         cameraTransform = aimCamera.GetComponent<Transform>();
 
         flareGunTransform = gameObject.GetComponent<Transform>();
+
+        flareSpawnPointTransform = flareGunSpawnPoint.transform;
     }
 
     private void Update()
@@ -78,7 +84,7 @@ public class FlareGun : MonoBehaviour
 
     private void FireFlare() 
     {
-        GameObject flare = Instantiate(flarePrefab, flareGunTransform.position, flarePrefab.transform.rotation);
+        GameObject flare = Instantiate(flarePrefab, flareSpawnPointTransform.position, flarePrefab.transform.rotation);
 
         // Only raycasts when firing, more effecient
         Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -86,10 +92,16 @@ public class FlareGun : MonoBehaviour
         Physics.Raycast(ray, out hit);
 
 
-        if(playerFOVBoxCollider.bounds.Contains(hit.point)) //Checks to see if the point is within the diver's view (Collider)
-        {
-            flare.transform.LookAt(hit.point);
-        }
+        //if(playerFOVBoxCollider.bounds.Contains(hit.point)) //Checks to see if the point is within the diver's view (Collider)
+        //{
+        //    Debug.Log(hit.point);
+        //    Vector3 aimPos = hit.point;
+        //    flare.transform.LookAt(aimPos);
+
+        //    //flare.transform.Rotate(Vector3.left * -90f);
+
+        //    Debug.Log("Drone is aiming for player");
+        //}
 
         //Vector3 hitVec = (cameraTransform.position - hit.point).normalized;
         //Vector3 aimVec = flareGunTransform.right.normalized;
@@ -101,7 +113,7 @@ public class FlareGun : MonoBehaviour
         //    Debug.Log("WORKING YO");
         //}
 
-        flare.GetComponent<Flare>().Ignite(flareGunTransform.right);
+        flare.GetComponent<Flare>().Ignite(flare.transform.forward);
 
         flareCount--;
     }
