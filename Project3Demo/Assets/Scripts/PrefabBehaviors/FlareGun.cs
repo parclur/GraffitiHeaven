@@ -13,6 +13,8 @@ public class FlareGun : MonoBehaviour
 
     [SerializeField] GameObject aimReticle;
 
+    [SerializeField] GameObject flareSpawnpoint;
+
     [SerializeField] float bulletSpeed;
 
     [SerializeField] float delay;
@@ -30,7 +32,6 @@ public class FlareGun : MonoBehaviour
     Player rewiredPlayer;
 
     void Start()
-
     {
 
         rewiredPlayer = ReInput.players.GetPlayer(playerControlling);
@@ -38,6 +39,8 @@ public class FlareGun : MonoBehaviour
         aimReticleTransform = aimReticle.transform;
 
         aimReticleRotStart = aimReticleTransform.rotation;
+
+        bulletSpawnpointTransform = gameObject.transform;
 
     }
 
@@ -67,7 +70,7 @@ public class FlareGun : MonoBehaviour
 
     {
 
-        GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.position, bulletPrefab.transform.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, flareSpawnpoint.transform.position, Quaternion.identity);
 
         // TODO make this allow the player to free shoot
 
@@ -79,9 +82,14 @@ public class FlareGun : MonoBehaviour
 
         //}
 
-        bullet.transform.LookAt(aimReticleTransform.position);
+        //bullet.transform.LookAt(aimReticleTransform);
 
-        bullet.transform.Rotate(Vector3.left * -90f);
+        bullet.GetComponent<Rigidbody>().AddForce(flareSpawnpoint.transform.forward * bulletSpeed);
+
+        //Quaternion rotation = Quaternion.LookRotation(aimReticleTransform.position, Vector3.up);
+        //bullet.transform.rotation = rotation;
+
+        //bullet.transform.Rotate(Vector3.left * -90f);
 
     }
 

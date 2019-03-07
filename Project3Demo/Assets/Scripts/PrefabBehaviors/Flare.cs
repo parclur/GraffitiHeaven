@@ -12,7 +12,12 @@ public class Flare : MonoBehaviour
         //gameObject.GetComponent<Rigidbody>().AddRelativeForce(forward * speed);
         //gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.up * speed );
 
-        gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.up * speed);
+        gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.forward * speed);
+    }
+
+    private void Start()
+    {
+        //Ignite(transform.forward);
     }
 
     private void OnCollisionEnter(Collision collision)
