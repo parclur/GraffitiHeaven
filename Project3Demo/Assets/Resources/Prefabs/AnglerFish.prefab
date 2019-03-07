@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.46646, y: 8.073222, z: 12.331644}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 8.024658, y: 8.073222, z: 12.331644}
+  m_Center: {x: -0.27879333, y: 0, z: 0}
 --- !u!114 &8521818040247153349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 0.46683717, b: 0.4575472, a: 1}
+  m_Color: {r: 1, g: 0.014492754, b: 0, a: 1}
   m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 90
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5291007632738762056}
   m_Layer: 0
   m_Name: AnglerFish
-  m_TagString: Untagged
+  m_TagString: Angler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDetected: 0
-  chaseCooldown: 0
-  moveTime: 0
-  patrolPoint: []
+  collidedWithPlayer: 0
+  chaseCooldown: 3
+  moveTime: 3
+  stunTime: 2
+  windTime: 1
+  chaseTime: 2
+  patrolPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

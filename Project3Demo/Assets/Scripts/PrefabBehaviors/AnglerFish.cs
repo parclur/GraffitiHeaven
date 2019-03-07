@@ -97,7 +97,7 @@ public class AnglerFish : MonoBehaviour {
 
     IEnumerator WindBack(){
         currentPos = transform.position;
-        Vector3 diverPos = diver.transform.position + (diver.transform.up * 1.8f);
+        Vector3 diverPos = diver.transform.position + (diver.transform.up * 1.6f);
         float elapsedTime = 0.0f;
         while(elapsedTime < windTime){
             transform.position = Vector3.Lerp(currentPos, diverPos - (transform.forward * 5), (elapsedTime / windTime));

@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sandbox-key-dev.unity
     guid: abbc43fea01df6e4cb6193375de57e11
+  - enabled: 1
+    path: Assets/Scenes/sandbox-movement-physics-dev.unity
+    guid: d8a9d2ba995f6f74c8112920d79cc6a1
   m_configObjects: {}
