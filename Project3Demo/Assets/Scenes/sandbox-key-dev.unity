@@ -27506,6 +27506,7 @@ GameObject:
   - component: {fileID: 999678303}
   - component: {fileID: 999678302}
   - component: {fileID: 999678301}
+  - component: {fileID: 999678305}
   m_Layer: 0
   m_Name: New Game Object
   m_TagString: Untagged
@@ -29780,6 +29781,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &999678305
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999678299}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 2079250876}
 --- !u!1 &1016248190
 GameObject:
   m_ObjectHideFlags: 0
@@ -34138,17 +34153,9 @@ MonoBehaviour:
     areaError: 15
   asset_guid: 
   dontDestroyMeshOnDelete: 0
-  m_selectedFaces: 04000000
-  m_SelectedEdges:
-  - x: 16
-    y: 17
-  - x: 18
-    y: 16
-  - x: 17
-    y: 19
-  - x: 19
-    y: 18
-  m_selectedTriangles: 100000001100000012000000110000001300000012000000
+  m_selectedFaces: 
+  m_SelectedEdges: []
+  m_selectedTriangles: 
 --- !u!114 &1160113054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43248,6 +43255,42 @@ PrefabInstance:
     - target: {fileID: 1688010837, guid: 173cec603d697094fb1e68163276d12a, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 638262971, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 271461170, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 393361073, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045644291, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107846404, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525152285, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691508445, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749444687, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859501357, guid: 173cec603d697094fb1e68163276d12a, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 173cec603d697094fb1e68163276d12a, type: 3}
@@ -54481,6 +54524,7 @@ GameObject:
   - component: {fileID: 2009359483}
   - component: {fileID: 2009359482}
   - component: {fileID: 2009359481}
+  - component: {fileID: 2009359485}
   m_Layer: 0
   m_Name: New Game Object (1)
   m_TagString: Untagged
@@ -56755,6 +56799,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2009359485
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009359479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 1263940085}
 --- !u!1 &2011078532
 GameObject:
   m_ObjectHideFlags: 0
