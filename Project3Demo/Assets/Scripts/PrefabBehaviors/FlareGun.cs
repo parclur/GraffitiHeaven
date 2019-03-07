@@ -7,6 +7,8 @@ public class FlareGun : MonoBehaviour
 
     [SerializeField] private int flareCount;
 
+    [SerializeField] private GameObject playerFOV;
+
     private GameObject flarePrefab;
 
     private Camera aimCamera;
@@ -16,6 +18,12 @@ public class FlareGun : MonoBehaviour
     private bool canFire = true;
 
     private float currentReloadTime = 0f;
+
+    private Transform flareGunTransform;
+
+    private Transform cameraTransform;
+
+    private BoxCollider playerFOVBoxCollider;
 
     private void Start()
     {
@@ -27,6 +35,12 @@ public class FlareGun : MonoBehaviour
 
         // Get input from the Diver player
         fireController = ReInput.players.GetPlayer("Diver");
+
+        playerFOVBoxCollider = playerFOV.GetComponent<BoxCollider>(); //Gets the box collider of the player's fov
+
+        cameraTransform = aimCamera.GetComponent<Transform>();
+
+        flareGunTransform = gameObject.GetComponent<Transform>();
     }
 
     private void Update()
@@ -64,23 +78,30 @@ public class FlareGun : MonoBehaviour
 
     private void FireFlare() 
     {
-        GameObject flare = Instantiate(flarePrefab, gameObject.transform.position, flarePrefab.transform.rotation);
+        GameObject flare = Instantiate(flarePrefab, flareGunTransform.position, flarePrefab.transform.rotation);
 
         // Only raycasts when firing, more effecient
         Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
-        Vector3 hitVec = (aimCamera.gameObject.transform.position - hit.point).normalized;
-        Vector3 aimVec = gameObject.transform.right.normalized;
-     
-        // If the camera is aiming toward the player's aim
-        if (Vector3.Dot(aimVec, hitVec) > 0.866)
+
+        if(playerFOVBoxCollider.bounds.Contains(hit.point)) //Checks to see if the point is within the diver's view (Collider)
         {
             flare.transform.LookAt(hit.point);
         }
- 
-        flare.GetComponent<Flare>().Ignite(gameObject.transform.right);
+
+        //Vector3 hitVec = (cameraTransform.position - hit.point).normalized;
+        //Vector3 aimVec = flareGunTransform.right.normalized;
+
+        //// If the camera is aiming toward the player's aim
+        //if (Vector3.Dot(aimVec, hitVec) > 0.866)
+        //{
+        //    flare.transform.LookAt(hit.point);
+        //    Debug.Log("WORKING YO");
+        //}
+
+        flare.GetComponent<Flare>().Ignite(flareGunTransform.right);
 
         flareCount--;
     }
