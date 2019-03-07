@@ -9,8 +9,10 @@ public class Flare : MonoBehaviour
     public void Ignite(Vector3 forward)
     {
         flareAudio = AudioManager.instance.AddAudio("BurningFlare", 1f, 0.75f, true, gameObject);
-        gameObject.GetComponent<Rigidbody>().AddRelativeForce(forward * speed);
+        //gameObject.GetComponent<Rigidbody>().AddRelativeForce(forward * speed);
         //gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.up * speed );
+
+        gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.up * speed);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -37,7 +37,7 @@ public class FlareAmmoBox : MonoBehaviour
     {
         if (inRange && rewiredPlayer.GetButtonDown("Interact"))
         {
-            playerFlareGun.AddFlares(flareCount);
+            //playerFlareGun.AddFlares(flareCount);
             Destroy(gameObject, 0.1f);
 
             //AudioManager.instance.PlayOneShot("FlareAmmoBoxPickup");
