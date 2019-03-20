@@ -11,5 +11,10 @@ public class CharacterControllerCollisions : MonoBehaviour
             GetComponent<PlayerDiverMovement>().addKey(hit.gameObject);
             hit.gameObject.SetActive(false);
         }
+        if(hit.collider.tag == "Lamprey")
+        {
+            //Add something here
+            Debug.Log("You died.");
+        }
     }
 }

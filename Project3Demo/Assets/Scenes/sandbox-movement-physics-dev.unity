@@ -22113,7 +22113,7 @@ PrefabInstance:
         type: 3}
       propertyPath: robot
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2106813337}
     - target: {fileID: 1869424712606544813, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
         type: 3}
       propertyPath: m_IsActive
@@ -22163,6 +22163,16 @@ PrefabInstance:
         type: 3}
       propertyPath: movementAcceleration
       value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123870964431036354, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123870964431036354, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
+        type: 3}
+      propertyPath: rotationDistanceForForwardMovment
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3544802915268692053, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
         type: 3}
@@ -24555,6 +24565,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2106813337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3458291767922715533, guid: 173cec603d697094fb1e68163276d12a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328929457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2145336473
 GameObject:
   m_ObjectHideFlags: 0

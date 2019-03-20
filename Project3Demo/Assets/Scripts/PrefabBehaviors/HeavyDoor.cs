@@ -34,7 +34,9 @@ public class HeavyDoor : MonoBehaviour {
 
     public List<GameObject> requiredKeys;
 
-    private bool isDoorOpen;
+    private bool doorOpening;
+
+    public bool doorOpen;
 
     private Player rewiredPlayer;
 
@@ -63,7 +65,7 @@ public class HeavyDoor : MonoBehaviour {
     private void Update()
     {
         if(automaticDoor){
-            if(!isDoorOpen){
+            if(!doorOpening){
                 Activate();
             }
             if(flareHit && !inFlareCoroutine){
@@ -78,10 +80,11 @@ public class HeavyDoor : MonoBehaviour {
     public void KeyActivate()
     {
 
-        // NOTE: This is really inefficient at large scale, perhaps use a trigger zone?
-        if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && !isDoorOpen)
+        // NOTE: This is really inefficient at large scale, perhaps use a trigger zone? - Ill try reversing the variables but if that still drops performance 
+        //then ill add a trigger zone or something like that
+        if (rewiredPlayer.GetButton("Interact"))
         {
-            if (rewiredPlayer.GetButton("Interact"))
+            if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && !doorOpening)
             {
                 bool doorOpen;
                 if (testForAll)
@@ -141,16 +144,19 @@ public class HeavyDoor : MonoBehaviour {
 
     private IEnumerator MoveDoor()
     {
-        isDoorOpen = true;
+        doorOpening = true;
         float elapsedTime = 0.0f;
         while (elapsedTime < moveTime)
         {
+            //If the flare hits the doors, hold the opening for now
             if(flareHit){
                 yield return new WaitForEndOfFrame();
             }
+            //If the player is looking at the door (and the bools are set), hold opening for now
             if(automaticDoor && stopOpening && !flareStunsDoor && !flareClosesDoor){
                 yield return new WaitForEndOfFrame();
             }
+            //If the flare hits the door (and the bools are set) close the door
             else if(automaticDoor && flareHit && flareClosesDoor){
                 //Play the sound byte of the door closing here
                 float newElapsedTime = 0.0f;
@@ -165,8 +171,9 @@ public class HeavyDoor : MonoBehaviour {
                     newElapsedTime += Time.deltaTime;
                     yield return new WaitForEndOfFrame();
                 }
-                elapsedTime = moveTime + 1;
+                elapsedTime = moveTime + 100;
             }
+            //Otherwise open the door over time
             else {
                 gameObject.transform.position = Vector3.Lerp(startingPos, openPos, (elapsedTime / moveTime));
                 transform.eulerAngles = new Vector3(
@@ -176,7 +183,12 @@ public class HeavyDoor : MonoBehaviour {
                 elapsedTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-            
+        }
+        if(elapsedTime >= moveTime + 100){
+            doorOpen = false;
+        }
+        else {
+            doorOpen = true;
         }
     }
 

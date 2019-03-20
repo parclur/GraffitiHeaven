@@ -3,70 +3,260 @@ using Rewired;
 
 public class FlareGun : MonoBehaviour
 {
-    [SerializeField] private float reloadTime;
 
-    private GameObject flarePrefab;
 
-    private Camera aimCamera;
+    [SerializeField] string playerControlling;
 
-    private Player fireController;
+    [SerializeField] Camera aimCamera;
 
-    private Vector3 firingOffset;
+    [SerializeField] GameObject bulletPrefab;
 
-    private bool canFire = true;
+    [SerializeField] GameObject aimReticle;
 
-    private float currentReloadTime = 0f;
+    [SerializeField] GameObject flareSpawnpoint;
 
-    private void Start()
+    [SerializeField] float bulletSpeed;
+
+    [SerializeField] float delay;
+
+    bool delayStarted;
+
+    float currentDelayTime;
+
+    Transform bulletSpawnpointTransform;
+
+    Transform aimReticleTransform;
+
+    Quaternion aimReticleRotStart;
+
+    Player rewiredPlayer;
+
+    void Start()
     {
-        // Go get the flare 
-        flarePrefab = Resources.Load<GameObject>("Prefabs/Flare");
 
-        // Find the ROV player to aim through
-        aimCamera = GameObject.Find("PlayerROV").transform.GetChild(0).gameObject.GetComponent<Camera>();
+        rewiredPlayer = ReInput.players.GetPlayer(playerControlling);
 
-        // Get input from the Diver player
-        fireController = ReInput.players.GetPlayer("Diver");
+        aimReticleTransform = aimReticle.transform;
 
-        // Get the offset so as to not shoot ourselves in the foot
-        firingOffset = gameObject.transform.position + Vector3.forward;
+        aimReticleRotStart = aimReticleTransform.rotation;
+
+        bulletSpawnpointTransform = gameObject.transform;
+
     }
 
-    private void Update()
+    void Update()
+
     {
-        // Is there a flare available? Is the player firing?
-        if (canFire && fireController.GetButtonDown("Shoot"))
+
+        TestDelay();
+
+        AimThroughCamera();
+
+        if (rewiredPlayer.GetButtonDown("Shoot") && !delayStarted) //If the button has been pressed and the delay hasn't been initated
+
         {
-            FireFlare(); // Create Flare instance
+
+            StartDelayTimer();
+
+            ShootGun();
 
             AudioManager.instance.PlayOneShot("Flare", 1f);
 
-            canFire = false; // Disable firing
         }
-        else if (currentReloadTime > reloadTime) // Reset firing ability
-        {
-            canFire = true;
 
-            currentReloadTime = 0f;
-        }
-        else // Otherwise count until reload time is up
-        {
-            currentReloadTime += Time.deltaTime;
-        }
     }
 
-    private void FireFlare() //Fires a bullet prefab from the bulletSpawn point
+    void ShootGun() //Fires a bullet prefab from the bulletSpawn point
+
     {
-        // Only raycasts when firing, more effecient
-        Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        GameObject bullet = Instantiate(bulletPrefab, flareSpawnpoint.transform.position, Quaternion.identity);
+
+        // TODO make this allow the player to free shoot
+
+        //if (Vector3.Dot(bullet.transform.forward, aimReticleTransform.position) > 0f)
+
+        //{
+
+
+
+        //}
+
+        //bullet.transform.LookAt(aimReticleTransform);
+
+        bullet.GetComponent<Rigidbody>().AddForce(flareSpawnpoint.transform.forward * bulletSpeed);
+
+        //Quaternion rotation = Quaternion.LookRotation(aimReticleTransform.position, Vector3.up);
+        //bullet.transform.rotation = rotation;
+
+        //bullet.transform.Rotate(Vector3.left * -90f);
+
+    }
+
+    void StartDelayTimer()
+
+    {
+
+        if (!delayStarted)
+
+        {
+
+            currentDelayTime = Time.time + delay;
+
+            delayStarted = true;
+
+        }
+
+    }
+
+    void AimThroughCamera()
+
+    {
+
+        Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+
         RaycastHit hit;
+
         Physics.Raycast(ray, out hit);
 
-        // Create the flare
-        GameObject flare = Instantiate(flarePrefab, gameObject.transform.position /*firingOffset*/, flarePrefab.transform.rotation);
+        aimReticleTransform.position = hit.point;
 
-        // Make the flare aim correctly
-        flare.transform.LookAt(hit.collider.gameObject.transform.position);
-        flare.transform.Rotate(Vector3.left * -90f);
+        aimReticleTransform.rotation = aimReticleRotStart;
+
     }
+
+    void TestDelay()
+
+    {
+
+        if (delayStarted && Time.time > currentDelayTime)
+
+        {
+
+            delayStarted = false;
+
+        }
+
+    }
+
+
+    //[SerializeField] private float reloadTime;
+
+    //[SerializeField] private int flareCount;
+
+    //[SerializeField] private GameObject playerFOV;
+
+    //[SerializeField] private GameObject flareGunSpawnPoint;
+
+    //private GameObject flarePrefab;
+
+    //private Camera aimCamera;
+
+    //private Player fireController;
+
+    //private bool canFire = true;
+
+    //private float currentReloadTime = 0f;
+
+    //private Transform flareGunTransform;
+
+    //private Transform cameraTransform;
+
+    //private Transform flareSpawnPointTransform;
+
+    //private BoxCollider playerFOVBoxCollider;
+
+    //private void Start()
+    //{
+    //    // Go get the flare 
+    //    flarePrefab = Resources.Load<GameObject>("Prefabs/Flare");
+
+    //    // Find the ROV player to aim through
+    //    aimCamera = GameObject.Find("PlayerROV").transform.GetChild(0).gameObject.GetComponent<Camera>();
+
+    //    // Get input from the Diver player
+    //    fireController = ReInput.players.GetPlayer("Diver");
+
+    //    playerFOVBoxCollider = playerFOV.GetComponent<BoxCollider>(); //Gets the box collider of the player's fov
+
+    //    cameraTransform = aimCamera.GetComponent<Transform>();
+
+    //    flareGunTransform = gameObject.GetComponent<Transform>();
+
+    //    flareSpawnPointTransform = flareGunSpawnPoint.transform;
+    //}
+
+    //private void Update()
+    //{
+    //    if (fireController.GetButtonDown("Shoot"))
+    //    {
+    //        if (flareCount > 0)
+    //        {
+    //            if (canFire)
+    //            {
+    //                FireFlare(); // Create Flare instance
+
+    //                AudioManager.instance.PlayOneShot("Flare", 1f);
+
+    //                canFire = false; // Disable firing
+    //            }
+    //        }
+    //        else
+    //        {
+    //            //AudioManager.instance.PlayOneShot("EmptyFlareGunClick");
+    //        }
+    //    }
+
+    //    if (currentReloadTime > reloadTime) // Reset firing ability
+    //    {
+    //        canFire = true;
+
+    //        currentReloadTime = 0f;
+    //    }
+    //    else // Otherwise count until reload time is up
+    //    {
+    //        currentReloadTime += Time.deltaTime;
+    //    }
+    //}
+
+    //private void FireFlare() 
+    //{
+    //    GameObject flare = Instantiate(flarePrefab, flareSpawnPointTransform.position, flarePrefab.transform.rotation);
+
+    //    // Only raycasts when firing, more effecient
+    //    Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+    //    RaycastHit hit;
+    //    Physics.Raycast(ray, out hit);
+
+    //    //flare.transform.Rotate(Vector3.left * -90f);
+    //    //if(playerFOVBoxCollider.bounds.Contains(hit.point)) //Checks to see if the point is within the diver's view (Collider)
+    //    //{
+    //    //    Debug.Log(hit.point);
+    //    //    Vector3 aimPos = hit.point;
+    //    //    flare.transform.LookAt(aimPos);
+
+    //    //    
+
+    //    //    Debug.Log("Drone is aiming for player");
+    //    //}
+
+    //    //Vector3 hitVec = (cameraTransform.position - hit.point).normalized;
+    //    //Vector3 aimVec = flareGunTransform.right.normalized;
+
+    //    //// If the camera is aiming toward the player's aim
+    //    //if (Vector3.Dot(aimVec, hitVec) > 0.866)
+    //    //{
+    //    //    flare.transform.LookAt(hit.point);
+    //    //    Debug.Log("WORKING YO");
+    //    //}
+
+    //    flare.GetComponent<Flare>().Ignite(flare.transform.forward);
+
+    //    flareCount--;
+    //}
+
+    //public void AddFlares(int count)
+    //{
+    //    flareCount += count;
+    //}
 }

@@ -12,6 +12,8 @@ TagManager:
   - Box
   - Key
   - Door
+  - Waypoint
+  - Angler
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - Player
   - Ojbstical
   - PlayerFeet
-  - 
-  - 
+  - Waypoint
+  - Flare
   - 
   - 
   - 

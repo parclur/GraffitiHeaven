@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
+using Rewired;
 
 public class LadderClimb : MonoBehaviour
 {
     [SerializeField] private float upwardRate;
 
-    // TODO: This needs all kinds of reworking! Use a held button to translate upward!
+    Player rewiredPlayer;
+
+    private void Start()
+    {
+        rewiredPlayer = ReInput.players.GetPlayer("Diver");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Diver")
         {
-            gameObject.GetComponent<PlayerDiverMovement>().isGrounded = false;
+            other.gameObject.GetComponent<PlayerDiverMovement>().isGrounded = false;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Diver")
+        if (other.gameObject.tag == "Diver" && rewiredPlayer.GetButton("Interact"))
         {
             other.gameObject.GetComponent<CharacterController>().Move(Vector3.up * upwardRate);
         }

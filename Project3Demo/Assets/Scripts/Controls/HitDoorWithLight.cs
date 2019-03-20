@@ -23,8 +23,6 @@ public class HitDoorWithLight : MonoBehaviour {
             Vector3 targetDir = go.transform.position - transform.position;
             Vector3 forward = transform.forward;
             float angle = Vector3.SignedAngle(targetDir, forward, Vector3.up) - 30f;
-            Debug.Log("Angle: " + angle);
-            Debug.Log("Angle to Match: " + angleToMatch);
             if(Mathf.Abs(angle) < angleToMatch){
                 go.GetComponent<HeavyDoor>().stopOpening = true;
             }
