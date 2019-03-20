@@ -1,14 +1,4 @@
-<<<<<<< working copy
-syntax: regexp
-Project3Demo/Library/*
-Project3Demo/.vs/*
-Project3Demo/obj/*
-Project3Demo/Temp/*
-=======
->>>>>>> merge rev
 syntax: glob
-<<<<<<< working copy
-=======
 Project3Demo/.vs/Project3Demo/v15/Server/sqlite3/storage.ide-wal
 Project3Demo/.vs/Project3Demo/v15/Server/sqlite3/storage.ide-shm
 Project3Demo/Assembly-CSharp-Editor.csproj
@@ -28,4 +18,3 @@ Project3Demo/Unity.TextMeshPro.Editor.csproj
 Project3Demo/Unity.TextMeshPro.csproj
 syntax: regexp
 Project3Demo/Temp/*
->>>>>>> merge rev
