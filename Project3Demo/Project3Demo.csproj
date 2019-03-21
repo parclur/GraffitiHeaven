@@ -714,6 +714,8 @@
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PostProcessingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\AnglerFish.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\AnglerFishDetect.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\DemoCollapseCube.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\Flare.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\FlareAmmoBox.cs" />

@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739313148}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.235, y: 1.387, z: 0.234}
-  m_LocalScale: {x: 0.3000001, y: 0.100000046, z: 0.100000024}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.18070176, y: 1.3157895, z: 0.04385965}
+  m_LocalScale: {x: 0.263158, y: 0.0877193, z: 0.087719336}
   m_Children:
   - {fileID: 5538257053801836085}
   m_Father: {fileID: 3544802915268662389}
@@ -92,9 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadTime: 4
-  flareCount: 9999
-  playerFOV: {fileID: 1947622509757337547}
-  flareGunSpawnPoint: {fileID: 4491766282478446771}
+  flareCount: 5
 --- !u!1 &1947622509757337547
 GameObject:
   m_ObjectHideFlags: 0

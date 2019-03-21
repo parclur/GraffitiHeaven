@@ -6,18 +6,10 @@ public class Flare : MonoBehaviour
     
     private AudioSource flareAudio;
 
-    public void Ignite(Vector3 forward)
+    public void Ignite()
     {
-        flareAudio = AudioManager.instance.AddAudio("BurningFlare", 1f, 0.75f, true, gameObject);
-        //gameObject.GetComponent<Rigidbody>().AddRelativeForce(forward * speed);
-        //gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.up * speed );
-
+        flareAudio = AudioManager.instance.AddAudio("BurningFlare", 1f, 0.75f, true, gameObject);     
         gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.forward * speed);
-    }
-
-    private void Start()
-    {
-        //Ignite(transform.forward);
     }
 
     private void OnCollisionEnter(Collision collision)
