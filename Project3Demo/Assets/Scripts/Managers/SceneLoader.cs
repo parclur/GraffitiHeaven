@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
-{ 
+public class SceneLoader : MonoBehaviour { 
     [HideInInspector] public static SceneLoader instance;
 
     [SerializeField] private string levelName;
@@ -10,6 +9,8 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private string winName;
 
     [SerializeField] private string loseName;
+
+    [SerializeField] private string nextScene;
 
     void Awake()
     {
@@ -29,5 +30,10 @@ public class SceneLoader : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene(levelName);
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }

@@ -14,6 +14,7 @@ TagManager:
   - Door
   - Waypoint
   - Angler
+  - LoadZone
   layers:
   - Default
   - TransparentFX

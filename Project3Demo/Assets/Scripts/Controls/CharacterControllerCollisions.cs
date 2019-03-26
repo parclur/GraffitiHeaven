@@ -13,8 +13,16 @@ public class CharacterControllerCollisions : MonoBehaviour
         }
         if(hit.collider.tag == "Lamprey")
         {
-            //Add something here
-            Debug.Log("You died.");
+            SceneLoader.instance.LoseGame();
+            
+        }
+        if(hit.collider.tag == "AnglerFish")
+        {
+            GetComponent<PlayerDiverMovement>().ApplySlow();
+        }
+        if(hit.collider.tag == "LoadZone")
+        {
+            SceneLoader.instance.NextScene();
         }
     }
 }
