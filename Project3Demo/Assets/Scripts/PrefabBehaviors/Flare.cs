@@ -3,7 +3,9 @@
 public class Flare : MonoBehaviour
 {
     [SerializeField] private float speed;
-    
+
+    [SerializeField] private float lifetime;
+
     private AudioSource flareAudio;
 
     public void Ignite()
@@ -14,7 +16,7 @@ public class Flare : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(flareAudio, 2f);
-        Destroy(gameObject, 2f);
+        Destroy(flareAudio, lifetime);
+        Destroy(gameObject, lifetime);
     }
 }
