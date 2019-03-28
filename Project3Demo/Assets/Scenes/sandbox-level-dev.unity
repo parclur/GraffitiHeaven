@@ -697,17 +697,17 @@ PrefabInstance:
     - target: {fileID: 3458291767922715520, guid: 173cec603d697094fb1e68163276d12a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.309
       objectReference: {fileID: 0}
     - target: {fileID: 3458291767922715520, guid: 173cec603d697094fb1e68163276d12a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.265
       objectReference: {fileID: 0}
     - target: {fileID: 3458291767922715520, guid: 173cec603d697094fb1e68163276d12a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9.62
       objectReference: {fileID: 0}
     - target: {fileID: 3458291767922715520, guid: 173cec603d697094fb1e68163276d12a,
         type: 3}
@@ -1503,19 +1503,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 627786594265799961, guid: efc7d4619faa0eb40a1693bfe5e0b9f0,
         type: 3}
-      propertyPath: playFrom
-      value: 
-      objectReference: {fileID: 8123870964431036353}
-    - target: {fileID: 627786594265799961, guid: efc7d4619faa0eb40a1693bfe5e0b9f0,
-        type: 3}
       propertyPath: mainAudio
       value: 
       objectReference: {fileID: 8123870964431036353}
-    - target: {fileID: 627786594265799961, guid: efc7d4619faa0eb40a1693bfe5e0b9f0,
-        type: 3}
-      propertyPath: debuggingMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc7d4619faa0eb40a1693bfe5e0b9f0, type: 3}
 --- !u!4 &1145656607 stripped

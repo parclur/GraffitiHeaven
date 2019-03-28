@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed93b7590240ea64a8169dd469637fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioDataFile: audio_data.txt
-  path: Assets/Resources/Audio
+  data: Assets/Resources/Audio/audio_data.txt
   mainAudio: {fileID: 0}
+  debuggingMode: 0
