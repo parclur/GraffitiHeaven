@@ -12,6 +12,7 @@ public class FloorButton : MonoBehaviour
         {
             StartCoroutine(ShiftDown());
             connectsTo.SendMessage("Activate");
+            AudioManager.instance.PlayOneShot("MetalPush", 1f);
         }
     }
 

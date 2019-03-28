@@ -40,7 +40,7 @@ public class FlareAmmoBox : MonoBehaviour
             playerFlareGun.AddFlares(flareCount);
             Destroy(gameObject, 0.1f);
 
-            //AudioManager.instance.PlayOneShot("FlareAmmoBoxPickup");
+            AudioManager.instance.PlayOneShot("FlareAmmoBoxPickup");
         }
     }
 }
