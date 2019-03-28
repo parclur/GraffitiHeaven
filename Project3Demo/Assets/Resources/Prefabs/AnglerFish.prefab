@@ -299,6 +299,7 @@ MonoBehaviour:
   stunTime: 2
   windTime: 2
   chaseTime: 2
+  fallbackAmount: 5
   patrolPoint:
   - {fileID: 110546980469316915}
   - {fileID: 5759223804449879056}

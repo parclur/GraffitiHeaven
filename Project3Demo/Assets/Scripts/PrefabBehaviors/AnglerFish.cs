@@ -16,6 +16,8 @@ public class AnglerFish : MonoBehaviour {
     [SerializeField] float windTime;
 
     [SerializeField] float chaseTime;
+
+    [SerializeField] float fallbackAmount;
     
     //These are different from lampreywaypoints in which they are not tagged
     [SerializeField] List<GameObject> patrolPoint;
@@ -112,11 +114,18 @@ public class AnglerFish : MonoBehaviour {
     }
 
     IEnumerator WindBack(){
+        float newFallback = fallbackAmount;
         currentPos = transform.position;
         Vector3 diverPos = diver.transform.position + (diver.transform.up * 1.8f);
         float elapsedTime = 0.0f;
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity)){
+            if(Vector3.Distance(hit.transform.position, transform.position) <= fallbackAmount - 1){
+                newFallback = Vector3.Distance(hit.transform.position, transform.position) - 1;
+            }
+        }
         while(elapsedTime < windTime){
-            transform.position = Vector3.Lerp(currentPos, diverPos - (transform.forward * 5), (elapsedTime / windTime));
+            transform.position = Vector3.Lerp(currentPos, diverPos - (transform.forward * newFallback), (elapsedTime / windTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
