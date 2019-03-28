@@ -16,6 +16,8 @@ public class AnglerFish : MonoBehaviour {
     [SerializeField] float windTime;
 
     [SerializeField] float chaseTime;
+
+    [SerializeField] float fallbackAmount;
     
     //These are different from lampreywaypoints in which they are not tagged
     [SerializeField] List<GameObject> patrolPoint;
@@ -67,12 +69,28 @@ public class AnglerFish : MonoBehaviour {
             movingFinished = false;
             StartCoroutine(MoveBetweenPoints());
         }
+        if(playerDetected){
+            CheckSeePlayer();
+        }
     }
 
     void ResetCoroutines(){
         StopAllCoroutines();
         chaseFinished = true;
         movingFinished = true;
+    }
+
+    public void CheckSeePlayer(){
+        RaycastHit hit;
+        Vector3 dir = diver.transform.position - transform.position;
+        if(Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity)){
+            if(hit.transform.tag == "Diver"){
+                Debug.DrawRay(transform.position, dir);
+                playerDetected = true;
+                return;
+            }
+        }
+        playerDetected = false;
     }
 
     IEnumerator MoveBetweenPoints(){
@@ -85,7 +103,7 @@ public class AnglerFish : MonoBehaviour {
                     yield return null;
                 }
                 transform.LookAt(patrolPoint[i].transform);
-                transform.position = Vector3.Lerp(currentPos, patrolPoint[i].transform.position, (elapsedTime / moveTime));
+                transform.position = Vector3.Lerp(currentPos,patrolPoint[i].transform.position,(elapsedTime / moveTime));
                 elapsedTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
@@ -96,11 +114,18 @@ public class AnglerFish : MonoBehaviour {
     }
 
     IEnumerator WindBack(){
+        float newFallback = fallbackAmount;
         currentPos = transform.position;
         Vector3 diverPos = diver.transform.position + (diver.transform.up * 1.8f);
         float elapsedTime = 0.0f;
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity)){
+            if(Vector3.Distance(hit.transform.position, transform.position) <= fallbackAmount - 1){
+                newFallback = Vector3.Distance(hit.transform.position, transform.position) - 1;
+            }
+        }
         while(elapsedTime < windTime){
-            transform.position = Vector3.Lerp(currentPos, diverPos - (transform.forward * 5), (elapsedTime / windTime));
+            transform.position = Vector3.Lerp(currentPos, diverPos - (transform.forward * newFallback), (elapsedTime / windTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -147,5 +172,21 @@ public class AnglerFish : MonoBehaviour {
         yield return new WaitForSeconds(stunTime);
         anglerLight.SetActive(true);
         stunned = false;
+    }
+
+    //Repurposed from the unity docs https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html. Find closest waypoint
+    public int FindClosestWaypoint(){
+        int num = -1;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        for(int i = 0; i < patrolPoint.Count; i++){
+            Vector3 diff = patrolPoint[i].transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance){
+                num = i;
+                distance = curDistance;
+            }
+        }
+        return num;
     }
 }
