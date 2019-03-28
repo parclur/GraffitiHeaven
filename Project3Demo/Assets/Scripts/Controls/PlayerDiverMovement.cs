@@ -66,7 +66,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     //---------------------------------------Physics------------------------------------------
 
-    private Vector3 gravity = Physics.gravity / 250;
+    private Vector3 gravity = Physics.gravity / 130;
 
     private float distanceToGround;
 
