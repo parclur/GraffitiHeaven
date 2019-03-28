@@ -87,6 +87,7 @@ public class AnglerFish : MonoBehaviour {
             if(hit.transform.tag == "Diver"){
                 Debug.DrawRay(transform.position, dir);
                 playerDetected = true;
+                AudioManager.instance.PlayOneShot("SeaMonster1", 1f);       
                 return;
             }
         }

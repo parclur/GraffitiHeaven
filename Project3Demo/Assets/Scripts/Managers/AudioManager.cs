@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private GameObject mainAudio;
 
+    [SerializeField] private bool debuggingMode = false;
+
     private AudioSource main;
 
     private void Awake()
@@ -29,13 +31,16 @@ public class AudioManager : MonoBehaviour
         while (!read.EndOfStream)
         {
             string line = read.ReadLine();
-            int split = line.IndexOf(',');;
-            clips[line.Substring(0, split)] = Resources.Load<AudioClip>("Audio/" + line.Substring(split + 2));          
+            int split = line.IndexOf(','); ;
+            clips[line.Substring(0, split)] = Resources.Load<AudioClip>("Audio/" + line.Substring(split + 2));              
         }
 
-        foreach (KeyValuePair<string, AudioClip> pair in clips)
+        if (debuggingMode)
         {
-            Debug.Log(pair.Key + ", " + pair.Value.name);
+            foreach (KeyValuePair<string, AudioClip> pair in clips)
+            {
+                Debug.Log(pair.Key + ", " + pair.Value.name);
+            }
         }
     }
 

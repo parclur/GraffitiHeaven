@@ -33,9 +33,9 @@ public class FlareGun : MonoBehaviour
     {
         if (fireController.GetButtonDown("Shoot"))
         {
-            if (flareCount > 0)
+            if (canFire)
             {
-                if (canFire)
+                if (flareCount > 0)
                 {
                     FireFlare(); // Create Flare instance
 
@@ -43,10 +43,10 @@ public class FlareGun : MonoBehaviour
 
                     canFire = false; // Disable firing
                 }
-            }
-            else
-            {
-                //AudioManager.instance.PlayOneShot("EmptyFlareGunClick");
+                else
+                {
+                    AudioManager.instance.PlayOneShot("EmptyFlareGunClick");
+                }
             }
         }
    

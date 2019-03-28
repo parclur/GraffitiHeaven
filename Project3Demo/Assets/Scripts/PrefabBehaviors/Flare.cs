@@ -12,10 +12,7 @@ public class Flare : MonoBehaviour
     {
         flareAudio = AudioManager.instance.AddAudio("BurningFlare", 1f, 0.75f, true, gameObject);     
         gameObject.GetComponent<Rigidbody>().AddRelativeForce(gameObject.transform.forward * speed);
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
         Destroy(flareAudio, lifetime);
         Destroy(gameObject, lifetime);
     }

@@ -29,8 +29,11 @@ public class LampreyAI : MonoBehaviour {
     void Update(){
         //Only activate when the door is open
         if(door.doorOpen){
+
+            AudioManager.instance.PlayOneShot("Monster1e", 1f);
+
             //If you can see the player, move to the player
-            if(CanSeePlayer()){
+            if (CanSeePlayer()){
                 if(!isLunging){
                     StartCoroutine(JumpAtPlayer());
                 }
@@ -138,6 +141,7 @@ public class LampreyAI : MonoBehaviour {
     }
 
     IEnumerator JumpAtPlayer(){
+        AudioManager.instance.PlayOneShot("Monster2e", 1f);
         isLunging = true;
         float elapsedTime = 0.0f;
         while (elapsedTime < moveTime){
@@ -151,7 +155,7 @@ public class LampreyAI : MonoBehaviour {
         Vector3 dir = diver.transform.position - transform.position;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity)){
-            if(hit.transform.tag == "Diver"){
+            if(hit.transform.tag == "Diver"){              
                 return true;
             }
         }
