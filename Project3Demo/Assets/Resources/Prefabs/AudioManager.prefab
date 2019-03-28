@@ -43,40 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed93b7590240ea64a8169dd469637fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipNames:
-  - Flare
-  - BurningFlare
-  - CloseMetalHit
-  - DistantMetalHit
-  - ElectricMotor1
-  - ElectricMotor2
-  - Footsteps
-  - MetalCrash
-  - MetalDoorOpen
-  - MetalDoorClose
-  - Impact1
-  - Impact2
-  - Ambience1
-  - Ambience2
-  - Soundscape1
-  - SlowBreathing
-  - Monster1e
-  clips:
-  - {fileID: 8300000, guid: 45de7b5834c09da4381fe2629ce2636f, type: 3}
-  - {fileID: 8300000, guid: 498fa9ccbdb1cf64ab60cb6ef5d3e3d2, type: 3}
-  - {fileID: 8300000, guid: b0034f971e749d94c85acdae373d3504, type: 3}
-  - {fileID: 8300000, guid: e255ba5aeabda5f42b0099ee9be13c99, type: 3}
-  - {fileID: 8300000, guid: e6c48199e4c39004cb5b8b863efc4f4d, type: 3}
-  - {fileID: 8300000, guid: 539ca278fbf8e084eba80c8f5c20abaa, type: 3}
-  - {fileID: 8300000, guid: 4c8505fa7bc85e44da371adaedf9e807, type: 3}
-  - {fileID: 8300000, guid: e4bcfe70eb6f282449cc6fcc8fb27f5c, type: 3}
-  - {fileID: 8300000, guid: 10f3713a287815c46959a98a7132f54d, type: 3}
-  - {fileID: 8300000, guid: 01920d05f5e089444b2c004d43e33e39, type: 3}
-  - {fileID: 8300000, guid: 1ba290568f5090e4581369e06c243b05, type: 3}
-  - {fileID: 8300000, guid: 1f493967c8302b6468e811e04c1a0d49, type: 3}
-  - {fileID: 8300000, guid: 476b8556d145b764fa17741afbfa183a, type: 3}
-  - {fileID: 8300000, guid: 54d38f20eb1acf546afe8a769f0decd5, type: 3}
-  - {fileID: 8300000, guid: 43ca3f6466c62474fa00b157a5f66a29, type: 3}
-  - {fileID: 8300000, guid: a3b87d51ef5c54c44994ea6eb706bb1a, type: 3}
-  - {fileID: 8300000, guid: 5f5d8c9be1812114f8b54c18831021af, type: 3}
-  playFrom: {fileID: 0}
+  audioDataFile: audio_data.txt
+  path: Assets/Resources/Audio
+  mainAudio: {fileID: 0}

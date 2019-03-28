@@ -7,9 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     [HideInInspector] public static AudioManager instance;
 
-    [SerializeField] private string audioDataFile = "audio_data.txt";
-
-    [SerializeField] private string path = "Assets/Resources/Audio";
+    [SerializeField] private string data = "Assets/Resources/Audio/audio_data.txt";
 
     private Dictionary<string, AudioClip> clips;
 
@@ -23,17 +21,22 @@ public class AudioManager : MonoBehaviour
 
         clips = new Dictionary<string, AudioClip>();
 
-        StreamReader read = new StreamReader(path + audioDataFile);
+        StreamReader read = new StreamReader(data);
 
         // Read in audio queue data line by line in the format:
-        //  ClipName, clip_file_location.clip_type
+        //  ClipName, clip_file_location
 
         while (!read.EndOfStream)
         {
             string line = read.ReadLine();
-            int split = line.IndexOf(',');
-            clips[line.Substring(0, split)] = Resources.Load<AudioClip>(path + line.Substring(split));          
-        } 
+            int split = line.IndexOf(',');;
+            clips[line.Substring(0, split)] = Resources.Load<AudioClip>("Audio/" + line.Substring(split + 2));          
+        }
+
+        foreach (KeyValuePair<string, AudioClip> pair in clips)
+        {
+            Debug.Log(pair.Key + ", " + pair.Value.name);
+        }
     }
 
     private void Start()
