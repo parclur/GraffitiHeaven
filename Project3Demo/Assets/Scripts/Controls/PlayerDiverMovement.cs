@@ -182,11 +182,10 @@ public class PlayerDiverMovement : MonoBehaviour
         if(desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
             distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
-            cc.Move(desiredMoveDirection * acceleration + gravity); //WILL NOT MOVE BECAUSE ACCLERATION SHOULD BE 0
 
         }
 
-        if (distanceToRotate < rotationDistanceForForwardMovment) //If the player is able to move forward
+        if (distanceToRotate < rotationDistanceForForwardMovment && yAxis != 0 || xAxis != 0) //If the player is able to move forward
         {
             acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
 
@@ -199,11 +198,12 @@ public class PlayerDiverMovement : MonoBehaviour
                 acceleration = slowedSpeed; //Applies movment (slowed)
             }
 
-            cc.Move(desiredMoveDirection * acceleration + gravity);
         }
 
+        cc.Move(desiredMoveDirection * acceleration + gravity);
+
         //Debug.Log(acceleration);
-        HandleAnimations(desiredMoveDirection.x, distanceToRotate);
+        HandleAnimations(acceleration * 100, distanceToRotate);
     }
 
     float RotateTowardsPoint(Vector3 rotationTarget) //Will return the distance that is required to reach the inputed rotation
