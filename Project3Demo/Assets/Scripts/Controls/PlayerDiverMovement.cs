@@ -66,7 +66,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     //---------------------------------------Physics------------------------------------------
 
-    private Vector3 gravity = Physics.gravity / 250;
+    private Vector3 gravity = Physics.gravity / 130;
 
     private float distanceToGround;
 
@@ -146,23 +146,23 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             ThreeDirectionalMovment(xAxis, yAxis);
         }
-        else
-        {
-            RotatePlayer(xAxis);
-            HorizontalMovment(yAxis);
+        //else
+        //{
+        //    RotatePlayer(xAxis);
+        //    HorizontalMovment(yAxis);
 
-            //Handles animation variables
-            if (isGrounded)
-            {
-                anim.SetFloat("Forward", yAxis);
-                anim.SetFloat("Turn", xAxis);
-            }
-            else
-            {
-                anim.SetFloat("Forward", yAxis / 2);
-                anim.SetFloat("Turn", xAxis / 2);
-            }
-        }
+        //    //Handles animation variables
+        //    if (isGrounded)
+        //    {
+        //        anim.SetFloat("Forward", yAxis);
+        //        anim.SetFloat("Turn", xAxis);
+        //    }
+        //    else
+        //    {
+        //        anim.SetFloat("Forward", yAxis / 2);
+        //        anim.SetFloat("Turn", xAxis / 2);
+        //    }
+        //}
 
     }
 
@@ -170,7 +170,7 @@ public class PlayerDiverMovement : MonoBehaviour
     {
         Vector3 forward= cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-        float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
+        float acceleration = 0; 
         float distanceToRotate = 0f;
 
         forward.y = 0f;
@@ -182,19 +182,14 @@ public class PlayerDiverMovement : MonoBehaviour
         if(desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
             distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
-                                                                         //Handles animation variables
-            if (isGrounded)
-            {
-                anim.SetFloat("Turn", distanceToRotate/20);
-            }
-            else
-            {
-                anim.SetFloat("Turn", (distanceToRotate/20) / 2);
-            }
+            cc.Move(desiredMoveDirection * acceleration + gravity); //WILL NOT MOVE BECAUSE ACCLERATION SHOULD BE 0
+
         }
 
-        if(distanceToRotate < rotationDistanceForForwardMovment) //If the player is able to move forward
+        if (distanceToRotate < rotationDistanceForForwardMovment) //If the player is able to move forward
         {
+            acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
+
             if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
             {
                 acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
@@ -204,35 +199,11 @@ public class PlayerDiverMovement : MonoBehaviour
                 acceleration = slowedSpeed; //Applies movment (slowed)
             }
 
-            if(yAxis != 0)
-            {
-                //Handles animation variables
-                if (isGrounded)
-                {
-                    anim.SetFloat("Forward", yAxis);
-                }
-                else
-                {
-                    anim.SetFloat("Forward", yAxis / 2);
-                }
-            }
-            if(xAxis != 0)
-            {
-                //Handles animation variables
-                if (isGrounded)
-                {
-                    anim.SetFloat("Forward", xAxis);
-                }
-                else
-                {
-                    anim.SetFloat("Forward", xAxis / 2);
-                }
-            }
-
-
             cc.Move(desiredMoveDirection * acceleration + gravity);
         }
 
+        //Debug.Log(acceleration);
+        HandleAnimations(desiredMoveDirection.x, distanceToRotate);
     }
 
     float RotateTowardsPoint(Vector3 rotationTarget) //Will return the distance that is required to reach the inputed rotation
@@ -313,73 +284,98 @@ public class PlayerDiverMovement : MonoBehaviour
         keys.Add(toBeAdded);
     }
 
-    //-----------------------------------Legacy movment code, used for refrance and for layout 2 when we eventally allow controll swaping--------------------------
-
-    void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick
+    void HandleAnimations(float acceleration, float turnSpeed)
     {
-        Vector3 direction = playerTransform.localEulerAngles;
+        //Finds the absolute value of the imputed acceleration, NOTE: this will break backwards movment however there is currently none implemented
+        float accelerationABS = Mathf.Abs(acceleration); 
 
-        if (isGrounded) //If the player is grounded roate normally
+        //Handle rotational animations
+        if (isGrounded)
         {
-            if (isMovingHorizontal)
-            {
-                if (xAxis != 0)
-                {
-                    direction.y += xAxis * movingRotateSpeed;
-                }
-                direction.z = 0;
-                direction.x = 0;
-            }
-            else
-            {
-                if (xAxis != 0)
-                {
-                    direction.y += xAxis * rotateSpeed;
-                }
-                direction.z = 0;
-                direction.x = 0;
-            }
-
-        }
-        else //If the player is not grounded roate at a diffrent speed
-        {
-            if (xAxis != 0)
-            {
-                direction.y += xAxis * fallingRotateSpeed;
-            }
-            direction.z = 0;
-            direction.x = 0;
-        }
-
-        playerTransform.localEulerAngles = direction;
-    }
-
-    void HorizontalMovment(float yAxis) //Will add force based on the y axis of the stick
-    {
-        float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
-        Vector3 forward = playerTransform.forward * yAxis;
-
-        if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
-        {
-            acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
-        }
-        else if (isSlowed) //Checks to see if the player is slowed, then applies new accleration
-        {
-            acceleration = slowedSpeed; //Applies movment (slowed)
-        }
-
-        cc.Move(forward * acceleration + gravity);
-
-
-        if (forward.x != 0.0 && forward.z != 0) //If player is moving in either z or x direction
-        {
-            isMovingHorizontal = true;
+            anim.SetFloat("Turn", turnSpeed / 20);
         }
         else
         {
-            isMovingHorizontal = false;
+            anim.SetFloat("Turn", (turnSpeed / 20) / 2);
+        }
+
+        //Find current speed of player
+        if (isGrounded)
+        {
+            anim.SetFloat("Forward", accelerationABS);
+        }
+        else
+        {
+            anim.SetFloat("Forward", accelerationABS / 2);
         }
     }
+    //-----------------------------------Legacy movment code, used for refrance and for layout 2 when we eventally allow controll swaping--------------------------
+
+    //void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick
+    //{
+    //    Vector3 direction = playerTransform.localEulerAngles;
+
+    //    if (isGrounded) //If the player is grounded roate normally
+    //    {
+    //        if (isMovingHorizontal)
+    //        {
+    //            if (xAxis != 0)
+    //            {
+    //                direction.y += xAxis * movingRotateSpeed;
+    //            }
+    //            direction.z = 0;
+    //            direction.x = 0;
+    //        }
+    //        else
+    //        {
+    //            if (xAxis != 0)
+    //            {
+    //                direction.y += xAxis * rotateSpeed;
+    //            }
+    //            direction.z = 0;
+    //            direction.x = 0;
+    //        }
+
+    //    }
+    //    else //If the player is not grounded roate at a diffrent speed
+    //    {
+    //        if (xAxis != 0)
+    //        {
+    //            direction.y += xAxis * fallingRotateSpeed;
+    //        }
+    //        direction.z = 0;
+    //        direction.x = 0;
+    //    }
+
+    //    playerTransform.localEulerAngles = direction;
+    //}
+
+    //void HorizontalMovment(float yAxis) //Will add force based on the y axis of the stick
+    //{
+    //    float acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
+    //    Vector3 forward = playerTransform.forward * yAxis;
+
+    //    if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
+    //    {
+    //        acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
+    //    }
+    //    else if (isSlowed) //Checks to see if the player is slowed, then applies new accleration
+    //    {
+    //        acceleration = slowedSpeed; //Applies movment (slowed)
+    //    }
+
+    //    cc.Move(forward * acceleration + gravity);
+
+
+    //    if (forward.x != 0.0 && forward.z != 0) //If player is moving in either z or x direction
+    //    {
+    //        isMovingHorizontal = true;
+    //    }
+    //    else
+    //    {
+    //        isMovingHorizontal = false;
+    //    }
+    //}
 
 
     //void HandleControllerMapSwaping() //NOTE: Used for swaping controller map, can be cut later if feature not need after QA

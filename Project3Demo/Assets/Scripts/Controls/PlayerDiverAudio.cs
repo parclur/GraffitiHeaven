@@ -14,10 +14,10 @@ public class PlayerDiverAudio : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.AddAudio("Ambience1", 1f, 0f, true);
-        AudioManager.instance.AddAudio("SlowBreathing", 0.05f, 0f, true);
+        AudioManager.instance.AddAudio("Ambience2", 1f, 0f, true);
+        AudioManager.instance.AddAudio("SlowBreathing1", 0.05f, 0f, true);
 
-        robotAudio = AudioManager.instance.AddAudio("ElectricMotor2", 0.25f, 0f, true);
+        robotAudio = AudioManager.instance.AddAudio("Motor2", 0.25f, 0f, true);
         footstepAudio = AudioManager.instance.AddAudio("Footsteps", 1f, 0f, true);
         cc = gameObject.GetComponent<CharacterController>();
         rb = gameObject.GetComponent<Rigidbody>();

@@ -13,7 +13,7 @@ public class FlareAmmoBox : MonoBehaviour
 
     private void Start()
     {
-        playerFlareGun = GameObject.Find("FlareGun").GetComponent<FlareGun>();
+        playerFlareGun = GameObject.Find("FlareGunSpawn").GetComponent<FlareGun>();
         rewiredPlayer = ReInput.players.GetPlayer("Diver");
     }
 
@@ -40,7 +40,7 @@ public class FlareAmmoBox : MonoBehaviour
             playerFlareGun.AddFlares(flareCount);
             Destroy(gameObject, 0.1f);
 
-            //AudioManager.instance.PlayOneShot("FlareAmmoBoxPickup");
+            AudioManager.instance.PlayOneShot("FlareAmmoBoxPickup");
         }
     }
 }

@@ -33,9 +33,9 @@ public class FlareGun : MonoBehaviour
     {
         if (fireController.GetButtonDown("Shoot"))
         {
-            if (flareCount > 0)
+            if (canFire)
             {
-                if (canFire)
+                if (flareCount > 0)
                 {
                     FireFlare(); // Create Flare instance
 
@@ -43,10 +43,10 @@ public class FlareGun : MonoBehaviour
 
                     canFire = false; // Disable firing
                 }
-            }
-            else
-            {
-                //AudioManager.instance.PlayOneShot("EmptyFlareGunClick");
+                else
+                {
+                    AudioManager.instance.PlayOneShot("EmptyFlareGunClick");
+                }
             }
         }
    
@@ -68,8 +68,9 @@ public class FlareGun : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
-        GameObject flare = Instantiate(flarePrefab, gameObject.transform.position - gameObject.transform.right, flarePrefab.transform.rotation);
-        flare.transform.LookAt(hit.transform);
+        GameObject flare = Instantiate(flarePrefab, gameObject.transform.position, gameObject.transform.rotation);
+        flare.transform.Rotate(Vector3.up * 90f);
+        //flare.transform.LookAt(hit.transform);
         flare.GetComponent<Flare>().Ignite();
         flareCount--;
     }

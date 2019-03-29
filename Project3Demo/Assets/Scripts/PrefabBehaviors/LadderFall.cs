@@ -8,8 +8,7 @@ public class LadderFall : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody>().useGravity = true;
 
-            // needs better sound
-            //AudioManager.instance.PlayOneShot("MetalCrash", 1f, 0.5f);
+            AudioManager.instance.PlayOneShot("MetalHit2", 1f, 0.5f);
         }
     }
 }
