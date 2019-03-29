@@ -704,6 +704,7 @@
     <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
     <Compile Include="Assets\Scripts\Controls\CharacterControllerCollisions.cs" />
     <Compile Include="Assets\Scripts\Controls\HitDoorWithLight.cs" />
+    <Compile Include="Assets\Scripts\Controls\NextSceneOnKey.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerDiverAudio.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerDiverMovement.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerROVMovement.cs" />

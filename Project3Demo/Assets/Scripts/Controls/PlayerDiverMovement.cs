@@ -292,11 +292,11 @@ public class PlayerDiverMovement : MonoBehaviour
         //Handle rotational animations
         if (isGrounded)
         {
-            anim.SetFloat("Turn", turnSpeed / 20);
+            anim.SetFloat("Turn", turnSpeed);
         }
         else
         {
-            anim.SetFloat("Turn", (turnSpeed / 20) / 2);
+            anim.SetFloat("Turn", turnSpeed / 2);
         }
 
         //Find current speed of player
