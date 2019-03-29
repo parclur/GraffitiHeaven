@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5887603243374721663}
   - component: {fileID: 6628402017245521758}
   m_Layer: 0
-  m_Name: PostProssesingEffectManager
+  m_Name: PostProcessingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticEffectGrain: 100
-  vignettIntesityEndValue: 100
-  vignettSmoothnessEndValue: 100
-  vignettIntesityIncreaseSpeed: 0.01
-  vignettSmoothnessIncreaseSpeed: 0.01
+  staticEffectColor: {fileID: 0}
+  vignetteIntesityEndValue: 0
+  vignetteSmoothnessEndValue: 0
+  vignetteIntesityTotalTime: 0
+  vignetteSmoothnessTotalTime: 0

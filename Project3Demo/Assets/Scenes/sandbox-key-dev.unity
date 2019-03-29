@@ -38529,6 +38529,43 @@ PrefabInstance:
       propertyPath: vignetteSmoothnessTotalTime
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: staticEffectColor.value.r
+      value: 0.7490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: staticEffectColor.value.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: staticEffectColor.value.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: staticEffectColor.value.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: staticEffectColor.overrideState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: profile
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d278be1221f1384cb2c3a18a6da77e4,
+        type: 2}
+    - target: {fileID: 6628402017245521758, guid: 2155cc19050a3d04cab2fadeac7d89c5,
+        type: 3}
+      propertyPath: redProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 334f7133b5a52c64c8a7768769cfd9b4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2155cc19050a3d04cab2fadeac7d89c5, type: 3}
 --- !u!1 &1418641740
