@@ -87729,7 +87729,7 @@ PrefabInstance:
     - target: {fileID: 8123870964431036364, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
         type: 3}
       propertyPath: m_StepOffset
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1947622509757337547, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
         type: 3}
