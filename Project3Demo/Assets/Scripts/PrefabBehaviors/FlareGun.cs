@@ -68,9 +68,12 @@ public class FlareGun : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
+        Debug.Log(hit.transform);
         GameObject flare = Instantiate(flarePrefab, gameObject.transform.position, gameObject.transform.rotation);
-        flare.transform.Rotate(Vector3.up * 90f);
-        //flare.transform.LookAt(hit.transform);
+        
+        flare.transform.LookAt(hit.point);
+
+        //flare.transform.Rotate(Vector3.up * 90f);
         flare.GetComponent<Flare>().Ignite();
         flareCount--;
     }
