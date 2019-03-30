@@ -7,6 +7,10 @@ public class FlareGun : MonoBehaviour
 
     [SerializeField] private int flareCount;
 
+    [SerializeField] private GameObject aimArea;
+
+    private BoxCollider aimAreaCollider;
+
     private GameObject flarePrefab;
 
     private Camera aimCamera;
@@ -19,6 +23,8 @@ public class FlareGun : MonoBehaviour
 
     private void Start()
     {
+        aimAreaCollider = aimArea.GetComponent<BoxCollider>();
+
         // Go get the flare 
         flarePrefab = Resources.Load<GameObject>("Prefabs/Flare");
 
@@ -68,10 +74,15 @@ public class FlareGun : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
-        Debug.Log(hit.transform);
         GameObject flare = Instantiate(flarePrefab, gameObject.transform.position, gameObject.transform.rotation);
         
-        flare.transform.LookAt(hit.point);
+        if(aimAreaCollider.bounds.Contains(hit.point)) //Checks the collider to see if the point is within bounds
+        {
+            Debug.Log(hit.point);
+
+            flare.transform.LookAt(hit.point);
+
+        }
 
         //flare.transform.Rotate(Vector3.up * 90f);
         flare.GetComponent<Flare>().Ignite();

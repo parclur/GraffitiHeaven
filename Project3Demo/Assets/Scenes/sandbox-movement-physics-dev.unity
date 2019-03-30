@@ -16751,7 +16751,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22646
+  m_Name: pb_Mesh67956
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -20385,6 +20385,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2155cc19050a3d04cab2fadeac7d89c5, type: 3}
+--- !u!1 &1195512095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1947622509757337547, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1433598438}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1202144623
 Mesh:
   m_ObjectHideFlags: 0
@@ -22443,6 +22449,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8649846618138567020, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6,
+        type: 3}
+      propertyPath: aimArea
+      value: 
+      objectReference: {fileID: 1195512095}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e2f2ea8a3b55f44abf5c1b277371dc6, type: 3}
 --- !u!43 &1439534091
@@ -22675,6 +22686,11 @@ PrefabInstance:
     - target: {fileID: 627786594265799961, guid: efc7d4619faa0eb40a1693bfe5e0b9f0,
         type: 3}
       propertyPath: playFrom
+      value: 
+      objectReference: {fileID: 1687970673}
+    - target: {fileID: 627786594265799961, guid: efc7d4619faa0eb40a1693bfe5e0b9f0,
+        type: 3}
+      propertyPath: mainAudio
       value: 
       objectReference: {fileID: 1687970673}
     m_RemovedComponents: []
