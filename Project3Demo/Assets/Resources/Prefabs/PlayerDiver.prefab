@@ -1277,6 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 4
   flareCount: 5
+  aimArea: {fileID: 1947622509757337547}
 --- !u!1 &8123870964431036353
 GameObject:
   m_ObjectHideFlags: 0
