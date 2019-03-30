@@ -56,8 +56,8 @@ public class Flare : MonoBehaviour
 
     private void EnableGravity() //Enables gravity
     {
-        gravityEnabled = true; //Avoids redunent checks
-        rb.useGravity = true;
-        rb.drag = dragAfterGravity;
+        //gravityEnabled = true; //Avoids redunent checks
+        //rb.useGravity = true;
+        //rb.drag = dragAfterGravity;
     }
 }
