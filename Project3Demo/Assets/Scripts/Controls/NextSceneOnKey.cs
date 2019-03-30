@@ -10,7 +10,7 @@ public class NextSceneOnKey : MonoBehaviour {
     [SerializeField] string nextScene;
 
     void Start(){
-        ReInput.players.GetPlayer("Diver");
+        player = ReInput.players.GetPlayer("Diver");
     }
 
     void Update(){
