@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1384f7804c0f39d4aac26cdf4f7c2a61
+guid: fed80f593671e5c41a89e2bfae15b80a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -64,7 +64,7 @@ ModelImporter:
     3300000: default
     4300000: default
     4300002: pSphere6
-    7400000: mixamo.com
+    7400000: Catwalk Walk Forward 01
     9500000: //RootNode
     13700000: pSphere6
     2186277476908879412: ImportLogs
@@ -79,7 +79,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: default
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -87,15 +87,43 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
-    animationCompression: 1
+    importConstraints: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Catwalk Walk Forward 01
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 73
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -131,7 +159,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 2
     human: []
@@ -147,7 +175,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1384f7804c0f39d4aac26cdf4f7c2a61,
+    type: 3}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
