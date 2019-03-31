@@ -121,8 +121,13 @@ public class AnglerFish : MonoBehaviour {
         float elapsedTime = 0.0f;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity)){
-            if(Vector3.Distance(hit.transform.position, transform.position) <= fallbackAmount - 1){
-                newFallback = Vector3.Distance(hit.transform.position, transform.position) - 1;
+            float dist = Vector3.Distance(hit.transform.position, transform.position);
+            if(Vector3.Distance(hit.transform.position, transform.position) - 2 <= fallbackAmount){
+                Debug.Log("Collided with" + hit.transform.name + " at distance" + dist); 
+                newFallback = dist - 2;
+                if(newFallback <= 0){
+                    newFallback = .2f;
+                }
             }
         }
         while(elapsedTime < windTime){
