@@ -16,6 +16,7 @@ TagManager:
   - Angler
   - LoadZone
   - PatrolPoint
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Waypoint
   - Flare
   - AnglerFish
-  - 
+  - BlockFlare
   - 
   - 
   - 
