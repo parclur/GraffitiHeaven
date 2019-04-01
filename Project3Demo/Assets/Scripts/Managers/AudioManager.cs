@@ -1,22 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class AudioManager : MonoBehaviour
 {
     [HideInInspector] public static AudioManager instance;
 
-    [Header("Audio Data")]
+    [SerializeField] private string data = "Assets/Resources/Audio/audio_data.txt";
 
-    [SerializeField] private string[] clipNames;
+    private Dictionary<string, AudioClip> clips;
 
-    [SerializeField] private AudioClip[] clips;
+    [SerializeField] private GameObject mainAudio;
 
-    private Dictionary<string, AudioClip> _clips;
-
-    [Header("Player Audio Location")]
-
-    [SerializeField] private GameObject playFrom;
+    [SerializeField] private bool debuggingMode = false;
 
     private AudioSource main;
 
@@ -24,24 +21,32 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
 
-        _clips = new Dictionary<string, AudioClip>();
+        clips = new Dictionary<string, AudioClip>();
 
-        int queueCount = clipNames.Length;
+        StreamReader read = new StreamReader(data);
 
-        if (clipNames.Length != clips.Length)
+        // Read in audio queue data line by line in the format:
+        //  ClipName, clip_file_location
+
+        while (!read.EndOfStream)
         {
-            queueCount = Mathf.Min(clips.Length, clipNames.Length);
+            string line = read.ReadLine();
+            int split = line.IndexOf(','); ;
+            clips[line.Substring(0, split)] = Resources.Load<AudioClip>("Audio/" + line.Substring(split + 2));              
         }
 
-        for (int count = 0; count < queueCount; count++)
+        if (debuggingMode)
         {
-            _clips.Add(clipNames[count], clips[count]);
+            foreach (KeyValuePair<string, AudioClip> pair in clips)
+            {
+                Debug.Log(pair.Key + ", " + pair.Value.name);
+            }
         }
     }
 
     private void Start()
     {
-        main = playFrom.AddComponent<AudioSource>();
+        main = mainAudio.AddComponent<AudioSource>();
     }
 
     public AudioSource AddAudio(string name, float volume = 0.5f, float delay = 0f, bool loop = false, GameObject attachedTo = null)
@@ -54,12 +59,12 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-           play = playFrom.AddComponent<AudioSource>();
+           play = mainAudio.AddComponent<AudioSource>();
         }
        
         play.playOnAwake = false;
 
-        play.clip = _clips[name];
+        play.clip = clips[name];
         play.volume = volume;
         play.loop = loop;
 
@@ -73,12 +78,12 @@ public class AudioManager : MonoBehaviour
         if (delay != 0.0)
             StartCoroutine(PlayOneShotDelayed(name, volume, delay));
         else
-            main.PlayOneShot(_clips[name], volume);
+            main.PlayOneShot(clips[name], volume);
     }
 
     private IEnumerator PlayOneShotDelayed(string name, float volume, float delay)
     {
         yield return new WaitForSeconds(delay);
-        main.PlayOneShot(_clips[name], volume);
+        main.PlayOneShot(clips[name], volume);
     }
 }

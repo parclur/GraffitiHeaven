@@ -19,7 +19,7 @@ public class PushBox : MonoBehaviour
         {
             boxBody.velocity = new Vector3(axis.x, 0f, axis.y) * pushSpeed;
 
-            AudioManager.instance.PlayOneShot("CloseMetalHit", 1f);
+            AudioManager.instance.PlayOneShot("MetalHit1", 1f);
         }
     }
 

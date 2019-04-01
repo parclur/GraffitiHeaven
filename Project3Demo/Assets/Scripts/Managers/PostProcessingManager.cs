@@ -9,7 +9,11 @@ public class PostProcessingManager : MonoBehaviour
     [Header("Static Effect Variables")]
     [SerializeField] private float staticEffectGrain; //The value that the grain will be set to when the player is hit
 
+    [SerializeField] private PostProcessProfile redProfile;
+
     Grain grainVolume;
+
+    PostProcessProfile defaultProfile;
 
     float grainIntesityDefaultValue; //The amount of grain that is set by default
 
@@ -45,22 +49,25 @@ public class PostProcessingManager : MonoBehaviour
         volume = Camera.main.GetComponent<PostProcessVolume>(); //Gets the post processing volume from the camera
         volume.profile.TryGetSettings(out grainVolume); //Gets the settings for grain volume
         volume.profile.TryGetSettings(out vingetteVolume);
-
         grainIntesityDefaultValue = grainVolume.intensity.value;
         vingetteIntestityDefaultValue = vingetteVolume.intensity.value;
         vingetteSmoothnessDefaultValue = vingetteVolume.smoothness.value;
+
+        defaultProfile = volume.profile;
 
         //StartFadeToBlack();
     }
 
     public void EnableStaticEffect() //Will enable the static effect
     {
-        grainVolume.intensity.value = staticEffectGrain;
+        //grainVolume.intensity.value = staticEffectGrain;
+        volume.profile = redProfile;
     }
 
     public void DisableStaticEffect() //Will disable the static effect
     {
-        grainVolume.intensity.value = grainIntesityDefaultValue;
+        //grainVolume.intensity.value = grainIntesityDefaultValue;
+        volume.profile = defaultProfile;
     }
 
     public void StartFadeToBlack() //Starts the fade to black effect
