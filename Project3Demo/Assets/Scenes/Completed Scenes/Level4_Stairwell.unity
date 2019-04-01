@@ -4667,7 +4667,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19242
+  m_Name: pb_Mesh20818
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -15144,7 +15144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -30846,7 +30846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -37392,7 +37392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -47790,7 +47790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -49656,7 +49656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: -90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -49856,7 +49856,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18830
+  m_Name: pb_Mesh20322
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -51202,7 +51202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -54965,7 +54965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: -90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -60091,7 +60091,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18678
+  m_Name: pb_Mesh20062
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -61358,7 +61358,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16504
+  m_Name: pb_Mesh17220
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -65695,7 +65695,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16660
+  m_Name: pb_Mesh17408
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -68536,7 +68536,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16726
+  m_Name: pb_Mesh17516
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -70910,7 +70910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -74014,7 +74014,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14638
+  m_Name: pb_Mesh14802
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -76724,7 +76724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openPos: {x: 0, y: 0, z: 0}
   openRot: {x: 0, y: 90, z: 0}
-  moveTime: 10
+  moveTime: 4
   closedMoveTime: 1
   flareStunTime: 2
   keyDistance: 3
@@ -82912,7 +82912,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14472
+  m_Name: pb_Mesh14640
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -85062,7 +85062,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14744
+  m_Name: pb_Mesh14936
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -85746,7 +85746,22 @@ PrefabInstance:
     - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
         type: 3}
       propertyPath: nextScene
-      value: Win-Scene
+      value: TitleScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: levelName
+      value: Level4_Stairwell
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: additive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: scenes.Array.data[0]
+      value: Level4_Stairwell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fb56c07bccd664ebb728cde1c147c0, type: 3}
