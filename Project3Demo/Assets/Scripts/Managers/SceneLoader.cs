@@ -12,9 +12,21 @@ public class SceneLoader : MonoBehaviour {
 
     [SerializeField] private string nextScene;
 
+    [SerializeField] private bool additive;
+
+    [SerializeField] private string[] scenes;
+
     void Awake()
     {
         instance = this;
+    }
+
+    void Start(){
+        if(additive){
+            for(int i = 0; i < scenes.Length; i++){
+                SceneManager.LoadScene(scenes[i], LoadSceneMode.Additive);
+            }
+        }
     }
 
     public void LoseGame()

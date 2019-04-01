@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d67909aaf026f347b68ed9ceff50f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: QA-Scene
-  winName: Win-Scene
-  loseName: Lose-Scene
+  levelName: sandbox-key-dev
+  winName: TitleScreen
+  loseName: Lose
+  nextScene: master-level-dev
+  additive: 1
+  scenes:
+  - master-level-dev
