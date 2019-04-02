@@ -18,6 +18,8 @@ public class AnglerFish : MonoBehaviour {
     [SerializeField] float chaseTime;
 
     [SerializeField] float fallbackAmount;
+
+    [SerializeField] float distanceFromWall;
     
     //These are different from lampreywaypoints in which they are not tagged
     [SerializeField] List<GameObject> patrolPoint;
@@ -122,9 +124,8 @@ public class AnglerFish : MonoBehaviour {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity)){
             float dist = Vector3.Distance(hit.transform.position, transform.position);
-            if(Vector3.Distance(hit.transform.position, transform.position) - 2 <= fallbackAmount){
-                Debug.Log("Collided with" + hit.transform.name + " at distance" + dist); 
-                newFallback = dist - 2;
+            if(Vector3.Distance(hit.transform.position, transform.position) - distanceFromWall <= fallbackAmount){
+                newFallback = dist - distanceFromWall;
                 if(newFallback <= 0){
                     newFallback = .2f;
                 }

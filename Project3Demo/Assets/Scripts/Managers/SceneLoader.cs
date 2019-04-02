@@ -19,9 +19,6 @@ public class SceneLoader : MonoBehaviour {
     void Awake()
     {
         instance = this;
-    }
-
-    void Start(){
         if(additive){
             for(int i = 0; i < scenes.Length; i++){
                 SceneManager.LoadScene(scenes[i], LoadSceneMode.Additive);
