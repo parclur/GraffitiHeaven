@@ -78,14 +78,10 @@ public class FlareGun : MonoBehaviour
         
         if(aimAreaCollider.bounds.Contains(hit.point)) //Checks the collider to see if the point is within bounds
         {
-            Debug.Log(hit.point);
-
-            flare.transform.LookAt(hit.point);
-
+            flare.transform.LookAt(hit.point); //If it is, rotate towards the point that was hit by the raycast
         }
 
-        //flare.transform.Rotate(Vector3.up * 90f);
-        flare.GetComponent<Flare>().Ignite();
+        flare.GetComponent<Flare>().Ignite(); //Activates things within the flare script
         flareCount--;
     }
 

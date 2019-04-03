@@ -128,7 +128,7 @@ Rigidbody:
   m_GameObject: {fileID: 7825669349883872258}
   serializedVersion: 2
   m_Mass: 0.25
-  m_Drag: 0
+  m_Drag: 0.2
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -162,6 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  lifetime: 4
-  gravitySpeedThreshold: {x: 1, y: 1, z: 1}
+  gravitySpeedThreshold: 2
   dragAfterGravity: 9
+  delayBeforeGravityEnabled: 1.5
