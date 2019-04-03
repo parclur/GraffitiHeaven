@@ -108,8 +108,12 @@ public class PlayerDiverMovement : MonoBehaviour
         cameraMain = Camera.main;
         cameraTransform = cameraMain.transform;
 
-        //rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverA");
-        //currentControllerMap = ControllerMaps.LayoutA;
+        //Sets the player to layout C
+        rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverC");//Ensures new layout is loaded
+        rewiredPlayer.controllers.maps.SetAllMapsEnabled(false);//Disables all previous layouts
+        rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverC");//Enable new layout
+        rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Default", "DiverLayoutKey");//Enable keyboard controlls
+        currentControllerMap = ControllerMaps.LayoutC;
     }
 
     private void Update()
