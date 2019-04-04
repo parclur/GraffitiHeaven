@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired.UI.ControlMapper;
 
 public class ToControls : MenuItemCall {
 
@@ -8,14 +9,13 @@ public class ToControls : MenuItemCall {
     
     public override void ClickCall(){
         pauseUI = true;
-        controlMapper.SetActive(true);
+        controlMapper.GetComponent<ControlMapper>().Open();
     }
 
     public override void OnHighlight(float x){}
 
     public void StopPausing(){
         pauseUI = false;
-        controlMapper.SetActive(false);
     }
 
 }
