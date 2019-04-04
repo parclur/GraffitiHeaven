@@ -14,4 +14,6 @@ public class StartMenu : MenuItemCall {
     public override void ClickCall(){
          SceneManager.LoadScene(nextScene);
     }
+
+    public override void OnHighlight(float x){}
 }

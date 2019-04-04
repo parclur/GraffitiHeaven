@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MenuItemCall : MonoBehaviour {
     
-    public bool nextMenu;
+    [HideInInspector] public bool nextMenu;
+    [HideInInspector] public bool pauseUI;
 
     public virtual void ClickCall(){}
 
-    public virtual void OnHighlight(){}
+    public virtual void OnHighlight(float x){}
 
 }

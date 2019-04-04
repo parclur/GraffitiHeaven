@@ -21079,6 +21079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
         type: 3}
+      propertyPath: scenes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
       propertyPath: loseName
       value: Lose
       objectReference: {fileID: 0}
@@ -21086,6 +21091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: levelName
       value: master-level-dev
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: additive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fb56c07bccd664ebb728cde1c147c0, type: 3}

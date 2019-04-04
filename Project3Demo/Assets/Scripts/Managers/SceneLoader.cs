@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour { 
+
     [HideInInspector] public static SceneLoader instance;
 
     [SerializeField] private string levelName;
