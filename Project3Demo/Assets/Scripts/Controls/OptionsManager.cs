@@ -33,5 +33,9 @@ public class OptionsManager : MonoBehaviour {
         if(brightnessLevel > 100){
             brightnessLevel = 100;
         }
+
+        if(PostProcessingManager.instance){
+            PostProcessingManager.instance.AdjustSetting(postProcessingLevel / 100);  
+        }
     }
 }

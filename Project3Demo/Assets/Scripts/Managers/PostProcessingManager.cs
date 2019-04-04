@@ -76,7 +76,11 @@ public class PostProcessingManager : MonoBehaviour
         StartCoroutine(FadeToBlackSmoothness());
     }
 
+    //Normalized from 0 to 1
+    public void AdjustSetting(float newVal)
+    {
 
+    }
 
     private IEnumerator FadeToBlackIntensity() //Fades the intesity
     {
