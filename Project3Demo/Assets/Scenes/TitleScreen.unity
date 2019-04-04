@@ -6611,7 +6611,7 @@ MonoBehaviour:
   pauseUI: 0
   text: {fileID: 0}
   vName: Ambient Occlusion
-  sName: 5
+  sName: 4
 --- !u!114 &2141653021
 MonoBehaviour:
   m_ObjectHideFlags: 0
