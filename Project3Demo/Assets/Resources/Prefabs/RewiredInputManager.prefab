@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b3e3c96df0ef42aef16b63b27b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 0
+  _dontDestroyOnLoad: 1
   _userData:
     configVars:
       updateLoop: 1
@@ -494,7 +494,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 11
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 11
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 7
+        _actionId: 11
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -1274,7 +1274,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 7
+        _actionId: 11
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -1534,7 +1534,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 7
+        _actionId: 11
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 3
-    actionIdCounter: 12
+    actionIdCounter: 13
     actionCategoryIdCounter: 4
     inputBehaviorIdCounter: 2
     mapCategoryIdCounter: 1
