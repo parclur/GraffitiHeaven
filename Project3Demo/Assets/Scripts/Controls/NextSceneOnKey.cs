@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class NextSceneOnKey : MonoBehaviour {
 
-    Player player;
+    Player diver;
+    Player drone;
     [SerializeField] string nextScene;
 
     void Start(){
-        player = ReInput.players.GetPlayer("Diver");
+        diver = ReInput.players.GetPlayer("Diver");
+        drone = ReInput.players.GetPlayer("Drone");
     }
 
     void Update(){
-        if(player.GetButton("Interact")){
+        if(diver.GetButton("Interact") || drone.GetButton("Interact")){
             SceneManager.LoadScene(nextScene);
         }
     }

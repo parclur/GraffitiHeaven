@@ -11,11 +11,7 @@ public class PostProcessingManager : MonoBehaviour
 
     [SerializeField] private PostProcessProfile redProfile;
 
-    Grain grainVolume;
-
     PostProcessProfile defaultProfile;
-
-    float grainIntesityDefaultValue; //The amount of grain that is set by default
 
     [Header("Fade To Black Effect Variables")]
 
@@ -27,15 +23,22 @@ public class PostProcessingManager : MonoBehaviour
 
     [SerializeField] private float vignetteSmoothnessTotalTime;
 
-    Vignette vingetteVolume;
-
-    PostProcessVolume volume;
-
-    float vingetteIntestityDefaultValue;
-
-    float vingetteSmoothnessDefaultValue;
 
     bool fadingToBlack = true;
+
+    //Volumes
+    PostProcessVolume volume;
+    Vignette vingetteVolume;
+    Grain grainVolume;
+    ColorGrading colorGradingVolume;
+    AmbientOcclusion ambientOcclusionVolume;
+
+    //Settings variables
+    float grainBaseIntesity;
+    float vingetteBaseIntestiy;
+    float vingetteBaseSmoothness;
+    float ambientOcclusionBaseIntesity;
+    
 
     private void Awake() 
     {
@@ -45,17 +48,25 @@ public class PostProcessingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Gets the volume from the main camera
         volume = Camera.main.GetComponent<PostProcessVolume>(); //Gets the post processing volume from the camera
-        volume.profile.TryGetSettings(out grainVolume); //Gets the settings for grain volume
+
+        //Get post prossesing effect volumes
+        volume.profile.TryGetSettings(out grainVolume);
         volume.profile.TryGetSettings(out vingetteVolume);
-        grainIntesityDefaultValue = grainVolume.intensity.value;
-        vingetteIntestityDefaultValue = vingetteVolume.intensity.value;
-        vingetteSmoothnessDefaultValue = vingetteVolume.smoothness.value;
+        volume.profile.TryGetSettings(out colorGradingVolume);
+        volume.profile.TryGetSettings(out ambientOcclusionVolume);
 
+        //Gets the intensity values
+        grainBaseIntesity = grainVolume.intensity.value;
+        vingetteBaseIntestiy = vingetteVolume.intensity.value;
+        ambientOcclusionBaseIntesity = ambientOcclusionVolume.intensity.value;
+
+        //Gets other values
+        vingetteBaseSmoothness = vingetteVolume.smoothness.value;
+
+        //gets the default profile
         defaultProfile = volume.profile;
-
-        //StartFadeToBlack();
     }
 
     public void EnableStaticEffect() //Will enable the static effect
@@ -76,7 +87,21 @@ public class PostProcessingManager : MonoBehaviour
         StartCoroutine(FadeToBlackSmoothness());
     }
 
+    //Normalized from 0 to 1
+    public void AdjustSetting(float grainNew, float vingnetteNew, float ambientOcclusionNew, float brightnessNew)
+    {
+        //Sets the base to the values set by the player
+        grainBaseIntesity = grainNew;
+        vingetteBaseIntestiy = vingnetteNew;
+        ambientOcclusionBaseIntesity = ambientOcclusionNew;
 
+        //Applies to the volume
+        grainVolume.intensity.value = grainBaseIntesity;
+        vingetteVolume.intensity.value = vingetteBaseIntestiy;
+        ambientOcclusionVolume.intensity.value = ambientOcclusionBaseIntesity;
+
+        colorGradingVolume.colorFilter.value *= brightnessNew;
+    }
 
     private IEnumerator FadeToBlackIntensity() //Fades the intesity
     {
@@ -84,7 +109,7 @@ public class PostProcessingManager : MonoBehaviour
 
         while(time < vignetteIntesityTotalTime)
         {
-            vingetteVolume.intensity.value  = Mathf.Lerp(vingetteIntestityDefaultValue, vignetteIntesityEndValue, (time / vignetteIntesityTotalTime));
+            vingetteVolume.intensity.value  = Mathf.Lerp(vingetteBaseIntestiy, vignetteIntesityEndValue, (time / vignetteIntesityTotalTime));
             time+= Time.deltaTime;
             yield return null;
         }
@@ -96,7 +121,7 @@ public class PostProcessingManager : MonoBehaviour
 
         while(time < vignetteSmoothnessTotalTime)
         {
-            vingetteVolume.smoothness.value  = Mathf.Lerp(vingetteSmoothnessDefaultValue, vignetteSmoothnessEndValue, (time / vignetteSmoothnessTotalTime));
+            vingetteVolume.smoothness.value  = Mathf.Lerp(vingetteBaseSmoothness, vignetteSmoothnessEndValue, (time / vignetteSmoothnessTotalTime));
             time+= Time.deltaTime;
             yield return null;
         }
