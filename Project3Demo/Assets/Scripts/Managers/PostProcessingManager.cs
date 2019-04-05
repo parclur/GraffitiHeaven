@@ -88,7 +88,7 @@ public class PostProcessingManager : MonoBehaviour
     }
 
     //Normalized from 0 to 1
-    public void AdjustSetting(float grainNew, float vingnetteNew, float ambientOcclusionNew)
+    public void AdjustSetting(float grainNew, float vingnetteNew, float ambientOcclusionNew, float brightnessNew)
     {
         //Sets the base to the values set by the player
         grainBaseIntesity = grainNew;
@@ -100,6 +100,7 @@ public class PostProcessingManager : MonoBehaviour
         vingetteVolume.intensity.value = vingetteBaseIntestiy;
         ambientOcclusionVolume.intensity.value = ambientOcclusionBaseIntesity;
 
+        colorGradingVolume.colorFilter.value *= brightnessNew;
     }
 
     private IEnumerator FadeToBlackIntensity() //Fades the intesity

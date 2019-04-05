@@ -11,9 +11,13 @@ public class OptionsManager : MonoBehaviour {
     public float[] settingsLevel;
 
     void Start(){
+        DontDestroyOnLoad(this.gameObject);
         settingsLevel = new float[(int)SettingsName.ArraySize];
         for (int i = 0; i < settingsLevel.Length; i++){
             settingsLevel[i] = 100;
+            if(i == (int)SettingsName.brightness){
+                settingsLevel[i] = 50;
+            }
         }
         instance = this;
     }
@@ -29,8 +33,7 @@ public class OptionsManager : MonoBehaviour {
         }
 
         if(PostProcessingManager.instance){
-            //TODO: Change this out once the function is completed
-            PostProcessingManager.instance.AdjustSetting(settingsLevel[(int)SettingsName.grain] / 100, settingsLevel[(int)SettingsName.vignette] / 100, settingsLevel[(int)SettingsName.ambientOcclusion] / 100);  
+            PostProcessingManager.instance.AdjustSetting(settingsLevel[(int)SettingsName.grain] / 100, settingsLevel[(int)SettingsName.vignette] / 100, settingsLevel[(int)SettingsName.ambientOcclusion] / 100, settingsLevel[(int)SettingsName.brightness] / 100);
         }
     }
 }
