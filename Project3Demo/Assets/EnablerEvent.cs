@@ -26,7 +26,7 @@ public class EnablerEvent : MonoBehaviour, ITriggerable
         foreach (GameObject i in allObjs){
             if ((enabledObjs.Contains(i)) && (i.activeSelf == false)){
                 i.SetActive(true);
-            } else {
+            } else if (!(enabledObjs.Contains(i))){
                 StartCoroutine(DisableObj(i));
             }
         }
