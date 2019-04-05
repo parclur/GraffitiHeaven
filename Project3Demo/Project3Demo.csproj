@@ -11,13 +11,16 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.3.10f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -684,8 +687,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DoorClosePlaceHolder.cs" />
-    <Compile Include="Assets\EnablerEvent.cs" />
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Constant.cs" />
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Enum.cs" />
     <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
@@ -733,28 +734,30 @@
     <Compile Include="Assets\Rewired\Internal\Scripts\InputManager.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
-    <Compile Include="Assets\Scripts\Controls\CharacterControllerCollisions.cs" />
-    <Compile Include="Assets\Scripts\Controls\HitDoorWithLight.cs" />
-    <Compile Include="Assets\Scripts\Controls\MenuItemCall.cs" />
-    <Compile Include="Assets\Scripts\Controls\NavigateMenu.cs" />
-    <Compile Include="Assets\Scripts\Controls\NextSceneOnKey.cs" />
-    <Compile Include="Assets\Scripts\Controls\OptionsManager.cs" />
-    <Compile Include="Assets\Scripts\Controls\PlayerDiverAudio.cs" />
-    <Compile Include="Assets\Scripts\Controls\PlayerDiverMovement.cs" />
-    <Compile Include="Assets\Scripts\Controls\PlayerROVMovement.cs" />
-    <Compile Include="Assets\Scripts\Controls\StartMenu.cs" />
-    <Compile Include="Assets\Scripts\Controls\ToControls.cs" />
-    <Compile Include="Assets\Scripts\Controls\ToNextMenu.cs" />
-    <Compile Include="Assets\Scripts\Controls\UnityMenuItem.cs" />
-    <Compile Include="Assets\Scripts\Controls\ValueSlider.cs" />
-    <Compile Include="Assets\Scripts\Events\Level Events\LampreyEvent.cs" />
-    <Compile Include="Assets\Scripts\Events\Level Events\TriggerBeamEvent.cs" />
-    <Compile Include="Assets\Scripts\Events\ObjectiveTrigger.cs" />
-    <Compile Include="Assets\Scripts\Events\QALevelTransition.cs" />
-    <Compile Include="Assets\Scripts\Events\TriggeredAudioQueue.cs" />
-    <Compile Include="Assets\Scripts\Events\TriggeredEvent.cs" />
-    <Compile Include="Assets\Scripts\Events\TriggeredEventCameraOverride.cs" />
-    <Compile Include="Assets\Scripts\Events\TriggeredEventZone.cs" />
+    <Compile Include="Assets\Scripts\Controls\EventControls\HitDoorWithLight.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\MenuItemCall.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\NavigateMenu.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\NextSceneOnKey.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\OptionsManager.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\StartMenu.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\ToControls.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\ToNextMenu.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\UnityMenuItem.cs" />
+    <Compile Include="Assets\Scripts\Controls\MenuControls\ValueSlider.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerControls\CharacterControllerCollisions.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerControls\PlayerDiverAudio.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerControls\PlayerDiverMovement.cs" />
+    <Compile Include="Assets\Scripts\Controls\PlayerControls\PlayerROVMovement.cs" />
+    <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredAudioQueue.cs" />
+    <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEventCameraOverride.cs" />
+    <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEventZone.cs" />
+    <Compile Include="Assets\Scripts\Events\LevelEvents\DoorClosePlaceHolder.cs" />
+    <Compile Include="Assets\Scripts\Events\LevelEvents\EnablerEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\LevelEvents\LampreyEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\LevelEvents\ObjectiveTrigger.cs" />
+    <Compile Include="Assets\Scripts\Events\LevelEvents\QALevelTransition.cs" />
+    <Compile Include="Assets\Scripts\Events\LevelEvents\TriggerBeamEvent.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PostProcessingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SceneLoader.cs" />
