@@ -47,6 +47,6 @@ MonoBehaviour:
   winName: TitleScreen
   loseName: Lose
   nextScene: master-level-dev
-  additive: 1
+  additive: 0
   scenes:
   - master-level-dev
