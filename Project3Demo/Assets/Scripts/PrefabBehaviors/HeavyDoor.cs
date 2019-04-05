@@ -24,6 +24,12 @@ public class HeavyDoor : MonoBehaviour {
 
     [SerializeField] private bool flareStunsDoor;
 
+    [SerializeField] private bool closeAfterTime;
+
+    [SerializeField] private float closeDelay;
+
+    [SerializeField] private bool closeAfterPress;
+
     public bool testForAll;
 
     private Vector3 startingPos;
@@ -65,7 +71,7 @@ public class HeavyDoor : MonoBehaviour {
     private void Update()
     {
         if(automaticDoor){
-            if(!doorOpening){
+            if(!doorOpening || !doorOpen){
                 Activate();
             }
             if(flareHit && !inFlareCoroutine){
@@ -75,32 +81,43 @@ public class HeavyDoor : MonoBehaviour {
         else {
             KeyActivate();
         }
+        if(doorOpen && closeAfterTime && !doorOpening){
+            StartCoroutine(CloseDoor());
+        }
+        if(doorOpen && !doorOpening && closeAfterPress){
+            KeyCloseDoor();
+        }
     }
 
     public void KeyActivate()
     {
-
-        // NOTE: This is really inefficient at large scale, perhaps use a trigger zone? - Ill try reversing the variables but if that still drops performance 
-        //then ill add a trigger zone or something like that
         if (rewiredPlayer.GetButton("Interact"))
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && !doorOpening)
+            if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && (!doorOpening || !doorOpen))
             {
-                bool doorOpen;
+                bool doesDoorOpen;
                 if (testForAll)
                 {
-                    doorOpen = TestAllRequiredKeys(player.GetComponent<PlayerDiverMovement>().getKeyList());
+                    doesDoorOpen = TestAllRequiredKeys(player.GetComponent<PlayerDiverMovement>().getKeyList());
                 }
                 else
                 {
-                    doorOpen = TestSingleKey(player.GetComponent<PlayerDiverMovement>().getKeyList());
+                    doesDoorOpen = TestSingleKey(player.GetComponent<PlayerDiverMovement>().getKeyList());
                 }
 
-                if (doorOpen)
+                if (doesDoorOpen)
                 {              
                     AudioManager.instance.PlayOneShot("MetalDoorOpen");
                     StartCoroutine(MoveDoor());
                 }
+            }
+        }
+    }
+
+    private void KeyCloseDoor(){
+        if(rewiredPlayer.GetButton("Interact")){
+            if(Vector3.Distance(player.transform.position, transform.position) < keyDistance){
+                CloseDoor();
             }
         }
     }
@@ -189,7 +206,25 @@ public class HeavyDoor : MonoBehaviour {
         }
         else {
             doorOpen = true;
+            doorOpening = false;
         }
+    }
+
+    private IEnumerator CloseDoor(){
+        doorOpening = true;
+        float elapsedTime = 0.0f;
+        yield return new WaitForSeconds(closeDelay);
+        while (elapsedTime < moveTime){
+            gameObject.transform.position = Vector3.Lerp(openPos, startingPos, (elapsedTime / moveTime));
+            transform.eulerAngles = new Vector3(
+                Mathf.LerpAngle(openRot.x, startingRot.x, (elapsedTime / moveTime)), 
+                Mathf.LerpAngle(openRot.y, startingRot.y, (elapsedTime / moveTime)),
+                Mathf.LerpAngle(openRot.z, startingRot.z, (elapsedTime / moveTime)));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        doorOpen = false;
+        doorOpening = false;
     }
 
     private IEnumerator FlareStun(){
