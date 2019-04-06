@@ -147,7 +147,6 @@ public class AnglerFish : MonoBehaviour {
             }
         }
         while(elapsedTime < windTime){
-            Debug.Log(newFallback);
             transform.position = Vector3.Lerp(currentPos, relativeDiverPos - (transform.forward * newFallback), (elapsedTime / windTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();

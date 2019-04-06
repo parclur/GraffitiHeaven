@@ -46,10 +46,6 @@ public class LampreyAI : MonoBehaviour {
                 StartCoroutine(MoveBetweenPoints());
             }
         }
-
-        if (Vector3.Distance(drone.transform.position + (drone.transform.up * 2), this.transform.position) <= .3){
-            SceneLoader.instance.LoseGame();
-        }
     }
 
     IEnumerator MoveBetweenPoints(){
@@ -153,6 +149,7 @@ public class LampreyAI : MonoBehaviour {
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        SceneLoader.instance.LoseGame();
     }
 
     bool CanSeePlayer(){
