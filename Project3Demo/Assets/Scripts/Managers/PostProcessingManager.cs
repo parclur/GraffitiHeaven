@@ -38,7 +38,8 @@ public class PostProcessingManager : MonoBehaviour
     float vingetteBaseIntestiy;
     float vingetteBaseSmoothness;
     float ambientOcclusionBaseIntesity;
-    
+
+    Color colorGradeBase;
 
     private void Awake() 
     {
@@ -67,6 +68,8 @@ public class PostProcessingManager : MonoBehaviour
 
         //gets the default profile
         defaultProfile = volume.profile;
+
+        colorGradeBase = colorGradingVolume.colorFilter.value;
     }
 
     public void EnableStaticEffect() //Will enable the static effect
@@ -100,7 +103,11 @@ public class PostProcessingManager : MonoBehaviour
         vingetteVolume.intensity.value = vingetteBaseIntestiy;
         ambientOcclusionVolume.intensity.value = ambientOcclusionBaseIntesity;
 
-        colorGradingVolume.colorFilter.value *= brightnessNew;
+        //Only apply if it hasn't been applied before
+        if(colorGradeBase == colorGradingVolume.colorFilter.value){
+            colorGradingVolume.colorFilter.value *= brightnessNew;
+        }
+        
     }
 
     private IEnumerator FadeToBlackIntensity() //Fades the intesity

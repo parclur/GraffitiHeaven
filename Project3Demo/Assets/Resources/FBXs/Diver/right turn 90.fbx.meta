@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a91cd9e8e9200a24b8ba9c3f96292f43
+guid: dcaefb5c926e6ad428ef7bd79224f3db
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -10,25 +10,33 @@ ModelImporter:
     100008: mixamorig:LeftFoot
     100010: mixamorig:LeftForeArm
     100012: mixamorig:LeftHand
-    100014: mixamorig:LeftLeg
-    100016: mixamorig:LeftShoulder
-    100018: mixamorig:LeftToe_End
-    100020: mixamorig:LeftToeBase
-    100022: mixamorig:LeftUpLeg
-    100024: mixamorig:Neck
-    100026: mixamorig:RightArm
-    100028: mixamorig:RightFoot
-    100030: mixamorig:RightForeArm
-    100032: mixamorig:RightHand
-    100034: mixamorig:RightLeg
-    100036: mixamorig:RightShoulder
-    100038: mixamorig:RightToe_End
-    100040: mixamorig:RightToeBase
-    100042: mixamorig:RightUpLeg
-    100044: mixamorig:Spine
-    100046: mixamorig:Spine1
-    100048: mixamorig:Spine2
-    100050: //RootNode
+    100014: mixamorig:LeftHandIndex1
+    100016: mixamorig:LeftHandIndex2
+    100018: mixamorig:LeftHandIndex3
+    100020: mixamorig:LeftHandIndex4
+    100022: mixamorig:LeftLeg
+    100024: mixamorig:LeftShoulder
+    100026: mixamorig:LeftToe_End
+    100028: mixamorig:LeftToeBase
+    100030: mixamorig:LeftUpLeg
+    100032: mixamorig:Neck
+    100034: mixamorig:RightArm
+    100036: mixamorig:RightFoot
+    100038: mixamorig:RightForeArm
+    100040: mixamorig:RightHand
+    100042: mixamorig:RightHandIndex1
+    100044: mixamorig:RightHandIndex2
+    100046: mixamorig:RightHandIndex3
+    100048: mixamorig:RightHandIndex4
+    100050: mixamorig:RightLeg
+    100052: mixamorig:RightShoulder
+    100054: mixamorig:RightToe_End
+    100056: mixamorig:RightToeBase
+    100058: mixamorig:RightUpLeg
+    100060: mixamorig:Spine
+    100062: mixamorig:Spine1
+    100064: mixamorig:Spine2
+    100066: //RootNode
     400000: mixamorig:Head
     400002: mixamorig:HeadTop_End
     400004: mixamorig:Hips
@@ -36,25 +44,33 @@ ModelImporter:
     400008: mixamorig:LeftFoot
     400010: mixamorig:LeftForeArm
     400012: mixamorig:LeftHand
-    400014: mixamorig:LeftLeg
-    400016: mixamorig:LeftShoulder
-    400018: mixamorig:LeftToe_End
-    400020: mixamorig:LeftToeBase
-    400022: mixamorig:LeftUpLeg
-    400024: mixamorig:Neck
-    400026: mixamorig:RightArm
-    400028: mixamorig:RightFoot
-    400030: mixamorig:RightForeArm
-    400032: mixamorig:RightHand
-    400034: mixamorig:RightLeg
-    400036: mixamorig:RightShoulder
-    400038: mixamorig:RightToe_End
-    400040: mixamorig:RightToeBase
-    400042: mixamorig:RightUpLeg
-    400044: mixamorig:Spine
-    400046: mixamorig:Spine1
-    400048: mixamorig:Spine2
-    400050: //RootNode
+    400014: mixamorig:LeftHandIndex1
+    400016: mixamorig:LeftHandIndex2
+    400018: mixamorig:LeftHandIndex3
+    400020: mixamorig:LeftHandIndex4
+    400022: mixamorig:LeftLeg
+    400024: mixamorig:LeftShoulder
+    400026: mixamorig:LeftToe_End
+    400028: mixamorig:LeftToeBase
+    400030: mixamorig:LeftUpLeg
+    400032: mixamorig:Neck
+    400034: mixamorig:RightArm
+    400036: mixamorig:RightFoot
+    400038: mixamorig:RightForeArm
+    400040: mixamorig:RightHand
+    400042: mixamorig:RightHandIndex1
+    400044: mixamorig:RightHandIndex2
+    400046: mixamorig:RightHandIndex3
+    400048: mixamorig:RightHandIndex4
+    400050: mixamorig:RightLeg
+    400052: mixamorig:RightShoulder
+    400054: mixamorig:RightToe_End
+    400056: mixamorig:RightToeBase
+    400058: mixamorig:RightUpLeg
+    400060: mixamorig:Spine
+    400062: mixamorig:Spine1
+    400064: mixamorig:Spine2
+    400066: //RootNode
     7400000: RightTurn90
     9500000: //RootNode
   externalObjects: {}
