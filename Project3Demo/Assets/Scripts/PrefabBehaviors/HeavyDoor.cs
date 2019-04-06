@@ -166,7 +166,7 @@ public class HeavyDoor : MonoBehaviour {
         while (elapsedTime < moveTime)
         {
             //If the flare hits the doors, hold the opening for now
-            if(flareHit){
+            if(flareHit && flareStunsDoor){
                 yield return new WaitForEndOfFrame();
             }
             //If the player is looking at the door (and the bools are set), hold opening for now
@@ -174,7 +174,7 @@ public class HeavyDoor : MonoBehaviour {
                 yield return new WaitForEndOfFrame();
             }
             //If the flare hits the door (and the bools are set) close the door
-            else if(automaticDoor && flareHit && flareClosesDoor){
+            else if(flareHit && flareClosesDoor){
                 //Play the sound byte of the door closing here
                 float newElapsedTime = 0.0f;
                 Vector3 newStartingPos = transform.position;
@@ -239,7 +239,7 @@ public class HeavyDoor : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col){
-        if(flareStunsDoor || flareClosesDoor){
+        if((flareStunsDoor || flareClosesDoor) && col.gameObject.tag == "Flare"){
             flareHit = true;
         }
     }
