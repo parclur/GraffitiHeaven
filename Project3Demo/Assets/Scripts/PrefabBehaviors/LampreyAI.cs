@@ -21,7 +21,7 @@ public class LampreyAI : MonoBehaviour {
     GameObject startWaypoint;
 
     void Start(){
-        diver = GameObject.FindGameObjectWithTag("Diver");
+        diver = GameObject.FindGameObjectWithTag("Drone");
         currentPos = transform.position;
         waypoints = new List<GameObject>();
     }
@@ -155,7 +155,7 @@ public class LampreyAI : MonoBehaviour {
         Vector3 dir = diver.transform.position - transform.position;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity)){
-            if(hit.transform.tag == "Diver"){              
+            if(hit.transform.tag == "Drone"){
                 return true;
             }
         }
