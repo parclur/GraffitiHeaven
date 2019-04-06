@@ -47,7 +47,7 @@ public class Flare : MonoBehaviour
         {
             timerEnabled = true;
             timeBeforeDelay = Time.time + delayBeforeGravityEnabled;
-            Debug.Log("Timer enabled!");
+            //Debug.Log("Timer enabled!");
         }
     }
 
