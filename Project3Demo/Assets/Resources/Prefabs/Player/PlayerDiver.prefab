@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 4
   flareCount: 5
-  aimArea: {fileID: 0}
+  aimArea: {fileID: 1947622509757337547}
 --- !u!1 &3544802915268692053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1521,7 @@ CharacterController:
   m_Height: 100
   m_Radius: 20
   m_SlopeLimit: 45
-  m_StepOffset: 0
+  m_StepOffset: 0.2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 50, z: 0}
