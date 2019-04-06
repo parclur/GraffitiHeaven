@@ -8,7 +8,7 @@ public class LampreyAI : MonoBehaviour {
 
     [SerializeField] float moveTime;
 
-    public GameObject diver;
+    public GameObject drone;
 
     bool isLunging;
 
@@ -21,7 +21,7 @@ public class LampreyAI : MonoBehaviour {
     GameObject startWaypoint;
 
     void Start(){
-        diver = GameObject.FindGameObjectWithTag("Drone");
+        drone = GameObject.FindGameObjectWithTag("Drone");
         currentPos = transform.position;
         waypoints = new List<GameObject>();
     }
@@ -46,11 +46,15 @@ public class LampreyAI : MonoBehaviour {
                 StartCoroutine(MoveBetweenPoints());
             }
         }
+
+        if (Vector3.Distance(drone.transform.position + (drone.transform.up * 2), this.transform.position) <= .3){
+            SceneLoader.instance.LoseGame();
+        }
     }
 
     IEnumerator MoveBetweenPoints(){
         waypoints.Reverse();
-        waypoints.Add(diver);
+        waypoints.Add(drone);
         for(int i = 0; i < waypoints.Count; i++){
             float elapsedTime = 0.0f;
             while (elapsedTime < moveTime){
@@ -69,12 +73,12 @@ public class LampreyAI : MonoBehaviour {
         FindStartingPoint();
 
         foreach(GameObject go in gos){
-            Vector3 dir = go.transform.position - (diver.transform.position + transform.up);
+            Vector3 dir = go.transform.position - (drone.transform.position + transform.up);
             RaycastHit hit;
 
             int layerMask = 1 << 12;
 
-            if(Physics.Raycast(diver.transform.position + transform.up, dir, out hit, Mathf.Infinity, layerMask)){
+            if(Physics.Raycast(drone.transform.position + transform.up, dir, out hit, Mathf.Infinity, layerMask)){
                 if(hit.transform.gameObject.tag == "Waypoint"){
                     //Find the waypoint that can see the player then work backwards. What waypoint can see this waypoint? What about that one?
                     waypoints.Add(hit.transform.gameObject);
@@ -145,14 +149,14 @@ public class LampreyAI : MonoBehaviour {
         isLunging = true;
         float elapsedTime = 0.0f;
         while (elapsedTime < moveTime){
-            gameObject.transform.position = Vector3.Lerp(currentPos, diver.transform.position, (elapsedTime / moveTime));
+            gameObject.transform.position = Vector3.Lerp(currentPos, drone.transform.position, (elapsedTime / moveTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
     }
 
     bool CanSeePlayer(){
-        Vector3 dir = diver.transform.position - transform.position;
+        Vector3 dir = drone.transform.position - transform.position;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity)){
             if(hit.transform.tag == "Drone"){

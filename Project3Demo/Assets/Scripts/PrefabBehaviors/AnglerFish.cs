@@ -50,6 +50,9 @@ public class AnglerFish : MonoBehaviour {
         if(collidedWithPlayer){
             ResetCoroutines();
             collidedWithPlayer = false;
+
+            diver.GetComponent<PlayerDiverMovement>().ApplySlow();
+
             winding = true;
             StartCoroutine(WindBack());
         }
@@ -62,6 +65,8 @@ public class AnglerFish : MonoBehaviour {
             if(chaseFinished){
                 ResetCoroutines();
                 chaseFinished = false;
+                Debug.Log("Winding back!");
+                StartCoroutine(WindBack());
                 StartCoroutine(ChaseAtPlayer());
             }
         }
@@ -119,7 +124,7 @@ public class AnglerFish : MonoBehaviour {
     IEnumerator WindBack(){
         float newFallback = fallbackAmount;
         currentPos = transform.position;
-        Vector3 diverPos = diver.transform.position + (diver.transform.up * 1.8f);
+        Vector3 relativeDiverPos = diver.transform.position + (diver.transform.up * 1.8f);
         float elapsedTime = 0.0f;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity)){
@@ -132,7 +137,8 @@ public class AnglerFish : MonoBehaviour {
             }
         }
         while(elapsedTime < windTime){
-            transform.position = Vector3.Lerp(currentPos, diverPos - (transform.forward * newFallback), (elapsedTime / windTime));
+            Debug.Log(newFallback);
+            transform.position = Vector3.Lerp(currentPos, relativeDiverPos - (transform.forward * newFallback), (elapsedTime / windTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
