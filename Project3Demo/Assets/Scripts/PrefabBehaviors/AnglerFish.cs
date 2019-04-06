@@ -31,6 +31,8 @@ public class AnglerFish : MonoBehaviour {
     bool stunned;
     bool winding;
 
+    bool postWindCharge;
+
     GameObject diver;
 
     GameObject anglerLight;
@@ -44,9 +46,11 @@ public class AnglerFish : MonoBehaviour {
     }
     
     void Update(){
-        if(stunned || winding){
-            return;
+
+        if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= .6){
+            collidedWithPlayer = true;
         }
+
         if(collidedWithPlayer){
             ResetCoroutines();
             collidedWithPlayer = false;
@@ -54,19 +58,24 @@ public class AnglerFish : MonoBehaviour {
             diver.GetComponent<PlayerDiverMovement>().ApplySlow();
 
             winding = true;
-            StartCoroutine(WindBack());
+            StartCoroutine(WindBack(true));
+            postWindCharge = false;
         }
+
+        if(stunned || winding){
+            return;
+        }
+        
         else if(playerDetected){
             //Chase after player
             StartCoroutine(ChaseTimer());
-            if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= .3){
-                collidedWithPlayer = true;
-            }
             if(chaseFinished){
                 ResetCoroutines();
                 chaseFinished = false;
-                Debug.Log("Winding back!");
-                StartCoroutine(WindBack());
+                winding = true;
+                StartCoroutine(WindBack(false));
+            }
+            if(!chaseFinished && postWindCharge){
                 StartCoroutine(ChaseAtPlayer());
             }
         }
@@ -121,7 +130,8 @@ public class AnglerFish : MonoBehaviour {
         movingFinished = true;
     }
 
-    IEnumerator WindBack(){
+    IEnumerator WindBack(bool cooldown){
+        
         float newFallback = fallbackAmount;
         currentPos = transform.position;
         Vector3 relativeDiverPos = diver.transform.position + (diver.transform.up * 1.8f);
@@ -143,6 +153,12 @@ public class AnglerFish : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         currentPos = transform.position;
+
+        if(cooldown){
+            yield return new WaitForSeconds(chaseCooldown);
+        }
+
+        postWindCharge = true;
         winding = false;
     }
 
