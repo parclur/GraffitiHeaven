@@ -26,7 +26,7 @@ public class FlareGun : MonoBehaviour
         aimAreaCollider = aimArea.GetComponent<BoxCollider>();
 
         // Go get the flare 
-        flarePrefab = Resources.Load<GameObject>("Prefabs/Flare");
+        flarePrefab = Resources.Load<GameObject>("Prefabs/Items/Flare");
 
         // Find the ROV player to aim through
         aimCamera = GameObject.Find("PlayerROV").transform.GetChild(0).gameObject.GetComponent<Camera>();
