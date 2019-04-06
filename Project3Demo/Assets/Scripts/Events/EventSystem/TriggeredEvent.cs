@@ -7,16 +7,21 @@ public interface ITriggerable
 
 public class TriggeredEvent : MonoBehaviour
 {
+    [SerializeField] private bool overridesCamera = false;
+
     private TriggeredEventCameraOverride overrideBehavior;
 
     private void Start()
     {
-        overrideBehavior = GetComponent<TriggeredEventCameraOverride>();
+        if (overridesCamera)
+            overrideBehavior = GetComponent<TriggeredEventCameraOverride>();
     }
 
     public void Trigger()
     {
         gameObject.SendMessage("TriggerEvent");
-        overrideBehavior.OverrideCamera();
+
+        if (overridesCamera)
+            overrideBehavior.OverrideCamera();
     }
 }
