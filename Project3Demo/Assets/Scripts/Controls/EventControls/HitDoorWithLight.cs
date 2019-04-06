@@ -6,8 +6,11 @@ public class HitDoorWithLight : MonoBehaviour {
 
     private float angleToMatch;
 
+    GameObject[] doors;
+
     void Start(){
         angleToMatch = GetComponent<Light>().spotAngle;
+        doors = GameObject.FindGameObjectsWithTag("Door");
     }
     
     void Update(){
@@ -15,11 +18,9 @@ public class HitDoorWithLight : MonoBehaviour {
     }
 
     void CheckDoorHit(){
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Door");
         Vector3 position = transform.position;
 
-        foreach (GameObject go in gos){
+        foreach (GameObject go in doors){
             Vector3 targetDir = go.transform.position - transform.position;
             Vector3 forward = transform.forward;
             float angle = Vector3.SignedAngle(targetDir, forward, Vector3.up) - 30f;
