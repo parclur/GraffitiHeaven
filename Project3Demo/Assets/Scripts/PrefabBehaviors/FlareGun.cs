@@ -5,7 +5,7 @@ public class FlareGun : MonoBehaviour
 {
     [SerializeField] private float reloadTime;
 
-    [SerializeField] private int flareCount;
+    [SerializeField] public int flareCount;
 
     [SerializeField] private GameObject aimArea;
 
