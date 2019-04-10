@@ -32,13 +32,16 @@ public class LampreyEvent : MonoBehaviour, ITriggerable
     
 
     private IEnumerator SpawnLamprey(){
-        yield return new WaitForSeconds(spawnTime);
-        foreach(GameObject i in Lamprey){
-            if (i.activeSelf == false){
-                i.SetActive(true);
-            } else {
-                Destroy(i);
+        if(spawnTime != -1){
+            yield return new WaitForSeconds(spawnTime);
+            foreach(GameObject i in Lamprey){
+                if (i.activeSelf == false){
+                    i.SetActive(true);
+                } else {
+                    Destroy(i);
+                }
             }
         }
+        
     }
 }
