@@ -17,6 +17,7 @@ public class CheckPointManager : MonoBehaviour
     {
         DontDestroyOnLoad(this); //Sets the manager to not destroy on load
         instance = this;
+        SetActiveCheckpoint(startingCheckpoint);
     }
 
     private void OnLevelWasLoaded(int level)
@@ -27,8 +28,7 @@ public class CheckPointManager : MonoBehaviour
 
     private void Start()
     {
-        SetActiveCheckpoint(startingCheckpoint);
-        //SpawnAtActiveCheckpoint();
+        SpawnAtActiveCheckpoint();
     }
 
     private void Update()
@@ -37,6 +37,11 @@ public class CheckPointManager : MonoBehaviour
         {
             SpawnAtActiveCheckpoint();
         }
+    }
+
+    public void SetActiveCheckpointToStartingCheckpoint()
+    {
+        activeCheckpoint = startingCheckpoint;
     }
 
     public void SpawnAtActiveCheckpoint() //Will call the spawn players function on the active checkpoint
@@ -48,6 +53,7 @@ public class CheckPointManager : MonoBehaviour
 
     public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
     {
+        
         Debug.Log("Setting active checkpoint to checkpoing: " + checkpoint.name);
         activeCheckpoint = checkpoint;
         Debug.Log("Extracting script from checkpoint...");
