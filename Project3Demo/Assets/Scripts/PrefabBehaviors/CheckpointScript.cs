@@ -8,12 +8,16 @@ public class CheckpointScript : MonoBehaviour
     Transform droneSpawnPoint;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         diverSpawnPoint = transform.Find("CheckpointDiverSpawn");
         Debug.Log(gameObject.name + " diver spawnpoint set to: " + diverSpawnPoint.position);
         droneSpawnPoint = transform.Find("CheckpointDroneSpawn");
         Debug.Log(gameObject.name + " drone spawnpoint set to: " + droneSpawnPoint.position);
+    }
+    void Start()
+    {
+
     }
 
     private void OnTriggerEnter(Collider other)

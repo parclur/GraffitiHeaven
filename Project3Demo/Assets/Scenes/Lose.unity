@@ -343,6 +343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RewiredInputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2417798322474680588, guid: 7c2e459587cf2d244a43910c306ec171,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6535957170982122815, guid: 7c2e459587cf2d244a43910c306ec171,
         type: 3}
       propertyPath: m_LocalPosition.x

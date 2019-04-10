@@ -8,6 +8,8 @@ public class CheckPointManager : MonoBehaviour
 
     GameObject activeCheckpoint; //The active checkpoint in the level
     CheckpointScript activeCheckpointScript;
+    string activeCheckpointName;
+
 
     [SerializeField] GameObject startingCheckpoint; //The first checkpoint in the level
     [SerializeField] GameObject diver;
@@ -20,14 +22,22 @@ public class CheckPointManager : MonoBehaviour
         SetActiveCheckpoint(startingCheckpoint);
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        Debug.Log("Activating!");
-        SpawnAtActiveCheckpoint();
-    }
+    //private void OnLevelWasLoaded(int level)
+    //{
+    //    Debug.Log("Moving to checkpoint from load level");
+
+    //    GameObject activeCheckpoint = GameObject.Find(activeCheckpointName); //Finds the active checkpoint
+    //    SetActiveCheckpoint(activeCheckpoint);
+
+    //    SpawnAtActiveCheckpoint();
+    //}
 
     private void Start()
     {
+        Debug.Log("Moving to checkpoint from start");
+        GameObject activeCheckpoint = GameObject.Find(activeCheckpointName); //Finds the active checkpoint
+        SetActiveCheckpoint(activeCheckpoint);
+
         SpawnAtActiveCheckpoint();
     }
 
@@ -41,23 +51,26 @@ public class CheckPointManager : MonoBehaviour
 
     public void SetActiveCheckpointToStartingCheckpoint()
     {
-        activeCheckpoint = startingCheckpoint;
+        SetActiveCheckpoint(startingCheckpoint);
     }
 
     public void SpawnAtActiveCheckpoint() //Will call the spawn players function on the active checkpoint
     {
         Debug.Log("Movign player to checkpoint: " + activeCheckpoint.name + " at position: " + activeCheckpoint.transform.position);
         Debug.Log("Diver current transform: " + diver.transform.position + "; Drone current transform: " + drone.transform.position);
-        activeCheckpointScript.SpawnPlayers(diver, drone);
+        for (int i = 0; i < 4; i++)
+            activeCheckpointScript.SpawnPlayers(diver, drone);
     }
 
     public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
     {
-        
         Debug.Log("Setting active checkpoint to checkpoing: " + checkpoint.name);
         activeCheckpoint = checkpoint;
         Debug.Log("Extracting script from checkpoint...");
         activeCheckpointScript = activeCheckpoint.GetComponent<CheckpointScript>();
         Debug.Log("Script: " + activeCheckpointScript.name + " extracted.");
+        activeCheckpointName = activeCheckpoint.name;
+        Debug.Log("Name: " + activeCheckpointName);
+
     }
 }
