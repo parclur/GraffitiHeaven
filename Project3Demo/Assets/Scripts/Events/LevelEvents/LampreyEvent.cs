@@ -8,6 +8,7 @@ public class LampreyEvent : MonoBehaviour, ITriggerable
     [SerializeField] private float spawnTime;
 
     [SerializeField] private bool openLampreyDoor;
+    [SerializeField] private bool deleteLamprey;
     [SerializeField] private GameObject door;
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class LampreyEvent : MonoBehaviour, ITriggerable
             foreach(GameObject i in Lamprey){
                 if (i.activeSelf == false){
                     i.SetActive(true);
-                } else {
+                } if(deleteLamprey){
                     Destroy(i);
                 }
             }
