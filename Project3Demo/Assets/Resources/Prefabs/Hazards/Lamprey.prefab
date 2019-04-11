@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b0ae78818749254da41b4cd55096dc4, type: 3}
+  - {fileID: 2100000, guid: ca342d2cf56386d43a54f94c91dcc599, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300004, guid: 3b0ae78818749254da41b4cd55096dc4, type: 3}
 --- !u!1 &85787996219624836
@@ -181,7 +181,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 3b0ae78818749254da41b4cd55096dc4, type: 3}
 --- !u!1 &85787996219624838
@@ -273,7 +273,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 3b0ae78818749254da41b4cd55096dc4, type: 3}
 --- !u!1 &85787996219624844
@@ -365,7 +365,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300006, guid: 3b0ae78818749254da41b4cd55096dc4, type: 3}
 --- !u!1 &2535647943361302504
@@ -417,4 +417,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 0}
   moveTime: 2
-  diver: {fileID: 0}
+  drone: {fileID: 0}

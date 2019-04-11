@@ -10,11 +10,14 @@ public class NavigateMenu : MonoBehaviour{
 
     Color aWhite = new Color(1, 1, 1, .152f);
     Color aRed = new Color(1, 0, 0, .152f);
+    Color aBlue = new Color(0, 0, 1, .152f);
 
     public UnityMenuItem[] menuItems;
 
     int selectedItem = 0;
     int selectedMenu = 0;
+
+    bool editingValue;
 
     void Start(){
         diver = ReInput.players.GetPlayer("Diver");
@@ -27,14 +30,22 @@ public class NavigateMenu : MonoBehaviour{
 
         if(curItem.pauseUI) return;
 
+        curImage.color = aRed;
+
+        if(editingValue){
+            curItem.ClickCall();
+            curImage.color = aBlue;
+        }
+
         float x = diver.GetAxis("LeftRightMovement");
 
         curItem.OnHighlight(x);
         
-        curImage.color = aRed;
-
         //If interacting -use the click call function then check if you need to shift menus.
-        if(diver.GetButton("Interact")) {
+        if(diver.GetButtonDown("Interact")){
+            if(curItem.isSetting){
+                editingValue = true;
+            }
             curItem.ClickCall();
             if(curItem.nextMenu){
                 curImage.color = aWhite;
@@ -49,15 +60,20 @@ public class NavigateMenu : MonoBehaviour{
             }
         }
 
-        if(diver.GetButton("MenuBack") && selectedMenu > 0){
-            curImage.color = aWhite;
-            for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
-                menuItems[selectedMenu].items[i].gameObject.SetActive(false);
+        if(diver.GetButtonDown("MenuBack") && selectedMenu > 0){
+            if(!editingValue){
+                curImage.color = aWhite;
+                for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
+                    menuItems[selectedMenu].items[i].gameObject.SetActive(false);
+                }
+                selectedMenu--;
+                selectedItem = 0;
+                for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
+                    menuItems[selectedMenu].items[i].gameObject.SetActive(true);
+                }
             }
-            selectedMenu--;
-            selectedItem = 0;
-            for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
-                menuItems[selectedMenu].items[i].gameObject.SetActive(true);
+            else {
+                editingValue = false;
             }
         }
     }
@@ -67,6 +83,7 @@ public class NavigateMenu : MonoBehaviour{
         Image curImage = menuItems[selectedMenu].panel[selectedItem];
         
         if(curItem.pauseUI) return;
+        if(editingValue) return;
 
         float y = diver.GetAxis("UpDownMovment");
 
