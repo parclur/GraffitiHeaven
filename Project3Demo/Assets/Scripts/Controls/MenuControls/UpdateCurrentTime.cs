@@ -14,6 +14,12 @@ public class UpdateCurrentTime : MonoBehaviour {
     
     void Update(){
         currentTime += Time.deltaTime;
-        timerText.text = Mathf.FloorToInt(currentTime / 60).ToString() + ":" + Mathf.FloorToInt(currentTime % 60).ToString();
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        if(seconds < 10){
+            timerText.text = Mathf.FloorToInt(currentTime / 60).ToString() + ":0" + seconds.ToString();
+        }
+        else {
+            timerText.text = Mathf.FloorToInt(currentTime / 60).ToString() + ":" + seconds.ToString();
+        }
     }
 }
