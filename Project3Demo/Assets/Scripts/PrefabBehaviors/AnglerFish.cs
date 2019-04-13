@@ -26,6 +26,7 @@ public class AnglerFish : MonoBehaviour {
     bool chaseFinished = true;
     bool stunned;
     bool chasing;
+    bool cooldown;
 
     GameObject diver;
 
@@ -42,7 +43,11 @@ public class AnglerFish : MonoBehaviour {
     }
     
     void Update(){
-        if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= .6){
+        if(stunned || cooldown){
+            return;
+        }
+
+        if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= 1){
             collidedWithPlayer = true;
         }
 
@@ -50,11 +55,10 @@ public class AnglerFish : MonoBehaviour {
             ResetCoroutines();
             collidedWithPlayer = false;
 
-            diver.GetComponent<PlayerDiverMovement>().ApplySlow();
-        }
+            cooldown = true;
+            StartCoroutine(ChaseTimer());
 
-        if(stunned){
-            return;
+            diver.GetComponent<PlayerDiverMovement>().ApplySlow();
         }
         
         else if(playerDetected){
@@ -124,7 +128,7 @@ public class AnglerFish : MonoBehaviour {
 
     IEnumerator ChaseAtPlayer(){
         currentPos = transform.position;
-        prevDiverPos = diver.transform.position;
+        prevDiverPos = diver.transform.position + (diver.transform.up * 2);
         float elapsedTime = 0.0f;
         while(elapsedTime < chaseTime){
             if(!playerDetected){
@@ -136,7 +140,7 @@ public class AnglerFish : MonoBehaviour {
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = new Quaternion(transform.rotation.x, rotation.y, transform.rotation.z, transform.rotation.w);
 
-            transform.position = Vector3.Lerp(currentPos, prevDiverPos + (Vector3.up * 2), (elapsedTime / chaseTime));
+            transform.position = Vector3.Lerp(currentPos, prevDiverPos, (elapsedTime / chaseTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -148,6 +152,7 @@ public class AnglerFish : MonoBehaviour {
     IEnumerator ChaseTimer(){
         yield return new WaitForSeconds(chaseCooldown);
         playerDetected = false;
+        cooldown = false;
     }
 
     void OnCollisionEnter(Collision col){
