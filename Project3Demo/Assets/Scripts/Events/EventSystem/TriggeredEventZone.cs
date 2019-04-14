@@ -13,6 +13,24 @@ public class TriggeredEventZone : MonoBehaviour
     {
         if (checkTags.Contains(other.gameObject.tag))
         {
+            
+            foreach (TriggeredEvent e in triggeredEvents)
+            {
+                e.Trigger();
+            }
+
+            if (!canTriggerMultipleTimes)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (checkTags.Contains(other.gameObject.tag))
+        {
+
             foreach (TriggeredEvent e in triggeredEvents)
             {
                 e.Trigger();

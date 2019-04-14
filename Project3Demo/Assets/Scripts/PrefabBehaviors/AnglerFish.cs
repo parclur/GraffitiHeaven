@@ -16,10 +16,6 @@ public class AnglerFish : MonoBehaviour {
     [SerializeField] float windTime;
 
     [SerializeField] float chaseTime;
-
-    [SerializeField] float fallbackAmount;
-
-    [SerializeField] float distanceFromWall;
     
     //These are different from lampreywaypoints in which they are not tagged
     [SerializeField] List<GameObject> patrolPoint;
@@ -29,15 +25,16 @@ public class AnglerFish : MonoBehaviour {
     bool movingFinished = true;
     bool chaseFinished = true;
     bool stunned;
-    bool winding;
-
-    bool postWindCharge;
+    bool chasing;
+    bool cooldown;
 
     GameObject diver;
 
     GameObject anglerLight;
 
     int pointIndex = 0;
+
+    Vector3 prevDiverPos;
 
     void Start(){
         currentPos = transform.position;
@@ -46,8 +43,11 @@ public class AnglerFish : MonoBehaviour {
     }
     
     void Update(){
+        if(stunned || cooldown){
+            return;
+        }
 
-        if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= .6){
+        if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= 1){
             collidedWithPlayer = true;
         }
 
@@ -55,27 +55,22 @@ public class AnglerFish : MonoBehaviour {
             ResetCoroutines();
             collidedWithPlayer = false;
 
+            cooldown = true;
+            StartCoroutine(ChaseTimer());
+
             diver.GetComponent<PlayerDiverMovement>().ApplySlow();
-
-            winding = true;
-            StartCoroutine(WindBack(true));
-            postWindCharge = false;
-        }
-
-        if(stunned || winding){
-            return;
         }
         
         else if(playerDetected){
             //Chase after player
-            StartCoroutine(ChaseTimer());
             if(chaseFinished){
                 ResetCoroutines();
                 chaseFinished = false;
-                winding = true;
-                StartCoroutine(WindBack(false));
+                playerDetected = false;
+                //StartCoroutine(LookAround());
             }
-            if(!chaseFinished && postWindCharge){
+            else if(!chasing){
+                chasing = true;
                 StartCoroutine(ChaseAtPlayer());
             }
         }
@@ -94,6 +89,7 @@ public class AnglerFish : MonoBehaviour {
         StopAllCoroutines();
         chaseFinished = true;
         movingFinished = true;
+        chasing = false;
     }
 
     public void CheckSeePlayer(){
@@ -130,61 +126,33 @@ public class AnglerFish : MonoBehaviour {
         movingFinished = true;
     }
 
-    IEnumerator WindBack(bool cooldown){
-        
-        float newFallback = fallbackAmount;
-        currentPos = transform.position;
-        Vector3 relativeDiverPos = diver.transform.position + (diver.transform.up * 1.8f);
-        float elapsedTime = 0.0f;
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity)){
-            float dist = Vector3.Distance(hit.transform.position, transform.position);
-            if(Vector3.Distance(hit.transform.position, transform.position) - distanceFromWall <= fallbackAmount){
-                newFallback = dist - distanceFromWall;
-                if(newFallback <= 0){
-                    newFallback = .2f;
-                }
-            }
-        }
-        while(elapsedTime < windTime){
-            transform.position = Vector3.Lerp(currentPos, relativeDiverPos - (transform.forward * newFallback), (elapsedTime / windTime));
-            elapsedTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        currentPos = transform.position;
-
-        if(cooldown){
-            yield return new WaitForSeconds(chaseCooldown);
-        }
-
-        postWindCharge = true;
-        winding = false;
-    }
-
     IEnumerator ChaseAtPlayer(){
         currentPos = transform.position;
+        prevDiverPos = diver.transform.position + (diver.transform.up * 2);
         float elapsedTime = 0.0f;
         while(elapsedTime < chaseTime){
             if(!playerDetected){
                 yield return null;
             }
             //From the unity docs. Changes rotation of y and nothing else
-            Vector3 relativePos = diver.transform.position - transform.position;
+            Vector3 relativePos = prevDiverPos - transform.position;
             
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = new Quaternion(transform.rotation.x, rotation.y, transform.rotation.z, transform.rotation.w);
 
-            transform.position = Vector3.Lerp(currentPos, diver.transform.position + (diver.transform.up * 2), (elapsedTime / chaseTime));
+            transform.position = Vector3.Lerp(currentPos, prevDiverPos, (elapsedTime / chaseTime));
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         currentPos = transform.position;
         chaseFinished = true;
+        chasing = false;
     }
 
     IEnumerator ChaseTimer(){
         yield return new WaitForSeconds(chaseCooldown);
         playerDetected = false;
+        cooldown = false;
     }
 
     void OnCollisionEnter(Collision col){

@@ -92,6 +92,7 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         keys = new List<GameObject>();
         cc = GetComponent<CharacterController>();
 
