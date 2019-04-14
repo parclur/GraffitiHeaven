@@ -26,11 +26,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460620774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00004191935, z: 0.03827998}
-  m_LocalScale: {x: 0.0087369, y: 0.009999999, z: 0.0069794995}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0378}
+  m_LocalScale: {x: 0.0087369, y: 0.009999998, z: 0.006979499}
   m_Children: []
-  m_Father: {fileID: 5738554813534937196}
-  m_RootOrder: 4
+  m_Father: {fileID: 5738554813534937198}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &460620776
 BoxCollider:
@@ -111,13 +111,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498451790187651965}
-  m_LocalRotation: {x: -0, y: 0.4425548, z: -0.8967415, w: 0}
-  m_LocalPosition: {x: 0, y: 0.009258079, z: 0.006479983}
-  m_LocalScale: {x: 0.01000002, y: 0.010000011, z: 0.010000002}
+  m_LocalRotation: {x: -0, y: 0.54119074, z: -0.84089994, w: 0}
+  m_LocalPosition: {x: 0, y: 0.0121, z: 0.013}
+  m_LocalScale: {x: 0.010000031, y: 0.010000017, z: 0.010000002}
   m_Children: []
-  m_Father: {fileID: 5738554813534937196}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 127.466, y: 180, z: 0}
+  m_Father: {fileID: 5738554813534937198}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 114.47101, y: 180, z: -0.000015258789}
 --- !u!108 &5922913820574464653
 Light:
   m_ObjectHideFlags: 0
@@ -128,8 +128,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 0.3019608, b: 0.1882353, a: 1}
-  m_Intensity: 25
+  m_Color: {r: 1, g: 0.88739085, b: 0, a: 1}
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 70
   m_CookieSize: 10
@@ -557,8 +557,6 @@ Transform:
   - {fileID: 5738554813534937192}
   - {fileID: 5738554813534937190}
   - {fileID: 5738554813534937188}
-  - {fileID: 460620775}
-  - {fileID: 3868990105315346791}
   m_Father: {fileID: 5738554813534937198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -638,6 +636,8 @@ Transform:
   m_LocalScale: {x: 65, y: 65, z: 65}
   m_Children:
   - {fileID: 5738554813534937196}
+  - {fileID: 460620775}
+  - {fileID: 3868990105315346791}
   m_Father: {fileID: 7318962779123377020}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -692,7 +692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TailTransforms:
-  - {fileID: 5738554813534937198}
   - {fileID: 5738554813534937196}
   RootToParent: 0
   AutoGetWithOne: 1
