@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 1920231263}
   - component: {fileID: 1920231265}
   m_Layer: 5
-  m_Name: YouDied
+  m_Name: YouWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,7 +798,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You died!
+  m_Text: You win!
 --- !u!222 &1920231264
 CanvasRenderer:
   m_ObjectHideFlags: 0
