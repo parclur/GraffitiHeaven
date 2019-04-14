@@ -37,6 +37,31 @@ ModelImporter:
     100062: mixamorig:Spine1
     100064: mixamorig:Spine2
     100066: //RootNode
+    100068: diverlow1:Head
+    100070: diverlow1:HeadTop_End
+    100072: diverlow1:Hips
+    100074: diverlow1:LeftArm
+    100076: diverlow1:LeftFoot
+    100078: diverlow1:LeftForeArm
+    100080: diverlow1:LeftHand
+    100082: diverlow1:LeftLeg
+    100084: diverlow1:LeftShoulder
+    100086: diverlow1:LeftToe_End
+    100088: diverlow1:LeftToeBase
+    100090: diverlow1:LeftUpLeg
+    100092: diverlow1:Neck
+    100094: diverlow1:RightArm
+    100096: diverlow1:RightFoot
+    100098: diverlow1:RightForeArm
+    100100: diverlow1:RightHand
+    100102: diverlow1:RightLeg
+    100104: diverlow1:RightShoulder
+    100106: diverlow1:RightToe_End
+    100108: diverlow1:RightToeBase
+    100110: diverlow1:RightUpLeg
+    100112: diverlow1:Spine
+    100114: diverlow1:Spine1
+    100116: diverlow1:Spine2
     400000: mixamorig:Head
     400002: mixamorig:HeadTop_End
     400004: mixamorig:Hips
@@ -71,6 +96,31 @@ ModelImporter:
     400062: mixamorig:Spine1
     400064: mixamorig:Spine2
     400066: //RootNode
+    400068: diverlow1:Head
+    400070: diverlow1:HeadTop_End
+    400072: diverlow1:Hips
+    400074: diverlow1:LeftArm
+    400076: diverlow1:LeftFoot
+    400078: diverlow1:LeftForeArm
+    400080: diverlow1:LeftHand
+    400082: diverlow1:LeftLeg
+    400084: diverlow1:LeftShoulder
+    400086: diverlow1:LeftToe_End
+    400088: diverlow1:LeftToeBase
+    400090: diverlow1:LeftUpLeg
+    400092: diverlow1:Neck
+    400094: diverlow1:RightArm
+    400096: diverlow1:RightFoot
+    400098: diverlow1:RightForeArm
+    400100: diverlow1:RightHand
+    400102: diverlow1:RightLeg
+    400104: diverlow1:RightShoulder
+    400106: diverlow1:RightToe_End
+    400108: diverlow1:RightToeBase
+    400110: diverlow1:RightUpLeg
+    400112: diverlow1:Spine
+    400114: diverlow1:Spine1
+    400116: diverlow1:Spine2
     7400000: RightTurn90
     9500000: //RootNode
   externalObjects: {}
