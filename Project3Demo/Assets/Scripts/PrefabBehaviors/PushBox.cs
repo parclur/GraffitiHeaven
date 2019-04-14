@@ -6,18 +6,18 @@ public class PushBox : MonoBehaviour
 
     [SerializeField] private float pushSpeed;
 
-    private Rigidbody boxBody;
+    private BoxFall boxFall;
 
     private void Start()
     {
-        boxBody = transform.parent.GetComponent<Rigidbody>();
+        boxFall = transform.parent.GetComponent<BoxFall>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Diver")
+        if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
         {
-            boxBody.velocity = new Vector3(axis.x, 0f, axis.y) * pushSpeed;
+            boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
 
             AudioManager.instance.PlayOneShot("MetalHit1", 1f);
         }
@@ -25,9 +25,17 @@ public class PushBox : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Diver")
+        if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
         {
-            boxBody.velocity = Vector3.zero;
+            boxFall.rb.velocity = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
+        {
+            boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
         }
     }
 }
