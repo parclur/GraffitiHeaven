@@ -90,6 +90,12 @@ public class PlayerDiverMovement : MonoBehaviour
     private Camera cameraMain;
     private Transform cameraTransform;
 
+    public Transform pullBox;
+
+    public bool pulling;
+
+    public Vector3 offset;
+
     private void Start()
     {
         Cursor.visible = false;
@@ -126,6 +132,18 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             ApplySlow();
         }
+        if(rewiredPlayer.GetButton("Interact") && pullBox != null){
+            pulling = true;
+            pullBox.position = transform.position + offset;
+        }
+        else {
+            pulling = false;
+            pullBox = null;
+        }
+    }
+
+    public void InitPull(){
+        offset = pullBox.position - transform.position;
     }
 
     private void FixedUpdate()

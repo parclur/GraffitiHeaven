@@ -15,11 +15,15 @@ public class PushBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
+        if (other.gameObject.tag == "Diver")
         {
-            boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
-
-            AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            PlayerDiverMovement diverMovement = other.GetComponent<PlayerDiverMovement>();
+            diverMovement.pullBox = this.transform.parent;
+            diverMovement.InitPull();
+            if(!boxFall.dontPush && !diverMovement.pulling){
+                boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
+                AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            }
         }
     }
 
@@ -27,15 +31,28 @@ public class PushBox : MonoBehaviour
     {
         if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
         {
+            PlayerDiverMovement diverMovement = other.GetComponent<PlayerDiverMovement>();
+            if(!boxFall.dontPush && !diverMovement.pulling){
+                diverMovement.pullBox = null;
+            }
             boxFall.rb.velocity = Vector3.zero;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
+        if (other.gameObject.tag == "Diver")
         {
-            boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
+            PlayerDiverMovement diverMovement = other.GetComponent<PlayerDiverMovement>();
+            if(diverMovement.pullBox = null){
+                diverMovement.pullBox = this.transform.parent;
+                diverMovement.InitPull();
+            }
+            
+            if(!boxFall.dontPush && !diverMovement.pulling){
+                boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
+                AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            }
         }
     }
 }
