@@ -7,19 +7,22 @@ public class FlareAmmoBox : MonoBehaviour
 
     private FlareGun playerFlareGun;
 
-    private Player rewiredPlayer;
+    private Player rewiredDiver;
+    private Player rewiredDrone;
 
     private bool inRange = false;
 
     private void Start()
     {
         playerFlareGun = GameObject.Find("FlareGunSpawn").GetComponent<FlareGun>();
-        rewiredPlayer = ReInput.players.GetPlayer("Diver");
+        rewiredDiver = ReInput.players.GetPlayer("Diver");
+        rewiredDrone = ReInput.players.GetPlayer("Drone");
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Diver")
+        if (other.gameObject.tag == "Diver" || other.gameObject.tag == "Drone")
         {
             inRange = true;          
         }
@@ -27,7 +30,7 @@ public class FlareAmmoBox : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Diver")
+        if (other.gameObject.tag == "Diver" || other.gameObject.tag == "Drone")
         {
             inRange = false;
         }
@@ -35,7 +38,7 @@ public class FlareAmmoBox : MonoBehaviour
 
     private void Update()
     {
-        if (inRange && rewiredPlayer.GetButtonDown("Interact"))
+        if (inRange && rewiredDiver.GetButtonDown("Interact") || inRange && rewiredDrone.GetButtonDown("Interact"))
         {
             playerFlareGun.AddFlares(flareCount);
             Destroy(gameObject, 0.1f);

@@ -15,9 +15,6 @@ public class OptionsManager : MonoBehaviour {
         settingsLevel = new float[(int)SettingsName.ArraySize];
         for (int i = 0; i < settingsLevel.Length; i++){
             settingsLevel[i] = 100;
-            if(i == (int)SettingsName.brightness){
-                settingsLevel[i] = 50;
-            }
         }
         instance = this;
     }

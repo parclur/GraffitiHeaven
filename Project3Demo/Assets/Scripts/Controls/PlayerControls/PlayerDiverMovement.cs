@@ -90,8 +90,15 @@ public class PlayerDiverMovement : MonoBehaviour
     private Camera cameraMain;
     private Transform cameraTransform;
 
+    public Transform pullBox;
+
+    public bool pulling;
+
+    public Vector3 offset;
+
     private void Start()
     {
+        Cursor.visible = false;
         keys = new List<GameObject>();
         cc = GetComponent<CharacterController>();
 
@@ -125,6 +132,18 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             ApplySlow();
         }
+        if(rewiredPlayer.GetButton("Interact") && pullBox != null){
+            pulling = true;
+            pullBox.position = transform.position + offset;
+        }
+        else {
+            pulling = false;
+            pullBox = null;
+        }
+    }
+
+    public void InitPull(){
+        offset = pullBox.position - transform.position;
     }
 
     private void FixedUpdate()
@@ -183,7 +202,7 @@ public class PlayerDiverMovement : MonoBehaviour
         right.Normalize();
 
         Vector3 desiredMoveDirection = forward * yAxis + right * xAxis;
-        if(desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
+        if (desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
             distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
 
@@ -204,9 +223,10 @@ public class PlayerDiverMovement : MonoBehaviour
 
         }
 
-        cc.Move(desiredMoveDirection * acceleration + gravity);
 
-        //Debug.Log(acceleration);
+        if(acceleration != 0 || !cc.isGrounded)
+            cc.Move(desiredMoveDirection * acceleration + gravity);
+
         HandleAnimations(acceleration * 100, distanceToRotate);
     }
 
