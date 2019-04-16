@@ -7,10 +7,15 @@ public class HitDoorWithLight : MonoBehaviour {
     private float angleToMatch;
 
     GameObject[] doors;
+    HeavyDoor[] hDoors;
 
     void Start(){
         angleToMatch = GetComponent<Light>().spotAngle;
         doors = GameObject.FindGameObjectsWithTag("Door");
+        hDoors = new HeavyDoor[doors.Length];
+        for(int i = 0; i < hDoors.Length; i++){
+            hDoors[i] = doors[i].GetComponent<HeavyDoor>();
+        }
     }
     
     void Update(){
@@ -20,15 +25,20 @@ public class HitDoorWithLight : MonoBehaviour {
     void CheckDoorHit(){
         Vector3 position = transform.position;
 
-        foreach (GameObject go in doors){
+        for(int i = 0; i < doors.Length; i++){
+            GameObject go = doors[i];
             Vector3 targetDir = go.transform.position - transform.position;
             Vector3 forward = transform.forward;
             float angle = Vector3.SignedAngle(targetDir, forward, Vector3.up) - 30f;
             if(Mathf.Abs(angle) < angleToMatch){
-                go.GetComponent<HeavyDoor>().stopOpening = true;
+                if(hDoors[i]){
+                    hDoors[i].stopOpening = true;
+                }
             }
             else {
-                go.GetComponent<HeavyDoor>().stopOpening = false;
+                if(hDoors[i]){
+                    hDoors[i].stopOpening = true;
+                }
             }
         }
     }
