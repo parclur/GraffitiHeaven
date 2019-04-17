@@ -52,6 +52,8 @@ public class PlayerDiverMovement : MonoBehaviour
  
     private bool isInGodPeriod = false;
 
+    private bool firstMove = false;
+
     //-----------------------------------------Componants-------------------------------------
 
     CharacterController cc;
@@ -165,9 +167,16 @@ public class PlayerDiverMovement : MonoBehaviour
         }
 
 
+
         if(currentControllerMap == ControllerMaps.LayoutC)
         {
-            ThreeDirectionalMovment(xAxis, yAxis);
+            if(firstMove) //USED TO FIX CHECKPOINT BUG, WITHOUT CC WILL OVERRIDE POSITION AFTER MOVE AND RESET DIVER LOCATION
+                ThreeDirectionalMovment(xAxis, yAxis);
+        }
+
+        if (xAxis != 0 || yAxis != 0)
+        {
+            firstMove = true;
         }
         //else
         //{
