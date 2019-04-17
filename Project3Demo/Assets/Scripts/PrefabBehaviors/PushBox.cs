@@ -8,8 +8,11 @@ public class PushBox : MonoBehaviour
 
     private BoxFall boxFall;
 
+    Rigidbody rb;
+
     private void Start()
     {
+        rb = transform.parent.GetComponent<Rigidbody>();
         boxFall = transform.parent.GetComponent<BoxFall>();
     }
 
@@ -18,11 +21,10 @@ public class PushBox : MonoBehaviour
         if (other.gameObject.tag == "Diver")
         {
             PlayerDiverMovement diverMovement = other.GetComponent<PlayerDiverMovement>();
-            diverMovement.pullBox = this.transform.parent;
-            diverMovement.InitPull();
-            if(!boxFall.dontPush && !diverMovement.pulling){
-                boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
-                AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            if(boxFall.dontPush) diverMovement.pullBox = null;
+            else {
+                diverMovement.InitBox(axis);
+                diverMovement.pullBox = rb;
             }
         }
     }
@@ -32,7 +34,7 @@ public class PushBox : MonoBehaviour
         if (other.gameObject.tag == "Diver" && !boxFall.dontPush)
         {
             PlayerDiverMovement diverMovement = other.GetComponent<PlayerDiverMovement>();
-            if(!boxFall.dontPush && !diverMovement.pulling){
+            if(!diverMovement.pulling){
                 diverMovement.pullBox = null;
             }
             boxFall.rb.velocity = Vector3.zero;
@@ -44,14 +46,10 @@ public class PushBox : MonoBehaviour
         if (other.gameObject.tag == "Diver")
         {
             PlayerDiverMovement diverMovement = other.GetComponent<PlayerDiverMovement>();
-            if(diverMovement.pullBox = null){
-                diverMovement.pullBox = this.transform.parent;
-                diverMovement.InitPull();
-            }
-            
-            if(!boxFall.dontPush && !diverMovement.pulling){
-                boxFall.rb.velocity = new Vector3(axis.x * pushSpeed, boxFall.rb.velocity.y, axis.y * pushSpeed);
-                AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            if(boxFall.dontPush) diverMovement.pullBox = null;
+            else if(diverMovement.pullBox == null){
+                diverMovement.InitBox(axis);
+                diverMovement.pullBox = rb;
             }
         }
     }

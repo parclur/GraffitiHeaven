@@ -90,11 +90,11 @@ public class PlayerDiverMovement : MonoBehaviour
     private Camera cameraMain;
     private Transform cameraTransform;
 
-    public Transform pullBox;
+    public Rigidbody pullBox;
 
     public bool pulling;
 
-    public Vector3 offset;
+    Vector2 axis;
 
     private void Start()
     {
@@ -132,18 +132,11 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             ApplySlow();
         }
-        if(rewiredPlayer.GetButton("Interact") && pullBox != null){
-            pulling = true;
-            pullBox.position = transform.position + offset;
-        }
-        else {
-            pulling = false;
-            pullBox = null;
-        }
+        
     }
 
-    public void InitPull(){
-        offset = pullBox.position - transform.position;
+    public void InitBox(Vector2 newAxis){
+        axis = newAxis;
     }
 
     private void FixedUpdate()
@@ -225,7 +218,26 @@ public class PlayerDiverMovement : MonoBehaviour
 
 
         if(acceleration != 0 || !cc.isGrounded)
-            cc.Move(desiredMoveDirection * acceleration + gravity);
+            if(pulling){
+                cc.Move(new Vector3(desiredMoveDirection.x * axis.x, desiredMoveDirection.y, desiredMoveDirection.z * axis.y) * acceleration  + gravity);
+            }
+            else {
+                cc.Move(desiredMoveDirection * acceleration + gravity);
+            }
+
+        if(rewiredPlayer.GetButton("Interact")){
+            if(pullBox != null){
+                pulling = true;
+                pullBox.velocity = new Vector3(desiredMoveDirection.x * axis.x, desiredMoveDirection.y, desiredMoveDirection.z * axis.y) * 2;
+                //AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            }
+        }
+        else {
+            if(pulling){
+                pullBox = null;
+            }
+            pulling = false;
+        }
 
         HandleAnimations(acceleration * 100, distanceToRotate);
     }
