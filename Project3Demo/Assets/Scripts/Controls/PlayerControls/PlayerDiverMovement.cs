@@ -228,7 +228,7 @@ public class PlayerDiverMovement : MonoBehaviour
         if(rewiredPlayer.GetButton("Interact")){
             if(pullBox != null){
                 pulling = true;
-                pullBox.velocity = new Vector3(desiredMoveDirection.x * axis.x, desiredMoveDirection.y, desiredMoveDirection.z * axis.y) * 2;
+                pullBox.velocity = new Vector3(desiredMoveDirection.x * axis.x * 2, pullBox.velocity.y, desiredMoveDirection.z * axis.y * 2);
                 //AudioManager.instance.PlayOneShot("MetalHit1", 1f);
             }
         }
