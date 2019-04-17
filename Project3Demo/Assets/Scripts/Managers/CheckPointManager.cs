@@ -13,27 +13,16 @@ public class CheckPointManager : MonoBehaviour
     string checkpointKey = "ActiveCheckpoint";
 
 
-    GameObject diver; //NEED TO FIND DIVER AND DRONE
-    GameObject drone;
+    [SerializeField] GameObject diver; //NEED TO FIND DIVER AND DRONE
+    [SerializeField] GameObject drone;
 
     private void Awake()
     {
         instance = this;
     }
 
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    Debug.Log("Moving to checkpoint from load level");
-
-    //    GameObject activeCheckpoint = GameObject.Find(activeCheckpointName); //Finds the active checkpoint
-    //    SetActiveCheckpoint(activeCheckpoint);
-
-    //    SpawnAtActiveCheckpoint();
-    //}
-
     private void Start()
     {
-
         Debug.Log("Moving to checkpoint from start");
         SetActiveCheckpoint(PlayerPrefs.GetString(checkpointKey)); //Gets the active checkpoint from playerprefs and sets it
 

@@ -21,8 +21,7 @@ public class LevelSelectManager : MonoBehaviour
 
     public void NewGame()
     {
-        PlayerPrefs.SetString(checkpointKey, level1StartingCheckpoint);
-        SceneLoader.instance.LoadGame();
+        LoadLevel1(); //Loads the first level
     }
 
     public void LoadGame()
