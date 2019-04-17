@@ -35,8 +35,7 @@ public class CheckPointManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("Moving to checkpoint from start");
-        GameObject activeCheckpoint = GameObject.Find(activeCheckpointName); //Finds the active checkpoint
-        SetActiveCheckpoint(activeCheckpoint);
+        SetActiveCheckpoint(activeCheckpointName);
 
         SpawnAtActiveCheckpoint();
     }
@@ -62,6 +61,13 @@ public class CheckPointManager : MonoBehaviour
             activeCheckpointScript.SpawnPlayers(diver, drone);
     }
 
+    public void SetActiveCheckpoint(string checkpointName) //Sets the active checkpoint
+    {
+        GameObject activeCheckpoint = GameObject.Find(checkpointName); //Finds the active checkpoint
+        SetActiveCheckpoint(activeCheckpoint);
+
+    }
+
     public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
     {
         Debug.Log("Setting active checkpoint to checkpoing: " + checkpoint.name);
@@ -73,4 +79,6 @@ public class CheckPointManager : MonoBehaviour
         Debug.Log("Name: " + activeCheckpointName);
 
     }
+
+
 }
