@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelSelectManager : MonoBehaviour
 {
+    [HideInInspector] public static LevelSelectManager instance;
 
     [SerializeField] string level1StartingCheckpoint;
     [SerializeField] string level2StartingCheckpoint;
@@ -12,6 +13,11 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] string level5StartingCheckpoint;
 
     string checkpointKey = "ActiveCheckpoint";
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     public void NewGame()
     {

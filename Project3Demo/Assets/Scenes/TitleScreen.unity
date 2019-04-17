@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1350,6 +1350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   text: {fileID: 0}
   vName: Vignette
   sName: 3
@@ -3206,6 +3207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   text: {fileID: 0}
   vName: Brightness
   sName: 1
@@ -3603,6 +3605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   text: {fileID: 0}
   vName: Sound
   sName: 0
@@ -3894,6 +3897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   nextScene: master-level-dev
 --- !u!114 &1358400908
 MonoBehaviour:
@@ -4419,6 +4423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   text: {fileID: 0}
   vName: Grain
   sName: 2
@@ -5297,6 +5302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   controlMapper: {fileID: 1164466620}
 --- !u!114 &1786545758
 MonoBehaviour:
@@ -5646,6 +5652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
 --- !u!114 &1870965684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5707,6 +5714,54 @@ MonoBehaviour:
   - {fileID: 430942449}
   - {fileID: 2141653020}
   panel: []
+--- !u!1 &1910074375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910074377}
+  - component: {fileID: 1910074376}
+  m_Layer: 0
+  m_Name: LevelSelectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1910074376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910074375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b721286a1d073d442ba20c4f3a65c8c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level1StartingCheckpoint: TEST CHECKPOINT
+  level2StartingCheckpoint: TEST CHECKPOINT
+  level3StartingCheckpoint: TEST CHECKPOINT
+  level4StartingCheckpoint: TEST CHECKPOINT
+  level5StartingCheckpoint: TEST CHECKPOINT
+--- !u!4 &1910074377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910074375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 342.97998, y: 158.63269, z: -773.26715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920231261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6614,6 +6669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextMenu: 0
   pauseUI: 0
+  isSetting: 0
   text: {fileID: 0}
   vName: Ambient Occlusion
   sName: 4
