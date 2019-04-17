@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.SceneManagement;
 
 public class CheckPointManager : MonoBehaviour
 {
@@ -9,17 +10,15 @@ public class CheckPointManager : MonoBehaviour
     GameObject activeCheckpoint; //The active checkpoint in the level
     CheckpointScript activeCheckpointScript;
     string activeCheckpointName;
+    string checkpointKey = "ActiveCheckpoint";
 
 
-    [SerializeField] GameObject startingCheckpoint; //The first checkpoint in the level
-    [SerializeField] GameObject diver;
-    [SerializeField] GameObject drone;
+    GameObject diver; //NEED TO FIND DIVER AND DRONE
+    GameObject drone;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this); //Sets the manager to not destroy on load
         instance = this;
-        SetActiveCheckpoint(startingCheckpoint);
     }
 
     //private void OnLevelWasLoaded(int level)
@@ -34,10 +33,12 @@ public class CheckPointManager : MonoBehaviour
 
     private void Start()
     {
+
         Debug.Log("Moving to checkpoint from start");
-        SetActiveCheckpoint(activeCheckpointName);
+        SetActiveCheckpoint(PlayerPrefs.GetString(checkpointKey)); //Gets the active checkpoint from playerprefs and sets it
 
         SpawnAtActiveCheckpoint();
+
     }
 
     private void Update()
@@ -46,11 +47,6 @@ public class CheckPointManager : MonoBehaviour
         {
             SpawnAtActiveCheckpoint();
         }
-    }
-
-    public void SetActiveCheckpointToStartingCheckpoint()
-    {
-        SetActiveCheckpoint(startingCheckpoint);
     }
 
     public void SpawnAtActiveCheckpoint() //Will call the spawn players function on the active checkpoint
@@ -71,12 +67,17 @@ public class CheckPointManager : MonoBehaviour
     public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
     {
         Debug.Log("Setting active checkpoint to checkpoing: " + checkpoint.name);
-        activeCheckpoint = checkpoint;
+
+        activeCheckpoint = checkpoint; //Sets the active checkpoing to the passed checkpoint
         Debug.Log("Extracting script from checkpoint...");
-        activeCheckpointScript = activeCheckpoint.GetComponent<CheckpointScript>();
+
+        activeCheckpointScript = activeCheckpoint.GetComponent<CheckpointScript>(); //Gets the script of the active checkpoint
         Debug.Log("Script: " + activeCheckpointScript.name + " extracted.");
-        activeCheckpointName = activeCheckpoint.name;
+
+        activeCheckpointName = activeCheckpoint.name; //Gets the name of the active checkpoint
         Debug.Log("Name: " + activeCheckpointName);
+
+        PlayerPrefs.SetString(checkpointKey, activeCheckpointName); //Sends the name to player prefs
 
     }
 

@@ -11,15 +11,49 @@ public class LevelSelectManager : MonoBehaviour
     [SerializeField] string level4StartingCheckpoint;
     [SerializeField] string level5StartingCheckpoint;
 
-    // Start is called before the first frame update
-    void Start()
+    string checkpointKey = "ActiveCheckpoint";
+
+    public void NewGame()
     {
-        
+        PlayerPrefs.SetString(checkpointKey, level1StartingCheckpoint);
+        SceneLoader.instance.LoadGame();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadGame()
     {
-        
+        //no need to set a player pref here as it will just load from the last one
+        SceneLoader.instance.LoadGame();
     }
+
+    public void LoadLevel1()
+    {
+        PlayerPrefs.SetString(checkpointKey, level1StartingCheckpoint);
+        SceneLoader.instance.LoadGame();
+    }
+
+    public void LoadLevel2()
+    {
+        PlayerPrefs.SetString(checkpointKey, level2StartingCheckpoint);
+        SceneLoader.instance.LoadGame();
+    }
+
+    public void LoadLevel3()
+    {
+        PlayerPrefs.SetString(checkpointKey, level3StartingCheckpoint);
+        SceneLoader.instance.LoadGame();
+    }
+
+    public void LoadLevel4()
+    {
+        PlayerPrefs.SetString(checkpointKey, level4StartingCheckpoint);
+        SceneLoader.instance.LoadGame();
+    }
+
+    public void LoadLevel5()
+    {
+        PlayerPrefs.SetString(checkpointKey, level5StartingCheckpoint);
+        SceneLoader.instance.LoadGame();
+    }
+
+
 }
