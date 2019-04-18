@@ -52,7 +52,7 @@ public class NavigateMenu : MonoBehaviour{
                 for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
                     menuItems[selectedMenu].items[i].gameObject.SetActive(false);
                 }
-                selectedMenu++;
+                selectedMenu+=curItem.menuOver;
                 selectedItem = 0;
                 for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
                     menuItems[selectedMenu].items[i].gameObject.SetActive(true);
@@ -66,7 +66,7 @@ public class NavigateMenu : MonoBehaviour{
                 for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
                     menuItems[selectedMenu].items[i].gameObject.SetActive(false);
                 }
-                selectedMenu--;
+                selectedMenu=0;
                 selectedItem = 0;
                 for(int i = 0; i < menuItems[selectedMenu].items.Length; i++) {
                     menuItems[selectedMenu].items[i].gameObject.SetActive(true);
