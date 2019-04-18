@@ -10,6 +10,8 @@ public class OptionsManager : MonoBehaviour {
 
     public float[] settingsLevel;
 
+    bool appliedVingette = false;
+
     void Start(){
         DontDestroyOnLoad(this.gameObject);
         settingsLevel = new float[(int)SettingsName.ArraySize];
@@ -29,7 +31,8 @@ public class OptionsManager : MonoBehaviour {
             }
         }
 
-        if(PostProcessingManager.instance){
+        if(PostProcessingManager.instance && !appliedVingette){
+            appliedVingette = true;
             PostProcessingManager.instance.AdjustSetting(settingsLevel[(int)SettingsName.grain] / 100, settingsLevel[(int)SettingsName.vignette] / 100, settingsLevel[(int)SettingsName.ambientOcclusion] / 100, settingsLevel[(int)SettingsName.brightness] / 100);
         }
     }

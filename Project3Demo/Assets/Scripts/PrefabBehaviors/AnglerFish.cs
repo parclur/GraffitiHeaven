@@ -47,6 +47,10 @@ public class AnglerFish : MonoBehaviour {
             return;
         }
 
+        if(!stunned){
+            anglerLight.SetActive(true);
+        }
+
         if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= 1){
             collidedWithPlayer = true;
         }
@@ -147,6 +151,7 @@ public class AnglerFish : MonoBehaviour {
         currentPos = transform.position;
         chaseFinished = true;
         chasing = false;
+        StartCoroutine(Stun());
     }
 
     IEnumerator ChaseTimer(){

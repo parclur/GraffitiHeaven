@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Rewired;
+using System.Collections;
+using System.Collections.Generic;
 
 public class WallButton : MonoBehaviour
 {
@@ -19,10 +21,9 @@ public class WallButton : MonoBehaviour
         if (isInRange)
         {
             if (rewiredPlayer.GetButtonDown("Interact"))
-            //if (Input.GetKeyDown(KeyCode.E))
             {
-                //AudioManager.instance.PlayOneShot("ButtonPushed", 1f, 0f);
                 connectsTo.SendMessage("Activate");
+                StartCoroutine(PushButton());
             }
         }
     }
@@ -41,5 +42,11 @@ public class WallButton : MonoBehaviour
         {
             isInRange = false;
         }
+    }
+
+    IEnumerator PushButton(){
+        transform.localScale = new Vector3(transform.localScale.x / 2, transform.localScale.y / 2, transform.localScale.z / 2);
+        yield return new WaitForSeconds(1f);
+        transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z * 2);
     }
 }

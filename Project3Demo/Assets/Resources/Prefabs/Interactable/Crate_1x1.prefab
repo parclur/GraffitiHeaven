@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1, z: 1.0000001}
-  m_Center: {x: 1, y: -1.44, z: 0.00000047683716}
+  m_Size: {x: 4.7987704, y: 1, z: 1.0000004}
+  m_Center: {x: 2.649386, y: -1.44, z: 0.0000019139034}
 --- !u!114 &7340499060975694744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1, z: 1.0000004}
-  m_Center: {x: 1, y: -1.44, z: 0.0000019073486}
+  m_Size: {x: 4.7987704, y: 1, z: 1.0000004}
+  m_Center: {x: 2.649386, y: -1.44, z: 0.0000019139034}
 --- !u!114 &7340499061237366773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +302,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1, z: 1.0000004}
-  m_Center: {x: -1, y: -1.44, z: 0.0000019073486}
+  m_Size: {x: 4.7987704, y: 1, z: 1.0000004}
+  m_Center: {x: -2.6493862, y: -1.44, z: 0.0000019139034}
 --- !u!114 &7340499061321752722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 7340499061399225411}
   - component: {fileID: 7340499061399225415}
   m_Layer: 0
-  m_Name: Crate_1x1 (2)
+  m_Name: Crate_1x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,8 +535,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1, z: 1}
-  m_Center: {x: -1, y: -1.44, z: 0.00000047683716}
+  m_Size: {x: 4.7987704, y: 1, z: 1.0000004}
+  m_Center: {x: -2.6493862, y: -1.44, z: 0.0000019139034}
 --- !u!114 &7340499062535447043
 MonoBehaviour:
   m_ObjectHideFlags: 0
