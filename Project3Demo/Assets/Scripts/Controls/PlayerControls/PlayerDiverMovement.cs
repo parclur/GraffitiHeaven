@@ -90,6 +90,8 @@ public class PlayerDiverMovement : MonoBehaviour
     private Camera cameraMain;
     private Transform cameraTransform;
 
+    private Transform drone;
+
     public Rigidbody pullBox;
 
     public bool pulling;
@@ -117,6 +119,8 @@ public class PlayerDiverMovement : MonoBehaviour
         cameraMain = Camera.main;
         cameraTransform = cameraMain.transform;
 
+        drone = GameObject.FindGameObjectWithTag("Drone").transform;
+
         //Sets the player to layout C
         rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverC");//Ensures new layout is loaded
         rewiredPlayer.controllers.maps.SetAllMapsEnabled(false);//Disables all previous layouts
@@ -134,7 +138,8 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             ApplySlow();
         }
-        
+
+        PostProcessingManager.instance.UpdateVingette(Vector3.Distance(transform.position, drone.position));
     }
 
     public void InitBox(Vector2 newAxis){
@@ -164,24 +169,6 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             if(!climbing) ThreeDirectionalMovment(xAxis, yAxis);
         }
-        //else
-        //{
-        //    RotatePlayer(xAxis);
-        //    HorizontalMovment(yAxis);
-
-        //    //Handles animation variables
-        //    if (isGrounded)
-        //    {
-        //        anim.SetFloat("Forward", yAxis);
-        //        anim.SetFloat("Turn", xAxis);
-        //    }
-        //    else
-        //    {
-        //        anim.SetFloat("Forward", yAxis / 2);
-        //        anim.SetFloat("Turn", xAxis / 2);
-        //    }
-        //}
-
     }
 
     void ThreeDirectionalMovment(float xAxis, float yAxis)
@@ -347,6 +334,7 @@ public class PlayerDiverMovement : MonoBehaviour
             anim.SetFloat("Forward", accelerationABS / 2);
         }
     }
+
     //-----------------------------------Legacy movment code, used for refrance and for layout 2 when we eventally allow controll swaping--------------------------
 
     //void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick

@@ -90,6 +90,12 @@ public class PostProcessingManager : MonoBehaviour
         StartCoroutine(FadeToBlackSmoothness());
     }
 
+    public void UpdateVingette(float distance)
+    {
+        vingetteVolume.intensity.value = distance / 10f;
+        Debug.Log(vingetteVolume.intensity.value);
+    }
+
     //Normalized from 0 to 1
     public void AdjustSetting(float grainNew, float vingnetteNew, float ambientOcclusionNew, float brightnessNew)
     {
