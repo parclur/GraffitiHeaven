@@ -206,7 +206,7 @@ public class PlayerDiverMovement : MonoBehaviour
        
         if (desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
-            if(!pullBox)
+            if(!pulling)
                 distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
 
         }
@@ -228,10 +228,13 @@ public class PlayerDiverMovement : MonoBehaviour
 
 
         if(acceleration != 0 || !cc.isGrounded)
-            if(pulling){
+            if(pulling)
+            {
                 cc.Move(new Vector3(desiredMoveDirection.x * axis.x, desiredMoveDirection.y, desiredMoveDirection.z * axis.y) * acceleration  + gravity);
+                //acceleration *= -1;
             }
-            else {
+            else
+            {
                 cc.Move(desiredMoveDirection * acceleration + gravity);
             }
 
