@@ -3482,7 +3482,6 @@ GameObject:
   - component: {fileID: 874247707}
   - component: {fileID: 874247710}
   - component: {fileID: 874247709}
-  - component: {fileID: 874247708}
   m_Layer: 5
   m_Name: ExitGame
   m_TagString: Untagged
@@ -3510,23 +3509,6 @@ RectTransform:
   m_AnchoredPosition: {x: 464.9999, y: -258.00003}
   m_SizeDelta: {x: 825, y: 75.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &874247708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874247706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26118c19b08981142bf033a3c1e83432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextMenu: 0
-  pauseUI: 0
-  isSetting: 0
-  menuOver: 0
-  controlMapper: {fileID: 1164466620}
 --- !u!114 &874247709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5080,7 +5062,7 @@ MonoBehaviour:
   - {fileID: 1032878000}
   - {fileID: 1870965683}
   - {fileID: 1786545756}
-  - {fileID: 874247708}
+  - {fileID: 0}
   panel: []
 --- !u!1 &1375945355
 GameObject:
