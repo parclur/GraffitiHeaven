@@ -698,6 +698,12 @@
     <Compile Include="Packages\com.unity.analytics\DataPrivacy\DataPrivacyButton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FHelpers - ReadMe.txt" />
+    <None Include="Assets\FImpossible Games\FBasic Assets\Others\S_3DText Shader.shader" />
+    <None Include="Assets\FImpossible Games\FBasic Assets\Others\mrsmonster.txt" />
+    <None Include="Assets\FImpossible Games\FBasic Assets\Read Me - FBasicAssets.txt" />
+    <None Include="Assets\FImpossible Games\Tail Animator\ReadMe - Tail Animator.txt" />
+    <None Include="Assets\FImpossible Games\Tail Animator\Tail Animator - Text from User Manual for translating.txt" />
     <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
     <None Include="Assets\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
     <None Include="Assets\ProCore\ProBuilder\About\changelog.txt" />
@@ -722,7 +728,6 @@
     <None Include="Assets\ProCore\ProGrids\About\changelog.txt" />
     <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
     <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
-    <None Include="Assets\Resources\Audio\audio_data.txt" />
     <None Include="Assets\Rewired\Internal\Libraries\Runtime\Rewired_Core.XML" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryDark.uss" />
