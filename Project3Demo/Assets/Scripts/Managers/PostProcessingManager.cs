@@ -93,7 +93,6 @@ public class PostProcessingManager : MonoBehaviour
     public void UpdateVingette(float distance)
     {
         vingetteVolume.intensity.value = distance / 10f;
-        Debug.Log(vingetteVolume.intensity.value);
     }
 
     //Normalized from 0 to 1
