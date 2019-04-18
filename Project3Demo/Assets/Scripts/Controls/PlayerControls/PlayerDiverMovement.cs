@@ -184,9 +184,30 @@ public class PlayerDiverMovement : MonoBehaviour
         right.Normalize();
 
         Vector3 desiredMoveDirection = forward * yAxis + right * xAxis;
+
+        if (rewiredPlayer.GetButton("Interact"))
+        {
+            if (pullBox != null)
+            {
+                pulling = true;
+                pullBox.velocity = new Vector3(desiredMoveDirection.x * axis.x * 2, pullBox.velocity.y, desiredMoveDirection.z * axis.y * 1.5f);
+                //AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            }
+        }
+        else
+        {
+            if (pulling)
+            {
+                pullBox = null;
+            }
+            pulling = false;
+        }
+
+       
         if (desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
-            distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
+            if(!pullBox)
+                distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
 
         }
 
@@ -214,19 +235,7 @@ public class PlayerDiverMovement : MonoBehaviour
                 cc.Move(desiredMoveDirection * acceleration + gravity);
             }
 
-        if(rewiredPlayer.GetButton("Interact")){
-            if(pullBox != null){
-                pulling = true;
-                pullBox.velocity = new Vector3(desiredMoveDirection.x * axis.x * 2, pullBox.velocity.y, desiredMoveDirection.z * axis.y * 1.5f);
-                //AudioManager.instance.PlayOneShot("MetalHit1", 1f);
-            }
-        }
-        else {
-            if(pulling){
-                pullBox = null;
-            }
-            pulling = false;
-        }
+
 
         HandleAnimations(acceleration * 100, distanceToRotate);
     }
