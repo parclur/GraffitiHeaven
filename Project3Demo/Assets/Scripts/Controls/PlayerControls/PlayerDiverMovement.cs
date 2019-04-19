@@ -52,11 +52,9 @@ public class PlayerDiverMovement : MonoBehaviour
  
     private bool isInGodPeriod = false;
 
-    private bool firstMove = false;
-
     //-----------------------------------------Componants-------------------------------------
 
-    CharacterController cc;
+    public CharacterController cc;
 
     private Animator anim;
 
@@ -92,11 +90,17 @@ public class PlayerDiverMovement : MonoBehaviour
     private Camera cameraMain;
     private Transform cameraTransform;
 
-    public Transform pullBox;
+    private Transform drone;
+
+    public Rigidbody pullBox;
 
     public bool pulling;
 
-    public Vector3 offset;
+    Vector2 axis;
+
+    public bool climbing;
+
+    private bool firstMove = false;
 
     private void Start()
     {
@@ -117,6 +121,8 @@ public class PlayerDiverMovement : MonoBehaviour
         cameraMain = Camera.main;
         cameraTransform = cameraMain.transform;
 
+        drone = GameObject.FindGameObjectWithTag("Drone").transform;
+
         //Sets the player to layout C
         rewiredPlayer.controllers.maps.LoadMap(ControllerType.Joystick, rewiredPlayer.controllers.Joysticks[0].id, "Default", "DiverC");//Ensures new layout is loaded
         rewiredPlayer.controllers.maps.SetAllMapsEnabled(false);//Disables all previous layouts
@@ -134,18 +140,12 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             ApplySlow();
         }
-        if(rewiredPlayer.GetButton("Interact") && pullBox != null){
-            pulling = true;
-            pullBox.position = transform.position + offset;
-        }
-        else {
-            pulling = false;
-            pullBox = null;
-        }
+
+        PostProcessingManager.instance.UpdateVingette(Vector3.Distance(transform.position, drone.position));
     }
 
-    public void InitPull(){
-        offset = pullBox.position - transform.position;
+    public void InitBox(Vector2 newAxis){
+        axis = newAxis;
     }
 
     private void FixedUpdate()
@@ -167,11 +167,10 @@ public class PlayerDiverMovement : MonoBehaviour
         }
 
 
-
         if(currentControllerMap == ControllerMaps.LayoutC)
         {
-            if(firstMove) //USED TO FIX CHECKPOINT BUG, WITHOUT CC WILL OVERRIDE POSITION AFTER MOVE AND RESET DIVER LOCATION
-                ThreeDirectionalMovment(xAxis, yAxis);
+            //USED TO FIX CHECKPOINT BUG, WITHOUT CC WILL OVERRIDE POSITION AFTER MOVE AND RESET DIVER LOCATION
+            if(!climbing && firstMove) ThreeDirectionalMovment(xAxis, yAxis);
         }
 
         if (xAxis != 0 || yAxis != 0)
@@ -195,7 +194,6 @@ public class PlayerDiverMovement : MonoBehaviour
         //        anim.SetFloat("Turn", xAxis / 2);
         //    }
         //}
-
     }
 
     void ThreeDirectionalMovment(float xAxis, float yAxis)
@@ -211,9 +209,30 @@ public class PlayerDiverMovement : MonoBehaviour
         right.Normalize();
 
         Vector3 desiredMoveDirection = forward * yAxis + right * xAxis;
+
+        if (rewiredPlayer.GetButton("Interact"))
+        {
+            if (pullBox != null)
+            {
+                pulling = true;
+                pullBox.velocity = new Vector3(desiredMoveDirection.x * axis.x * 2, pullBox.velocity.y, desiredMoveDirection.z * axis.y * 1.5f);
+                //AudioManager.instance.PlayOneShot("MetalHit1", 1f);
+            }
+        }
+        else
+        {
+            if (pulling)
+            {
+                pullBox = null;
+            }
+            pulling = false;
+        }
+
+       
         if (desiredMoveDirection.x != 0 || desiredMoveDirection.y != 0 || desiredMoveDirection.z != 0) //If the player needs to be rotated...
         {
-            distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
+            if(!pulling)
+                distanceToRotate = RotateTowardsPoint(desiredMoveDirection); //Will update the distance to rotate if rotation is required
 
         }
 
@@ -234,7 +253,17 @@ public class PlayerDiverMovement : MonoBehaviour
 
 
         if(acceleration != 0 || !cc.isGrounded)
-            cc.Move(desiredMoveDirection * acceleration + gravity);
+            if(pulling)
+            {
+                cc.Move(new Vector3(desiredMoveDirection.x * axis.x, desiredMoveDirection.y, desiredMoveDirection.z * axis.y) * acceleration  + gravity);
+                //acceleration *= -1;
+            }
+            else
+            {
+                cc.Move(desiredMoveDirection * acceleration + gravity);
+            }
+
+
 
         HandleAnimations(acceleration * 100, distanceToRotate);
     }
@@ -342,6 +371,7 @@ public class PlayerDiverMovement : MonoBehaviour
             anim.SetFloat("Forward", accelerationABS / 2);
         }
     }
+
     //-----------------------------------Legacy movment code, used for refrance and for layout 2 when we eventally allow controll swaping--------------------------
 
     //void RotatePlayer(float xAxis) //Will rotate the player based on the x axis of the stick
