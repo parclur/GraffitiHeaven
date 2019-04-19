@@ -14,9 +14,9 @@ public class CheckpointScript : MonoBehaviour
     private void Awake()
     {
         diverSpawnPoint = transform.Find("CheckpointDiverSpawn");
-        Debug.Log(gameObject.name + " diver spawnpoint set to: " + diverSpawnPoint.position);
+        //Debug.Log(gameObject.name + " diver spawnpoint set to: " + diverSpawnPoint.position);
         droneSpawnPoint = transform.Find("CheckpointDroneSpawn");
-        Debug.Log(gameObject.name + " drone spawnpoint set to: " + droneSpawnPoint.position);
+        //Debug.Log(gameObject.name + " drone spawnpoint set to: " + droneSpawnPoint.position);
     }
 
 

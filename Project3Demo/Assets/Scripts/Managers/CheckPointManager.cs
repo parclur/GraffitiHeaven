@@ -55,16 +55,16 @@ public class CheckPointManager : MonoBehaviour
 
     public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
     {
-        Debug.Log("Setting active checkpoint to checkpoing: " + checkpoint.name);
+        //Debug.Log("Setting active checkpoint to checkpoint: " + checkpoint.name);
 
         activeCheckpoint = checkpoint; //Sets the active checkpoing to the passed checkpoint
-        Debug.Log("Extracting script from checkpoint...");
+        //Debug.Log("Extracting script from checkpoint...");
 
         activeCheckpointScript = activeCheckpoint.GetComponent<CheckpointScript>(); //Gets the script of the active checkpoint
-        Debug.Log("Script: " + activeCheckpointScript.name + " extracted.");
+        //Debug.Log("Script: " + activeCheckpointScript.name + " extracted.");
 
         activeCheckpointName = activeCheckpoint.name; //Gets the name of the active checkpoint
-        Debug.Log("Name: " + activeCheckpointName);
+        //Debug.Log("Name: " + activeCheckpointName);
 
         PlayerPrefs.SetString(checkpointKey, activeCheckpointName); //Sends the name to player prefs
 
