@@ -14,9 +14,10 @@ public class CharacterControllerCollisions : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.collider.tag == "Key" && player.GetButton("Interact"))
+        if (hit.gameObject.activeSelf && hit.collider.tag == "Key" && player.GetButton("Interact"))
         {
             GetComponent<PlayerDiverMovement>().addKey(hit.gameObject);
+            AudioManager.instance.PlayOneShot("FlareAmmoBoxPickup", 1f, 0f);
             hit.gameObject.SetActive(false);
         }
         if(hit.collider.tag == "LoadZone")

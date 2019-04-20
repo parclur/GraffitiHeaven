@@ -64,7 +64,7 @@ public class HeavyDoor : MonoBehaviour {
 
     public void Activate()
     {
-        AudioManager.instance.PlayOneShot("MetalDoorOpen");
+        //AudioManager.instance.PlayOneShot("MetalDoorOpen");
         StartCoroutine(MoveDoor());
     }
 
