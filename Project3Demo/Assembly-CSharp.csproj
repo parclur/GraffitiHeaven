@@ -239,6 +239,7 @@
     <Compile Include="Assets\Scripts\PrefabBehaviors\LampreyAI.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\PushBox.cs" />
     <Compile Include="Assets\Scripts\PrefabBehaviors\WallButton.cs" />
+    <Compile Include="Assets\Scripts\PrefabBehaviors\WifiGoDown.cs" />
     <None Include="Assets\FImpossible Games\Tail Animator\ReadMe - Tail Animator.txt" />
     <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
