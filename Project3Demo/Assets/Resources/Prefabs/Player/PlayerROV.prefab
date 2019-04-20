@@ -681,10 +681,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControlling: Drone
-  playerDirectionalSpeed: 17
-  playerRiseDesendSpeed: 15
-  playerVerticalRotateSpeed: 0.4
-  playerHorizontalRotateSpeed: 0.5
+  playerDirectionalSpeed: 22
+  playerRiseDesendSpeed: 17
+  playerVerticalRotateSpeed: 0.6
+  playerHorizontalRotateSpeed: 0.75
 --- !u!1 &4476757759717861018
 GameObject:
   m_ObjectHideFlags: 0

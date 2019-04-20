@@ -1322,13 +1322,17 @@ MonoBehaviour:
   fallingRotateSpeed: 0
   movingRotateSpeed: 2
   movementAcceleration: 0.03
-  slowedSpeed: 0.02
+  slowedSpeed: 0.2
   fallingHorizontalSpeed: 0.01
   hitsToDie: 2
   slowDurtaion: 4
   godPeriod: 2
   rotationDistanceForForwardMovment: 20
   isGrounded: 1
+  cc: {fileID: 0}
+  pullBox: {fileID: 0}
+  pulling: 0
+  climbing: 0
 --- !u!114 &1098735309753250748
 MonoBehaviour:
   m_ObjectHideFlags: 0
