@@ -173,6 +173,7 @@ public class AnglerFish : MonoBehaviour {
         yield return new WaitForSeconds(stunTime);
         anglerLight.SetActive(true);
         stunned = false;
+        ResetCoroutines();
     }
 
     //Repurposed from the unity docs https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html. Find closest waypoint
