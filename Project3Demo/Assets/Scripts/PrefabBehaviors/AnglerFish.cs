@@ -47,6 +47,10 @@ public class AnglerFish : MonoBehaviour {
             return;
         }
 
+        if(!stunned){
+            anglerLight.SetActive(true);
+        }
+
         if(Vector3.Distance(diver.transform.position + (diver.transform.up * 2), this.transform.position) <= 1){
             collidedWithPlayer = true;
         }
@@ -147,6 +151,7 @@ public class AnglerFish : MonoBehaviour {
         currentPos = transform.position;
         chaseFinished = true;
         chasing = false;
+        StartCoroutine(Stun());
     }
 
     IEnumerator ChaseTimer(){
@@ -168,6 +173,7 @@ public class AnglerFish : MonoBehaviour {
         yield return new WaitForSeconds(stunTime);
         anglerLight.SetActive(true);
         stunned = false;
+        ResetCoroutines();
     }
 
     //Repurposed from the unity docs https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html. Find closest waypoint

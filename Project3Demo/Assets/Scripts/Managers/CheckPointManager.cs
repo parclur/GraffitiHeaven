@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.SceneManagement;
 
 public class CheckPointManager : MonoBehaviour
 {
@@ -9,36 +10,24 @@ public class CheckPointManager : MonoBehaviour
     GameObject activeCheckpoint; //The active checkpoint in the level
     CheckpointScript activeCheckpointScript;
     string activeCheckpointName;
+    string checkpointKey = "ActiveCheckpoint";
 
 
-    [SerializeField] GameObject startingCheckpoint; //The first checkpoint in the level
-    [SerializeField] GameObject diver;
+    [SerializeField] GameObject diver; //NEED TO FIND DIVER AND DRONE
     [SerializeField] GameObject drone;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this); //Sets the manager to not destroy on load
         instance = this;
-        SetActiveCheckpoint(startingCheckpoint);
     }
-
-    //private void OnLevelWasLoaded(int level)
-    //{
-    //    Debug.Log("Moving to checkpoint from load level");
-
-    //    GameObject activeCheckpoint = GameObject.Find(activeCheckpointName); //Finds the active checkpoint
-    //    SetActiveCheckpoint(activeCheckpoint);
-
-    //    SpawnAtActiveCheckpoint();
-    //}
 
     private void Start()
     {
         Debug.Log("Moving to checkpoint from start");
-        GameObject activeCheckpoint = GameObject.Find(activeCheckpointName); //Finds the active checkpoint
-        SetActiveCheckpoint(activeCheckpoint);
+        SetActiveCheckpoint(PlayerPrefs.GetString(checkpointKey)); //Gets the active checkpoint from playerprefs and sets it
 
         SpawnAtActiveCheckpoint();
+
     }
 
     private void Update()
@@ -49,11 +38,6 @@ public class CheckPointManager : MonoBehaviour
         }
     }
 
-    public void SetActiveCheckpointToStartingCheckpoint()
-    {
-        SetActiveCheckpoint(startingCheckpoint);
-    }
-
     public void SpawnAtActiveCheckpoint() //Will call the spawn players function on the active checkpoint
     {
         Debug.Log("Movign player to checkpoint: " + activeCheckpoint.name + " at position: " + activeCheckpoint.transform.position);
@@ -62,15 +46,29 @@ public class CheckPointManager : MonoBehaviour
             activeCheckpointScript.SpawnPlayers(diver, drone);
     }
 
-    public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
+    public void SetActiveCheckpoint(string checkpointName) //Sets the active checkpoint
     {
-        Debug.Log("Setting active checkpoint to checkpoing: " + checkpoint.name);
-        activeCheckpoint = checkpoint;
-        Debug.Log("Extracting script from checkpoint...");
-        activeCheckpointScript = activeCheckpoint.GetComponent<CheckpointScript>();
-        Debug.Log("Script: " + activeCheckpointScript.name + " extracted.");
-        activeCheckpointName = activeCheckpoint.name;
-        Debug.Log("Name: " + activeCheckpointName);
+        GameObject activeCheckpoint = GameObject.Find(checkpointName); //Finds the active checkpoint
+        SetActiveCheckpoint(activeCheckpoint);
 
     }
+
+    public void SetActiveCheckpoint(GameObject checkpoint) //Sets the active checkpoint
+    {
+        //Debug.Log("Setting active checkpoint to checkpoint: " + checkpoint.name);
+
+        activeCheckpoint = checkpoint; //Sets the active checkpoing to the passed checkpoint
+        //Debug.Log("Extracting script from checkpoint...");
+
+        activeCheckpointScript = activeCheckpoint.GetComponent<CheckpointScript>(); //Gets the script of the active checkpoint
+        //Debug.Log("Script: " + activeCheckpointScript.name + " extracted.");
+
+        activeCheckpointName = activeCheckpoint.name; //Gets the name of the active checkpoint
+        //Debug.Log("Name: " + activeCheckpointName);
+
+        PlayerPrefs.SetString(checkpointKey, activeCheckpointName); //Sends the name to player prefs
+
+    }
+
+
 }

@@ -7,6 +7,7 @@ public class MenuItemCall : MonoBehaviour {
     [HideInInspector] public bool nextMenu;
     [HideInInspector] public bool pauseUI;
     [HideInInspector] public bool isSetting;
+    [HideInInspector] public int menuOver;
 
     public virtual void ClickCall(){}
 

@@ -134,7 +134,7 @@ Light:
   m_SpotAngle: 70
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -755,8 +755,8 @@ MonoBehaviour:
   UseWaving: 1
   CosinusAdd: 0
   WavingSpeed: 3
-  WavingRange: 0.8
-  WavingAxis: {x: 1, y: 0, z: 0}
+  WavingRange: 0.2
+  WavingAxis: {x: 0, y: 1, z: 0}
   TailRotationOffset: {x: 0, y: 0, z: 0}
   WavingType: 0
   AlternateWave: 1
