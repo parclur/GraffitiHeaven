@@ -64,7 +64,6 @@ public class HeavyDoor : MonoBehaviour {
 
     public void Activate()
     {
-        //AudioManager.instance.PlayOneShot("MetalDoorOpen");
         StartCoroutine(MoveDoor());
     }
 
@@ -93,7 +92,7 @@ public class HeavyDoor : MonoBehaviour {
     {
         if (rewiredPlayer.GetButton("Interact"))
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < keyDistance && (!doorOpening || !doorOpen))
+            if ((!doorOpening || !doorOpen) && Vector3.Distance(player.transform.position, transform.position) < keyDistance)
             {
                 bool doesDoorOpen;
                 if (testForAll)
@@ -106,9 +105,14 @@ public class HeavyDoor : MonoBehaviour {
                 }
 
                 if (doesDoorOpen)
-                {              
-                    AudioManager.instance.PlayOneShot("MetalDoorOpen");
+                {
+                    AudioManager.instance.PlayOneShot("MetalDoorUnlocked");
+                    AudioManager.instance.PlayOneShot("MetalDoorOpen", 0.5f, 1.25f);
                     StartCoroutine(MoveDoor());
+                }
+                else
+                {
+                    AudioManager.instance.PlayOneShot("MetalHit3", 0.75f);
                 }
             }
         }
