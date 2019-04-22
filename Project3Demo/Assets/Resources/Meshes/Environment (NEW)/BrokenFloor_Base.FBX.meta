@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ca1f35b5eb66f8498acca444a9ed564
+guid: 97c425aa441b4eb40b4261911267ac9d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,8 +8,7 @@ ModelImporter:
     2100000: 01 - Default
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Object025
-    4300002: UpperDeck_Cornerpiece002
+    4300000: Object044
   externalObjects: {}
   materials:
     importMaterials: 1
