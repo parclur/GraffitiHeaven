@@ -1697,7 +1697,17 @@ PrefabInstance:
     - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
         type: 3}
       propertyPath: levelName
-      value: master-level-dev
+      value: NewspaperScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: winName
+      value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: nextScene
+      value: NewspaperScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fb56c07bccd664ebb728cde1c147c0, type: 3}
@@ -4417,7 +4427,7 @@ MonoBehaviour:
   _ignoreMouseYAxisAssignment: 1
   _screenToggleAction: -1
   _screenOpenAction: -1
-  _screenCloseAction: -1
+  _screenCloseAction: 11
   _universalCancelAction: -1
   _universalCancelClosesScreen: 1
   _showInputBehaviorSettings: 0

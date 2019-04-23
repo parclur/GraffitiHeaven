@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ClickThroughPapers.cs" />
      <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FlyMovement.cs" />
      <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FollowTarget.cs" />
      <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_HoldPosition.cs" />
