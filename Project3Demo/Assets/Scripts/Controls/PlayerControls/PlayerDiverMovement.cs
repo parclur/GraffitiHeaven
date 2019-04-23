@@ -24,6 +24,8 @@ public class PlayerDiverMovement : MonoBehaviour
 
     [SerializeField] private float fallingHorizontalSpeed;
 
+    [SerializeField] private float gravityModifyer = 1.0f; //Multiplys gravity when calculating
+
     [Header("Health Variables")]
 
     [SerializeField] private int hitsToDie;
@@ -240,10 +242,9 @@ public class PlayerDiverMovement : MonoBehaviour
         {
             acceleration = movementAcceleration; //Sets accleration to it's default value (will overrite if needed)
 
-            if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
+            if (!cc.isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
             {
                 acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
-                Debug.Log("AHHHH");
             }
             else if (isSlowed) //Checks to see if the player is slowed, then applies new accleration
             {
@@ -251,7 +252,7 @@ public class PlayerDiverMovement : MonoBehaviour
             }
 
         }
-
+;
 
         if(acceleration != 0 || !cc.isGrounded)
             if(pulling)
@@ -261,7 +262,7 @@ public class PlayerDiverMovement : MonoBehaviour
             }
             else
             {
-                cc.Move(desiredMoveDirection * acceleration + gravity);
+                cc.Move(desiredMoveDirection * acceleration + (gravity * gravityModifyer));
             }
 
 
