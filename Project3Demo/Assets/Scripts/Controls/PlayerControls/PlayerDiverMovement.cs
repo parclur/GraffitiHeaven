@@ -243,6 +243,7 @@ public class PlayerDiverMovement : MonoBehaviour
             if (!isGrounded) //Checks to see if the player is not grounded (Takes priority over slowed)
             {
                 acceleration = fallingHorizontalSpeed; //Appleis movment (falling)
+                Debug.Log("AHHHH");
             }
             else if (isSlowed) //Checks to see if the player is slowed, then applies new accleration
             {
