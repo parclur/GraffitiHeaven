@@ -60,130 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FlyMovement.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FollowTarget.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_HoldPosition.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_ObjectVibrate.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_PowerUpObject.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_RotateSpinSin.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_RotateTo.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_Rotator.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_Shared_PanelAnimations.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_SlideObjectTo.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_Spinner.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_TimedExecutor.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_TranslateTransformSpace.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Cameras\FBasic_FreeCameraBehaviour.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Cameras\FBasic_TPPCameraBehaviour.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Bases\FBasic_CharacterHorizontalBase.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Bases\FBasic_CharacterInputBase.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Bases\FBasic_CharacterMovementBase.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Extended\FBasic_FheelekFighter.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterController.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterInputAxis.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterInputKeys.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_FheelekController.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_RigidbodyMovement.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Scripts\FBasic_FheelekAnimator.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_InteractionAreaBase.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_InteractionAreaCanvas.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_Pullable.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_PullableKnob.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_PullableLever.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Physical\FBasic_ProjectileBase.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Physical\FBasic_Shared_BulletHittable.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\Bases\FBasic_MaterialScriptBase.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_AnimatorPlayState.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_CourutineHelper.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_DestroyAfter.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_DestroyOthersWithMe.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_DuplicateObjects.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_FadeOutMaterialAndDestroy.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialFloatAnimate.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialOffset.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialRandomColor.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialTiler.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_SphericDuplicateOn.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_TriggerEvents.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Editor Tools\FEditor_StylesIn.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Editor Tools\FHierarchyIcons.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_HideOnBoolAttribute.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_LayersAttribute.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_MinMaxSliderAttribute.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_MiscAttributes.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FAnimatorMethods.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FColorMethods.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FDebug.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FEasing.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FLogicMethods.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FStringMethods.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FTransformMethods.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FVectorMethods.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Scripts\FBasic_Enums.cs" />
-    <Compile Include="Assets\FImpossible Games\FBasic Assets\Scripts\FBasic_NotRepetiveSelector.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\Bases\FTail_AnimatorBase.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\Bases\FTail_CollisionHelper.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\Bases\FTail_Reference.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_Animator.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_Animator_MassUpdater.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_Animator2D.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_AnimatorBlending.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_AnimatorLegacy.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_AnimatorUI.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Behaviours\FTail_Editor_Skinner.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_FixedUpdateLimit.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_GroundMovement.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_LeverBlend.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_LeverUsage.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_MassUpdaterPlusCanvas.cs" />
-    <Compile Include="Assets\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_SlimeMovement.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Constant.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Enum.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_IgnoreSnapAttribute.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_SceneMeshRender.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
-    <Compile Include="Assets\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Examples\ControlMapperDemo\Scripts\ControlMapperDemoMessage.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ButtonInfo.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CalibrationWindow.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CanvasScalerExt.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CanvasScalerFitter.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Classes.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Enums.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_InputGrid.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ControlMapper_WindowManager.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomButton.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomSlider.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\CustomToggle.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ICustomSelectable.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputBehaviorWindow.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputFieldInfo.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\InputRow.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\LanguageData.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ScrollbarVisibilityHelper.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ScrollRectSelectableChild.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ThemedElement.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ThemeSettings.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\ToggleInfo.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIControl.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIControlSet.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIElementInfo.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIGroup.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UIImageHelper.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UISelectionUtility.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UISliderControl.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\UITools.cs" />
-    <Compile Include="Assets\Rewired\Extras\ControlMapper\Scripts\Window.cs" />
-    <Compile Include="Assets\Rewired\Integration\UnityUI\PlayerPointerEventData.cs" />
-    <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredPointerInputModule.cs" />
-    <Compile Include="Assets\Rewired\Integration\UnityUI\RewiredStandaloneInputModule.cs" />
-    <Compile Include="Assets\Rewired\Internal\Scripts\ControllerTemplates\ControllerTemplates.cs" />
-    <Compile Include="Assets\Rewired\Internal\Scripts\DataStorage\UserDataStore_PlayerPrefs.cs" />
-    <Compile Include="Assets\Rewired\Internal\Scripts\InputManager.cs" />
-    <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
-    <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
     <Compile Include="Assets\Scripts\Controls\MenuControls\ExitGameMenu.cs" />
     <Compile Include="Assets\Scripts\Controls\MenuControls\LoadGame.cs" />
     <Compile Include="Assets\Scripts\Controls\MenuControls\MenuItemCall.cs" />
@@ -236,36 +112,160 @@
     <Compile Include="Assets\Scripts\Prefabs\Interactable\LadderFall.cs" />
     <Compile Include="Assets\Scripts\Prefabs\Interactable\PushBox.cs" />
     <Compile Include="Assets\Scripts\Prefabs\Interactable\WallButton.cs" />
-    <None Include="Assets\FImpossible Games\Tail Animator\ReadMe - Tail Animator.txt" />
-    <None Include="Assets\ProCore\ProGrids\Shader\pg_GridShader.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
-    <None Include="Assets\FImpossible Games\FBasic Assets\Others\mrsmonster.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
-    <None Include="Assets\ProCore\ProBuilder\About\changelog.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
-    <None Include="Assets\FImpossible Games\Tail Animator\Tail Animator - Text from User Manual for translating.txt" />
-    <None Include="Assets\FImpossible Games\FBasic Assets\Others\S_3DText Shader.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
-    <None Include="Assets\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_HideVertices.shader" />
-    <None Include="Assets\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitVertexColor.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_FacePicker.shader" />
-    <None Include="Assets\FImpossible Games\FBasic Assets\Read Me - FBasicAssets.txt" />
-    <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
-    <None Include="Assets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
-    <None Include="Assets\ProCore\ProGrids\About\changelog.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
-    <None Include="Assets\ProCore\ProBuilder\readme.txt" />
-    <None Include="Assets\FImpossible Games\FBasic Assets\FHelpers\FHelpers - ReadMe.txt" />
-    <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FlyMovement.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FollowTarget.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_HoldPosition.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_ObjectVibrate.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_PowerUpObject.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_RotateSpinSin.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_RotateTo.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_Rotator.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_Shared_PanelAnimations.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_SlideObjectTo.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_Spinner.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_TimedExecutor.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_TranslateTransformSpace.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Cameras\FBasic_FreeCameraBehaviour.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Cameras\FBasic_TPPCameraBehaviour.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Bases\FBasic_CharacterHorizontalBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Bases\FBasic_CharacterInputBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Bases\FBasic_CharacterMovementBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Extended\FBasic_FheelekFighter.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterController.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterInputAxis.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterInputKeys.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_FheelekController.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\FBasic_RigidbodyMovement.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Character Controllers\Scripts\FBasic_FheelekAnimator.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_InteractionAreaBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_InteractionAreaCanvas.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_Pullable.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_PullableKnob.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Interactive\FBasic_PullableLever.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Physical\FBasic_ProjectileBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Physical\FBasic_Shared_BulletHittable.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\Bases\FBasic_MaterialScriptBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_AnimatorPlayState.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_CourutineHelper.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_DestroyAfter.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_DestroyOthersWithMe.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_DuplicateObjects.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_FadeOutMaterialAndDestroy.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialFloatAnimate.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialOffset.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialRandomColor.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_MaterialTiler.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_SphericDuplicateOn.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Behaviours\Utilities\FBasic_TriggerEvents.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Editor Tools\FEditor_StylesIn.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Editor Tools\FHierarchyIcons.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_HideOnBoolAttribute.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_LayersAttribute.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_MinMaxSliderAttribute.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Editor Tools\Property Attributes\FPD_MiscAttributes.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FAnimatorMethods.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FColorMethods.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FDebug.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FEasing.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FLogicMethods.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FStringMethods.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FTransformMethods.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FVectorMethods.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Scripts\FBasic_Enums.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\FBasic Assets\Scripts\FBasic_NotRepetiveSelector.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\Bases\FTail_AnimatorBase.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\Bases\FTail_CollisionHelper.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\Bases\FTail_Reference.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_Animator.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_Animator_MassUpdater.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_Animator2D.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_AnimatorBlending.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_AnimatorLegacy.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_AnimatorUI.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Behaviours\FTail_Editor_Skinner.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_FixedUpdateLimit.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_GroundMovement.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_LeverBlend.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_LeverUsage.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_MassUpdaterPlusCanvas.cs" />
+    <Compile Include="Assets\Technology\FImpossible Games\Tail Animator\Demo - Tail Animator\Scripts\FTail_Demo_SlimeMovement.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\Classes\pg_Constant.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\Classes\pg_Enum.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\Classes\pg_IgnoreSnapAttribute.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\Classes\pg_SceneMeshRender.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\Classes\pg_Util.cs" />
+    <Compile Include="Assets\Technology\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Examples\ControlMapperDemo\Scripts\ControlMapperDemoMessage.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ButtonInfo.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\CalibrationWindow.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\CanvasScalerExt.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\CanvasScalerFitter.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ControlMapper.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Classes.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ControlMapper_Enums.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ControlMapper_InputGrid.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ControlMapper_WindowManager.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\CustomButton.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\CustomSlider.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\CustomToggle.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ICustomSelectable.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\InputBehaviorWindow.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\InputFieldInfo.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\InputRow.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\LanguageData.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ScrollbarVisibilityHelper.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ScrollRectSelectableChild.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ThemedElement.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ThemeSettings.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\ToggleInfo.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UIControl.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UIControlSet.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UIElementInfo.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UIGroup.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UIImageHelper.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UISelectionUtility.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UISliderControl.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\UITools.cs" />
+    <Compile Include="Assets\Technology\Rewired\Extras\ControlMapper\Scripts\Window.cs" />
+    <Compile Include="Assets\Technology\Rewired\Integration\UnityUI\PlayerPointerEventData.cs" />
+    <Compile Include="Assets\Technology\Rewired\Integration\UnityUI\RewiredPointerInputModule.cs" />
+    <Compile Include="Assets\Technology\Rewired\Integration\UnityUI\RewiredStandaloneInputModule.cs" />
+    <Compile Include="Assets\Technology\Rewired\Internal\Scripts\ControllerTemplates\ControllerTemplates.cs" />
+    <Compile Include="Assets\Technology\Rewired\Internal\Scripts\DataStorage\UserDataStore_PlayerPrefs.cs" />
+    <Compile Include="Assets\Technology\Rewired\Internal\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Technology\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
+    <Compile Include="Assets\Technology\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
+    <None Include="Assets\Technology\FImpossible Games\Tail Animator\ReadMe - Tail Animator.txt" />
+    <None Include="Assets\Technology\ProCore\ProGrids\Shader\pg_GridShader.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
+    <None Include="Assets\Technology\FImpossible Games\FBasic Assets\Others\mrsmonster.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\About\changelog.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
+    <None Include="Assets\Technology\FImpossible Games\Tail Animator\Tail Animator - Text from User Manual for translating.txt" />
+    <None Include="Assets\Technology\FImpossible Games\FBasic Assets\Others\S_3DText Shader.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
+    <None Include="Assets\Technology\ProCore\ProGrids\About\pc_AboutEntry_ProGrids.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\DiffuseTextureBlend.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_StandardVertexColor.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_VertexPicker.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_HideVertices.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_UnlitVertexColor.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_FacePicker.shader" />
+    <None Include="Assets\Technology\FImpossible Games\FBasic Assets\Read Me - FBasicAssets.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
+    <None Include="Assets\Technology\ProCore\ProGrids\About\changelog.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\readme.txt" />
+    <None Include="Assets\Technology\FImpossible Games\FBasic Assets\FHelpers\FHelpers - ReadMe.txt" />
+    <None Include="Assets\Technology\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -286,6 +286,24 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -488,27 +506,6 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.10f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="ProBuilderCore-Unity5">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="ProBuilderMeshOps-Unity5">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
-    </Reference>
-    <Reference Include="KdTreeLib">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
-    </Reference>
-    <Reference Include="pb_Stl">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
-    </Reference>
-    <Reference Include="Poly2Tri">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="Rewired_Core">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Rewired/Internal/Libraries/Runtime/Rewired_Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Rewired_Windows_Lib">
-      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Rewired/Internal/Libraries/Runtime/Rewired_Windows_Lib.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -517,6 +514,27 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Poly2Tri">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="KdTreeLib">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="pb_Stl">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderCore-Unity5">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps-Unity5">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Windows_Lib">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/Rewired/Internal/Libraries/Runtime/Rewired_Windows_Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Rewired_Core">
+      <HintPath>C:/Users/niklaus.bair/Desktop/sp19-team-10-wiley.gaze_of_the_abyss/Project3Demo/Assets/Technology/Rewired/Internal/Libraries/Runtime/Rewired_Core.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
