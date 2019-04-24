@@ -17,6 +17,12 @@ public class SceneLoader : MonoBehaviour {
 
     [SerializeField] private string[] scenes;
 
+    public PlayerDiverMovement diver;
+
+    GameObject parentMenu;
+
+    bool inMenu;
+
     void Awake()
     {
         instance = this;
@@ -45,5 +51,19 @@ public class SceneLoader : MonoBehaviour {
     public void NextScene()
     {
         SceneManager.LoadScene(nextScene);
+    }
+
+    void Update(){
+        if(diver){
+            if(diver.paused && !inMenu){
+                inMenu = true;
+                SceneManager.LoadScene("AdditiveTitle", LoadSceneMode.Additive);
+                parentMenu = GameObject.FindGameObjectWithTag("ParentMenu");
+            }
+            if(!diver.paused && parentMenu){
+                inMenu = false;
+                Destroy(parentMenu);
+            }
+        }
     }
 }
