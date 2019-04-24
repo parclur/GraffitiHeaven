@@ -26,6 +26,7 @@ public class PlayerROVMovement : MonoBehaviour
         rewiredPlayer = ReInput.players.GetPlayer(playerControlling); //Gets the rewire player
         playerRidgedBody = gameObject.GetComponent<Rigidbody>();
         playerTransform = gameObject.transform;
+        
     }
 
     private void Update()
@@ -87,13 +88,24 @@ public class PlayerROVMovement : MonoBehaviour
 
     void RotatePlayer(float xAxis, float yAxis) //Rotates them in a dirction based on the axis input
     {
-        Vector3 direction = playerTransform.localEulerAngles;
-        if(xAxis != 0)
-            direction.x += xAxis * playerHorizontalRotateSpeed * -1;//* Time.time;
-        if(yAxis != 0)
-            direction.y += yAxis * playerVerticalRotateSpeed ;//* Time.time;
-        direction.z = 0;
+        Quaternion direction = playerTransform.rotation;
 
-        playerTransform.localEulerAngles  = direction;
+        float dx = xAxis * playerHorizontalRotateSpeed * -1;
+        float dy = yAxis * playerVerticalRotateSpeed;
+
+        float x = direction.eulerAngles.x;
+        float y = direction.eulerAngles.y;
+
+        x += dx;
+        y += dy;
+
+        if (x > 180)
+            x = Mathf.Clamp(x, 280, 360);
+        else
+            x = Mathf.Clamp(x, -1, 80);
+
+        direction = Quaternion.Euler(new Vector3(x, y, 0.0f)); //* Time.time;
+
+        playerTransform.rotation = direction;
     }
 }
