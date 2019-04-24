@@ -42,7 +42,7 @@ public class BridgeProxEvent : MonoBehaviour, ITriggerable
             float frac = dist/travelDistance;
             drone.transform.position = Vector3.Lerp(drone.transform.position, droneTargetPos.position, frac);
             controller.enabled = false;
-            if((Vector3.Distance(drone.transform.position, droneTargetPos.position) <= 0.01f)){
+            if((Vector3.Distance(drone.transform.position, droneTargetPos.position) <= 0.01f) || (toggleDroneControl == true)){
                 movingCam = false;
                 Debug.Log("euhhh?");
                 //controller.enabled = true;
@@ -84,7 +84,11 @@ public class BridgeProxEvent : MonoBehaviour, ITriggerable
 
      private void LoadEach(){
          foreach(GameObject i in loadTargets){
-             i.SetActive(true);
+             if (i.activeSelf == false){
+                i.SetActive(true);
+             } else {
+                i.SetActive(false);
+             }
          }
      }
 
@@ -92,16 +96,20 @@ public class BridgeProxEvent : MonoBehaviour, ITriggerable
          
      }
     private void DroneControl(){
-         
+         controller.enabled = true;
      }
      private void SnapDiver(){
-         diver.GetComponent<CharacterController>().enabled = false;
+         //diver.GetComponent<CharacterController>().enabled = false;
          diver.transform.position = diverSnapPosition.position;
          diver.transform.rotation = diverSnapPosition.rotation;
      }
      private void Lamprey(){
          foreach(GameObject i in loadLamprey){
-             i.SetActive(true);
+             if (i.activeSelf == false){
+                i.SetActive(true);
+             } else {
+                i.SetActive(false);
+             }
          }
      }
 
