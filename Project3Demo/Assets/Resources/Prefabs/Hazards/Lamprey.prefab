@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2535647943361302508}
   - component: {fileID: 6042444955033280224}
-  - component: {fileID: 5411841714116609661}
   m_Layer: 0
   m_Name: Lamprey
   m_TagString: Untagged
@@ -54,88 +53,6 @@ MonoBehaviour:
   door: {fileID: 0}
   moveTime: 2
   drone: {fileID: 0}
---- !u!114 &5411841714116609661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2535647943361302504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd3a8c0c34ba4d4d9679edb4af4db76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TailTransforms:
-  - {fileID: 6677390346715382865}
-  RootToParent: 0
-  AutoGetWithOne: 0
-  InitBeforeAnimator: 0
-  PositionSpeed: 20
-  RotationSpeed: 20
-  UseAutoCorrectLookAxis: 0
-  FullCorrection: 0
-  RolledBones: 0
-  AnimateCorrections: 0
-  StretchMultiplier: 1
-  AxisCorrection: {x: 0, y: 0, z: 1}
-  AxisLookBack: {x: 0, y: 1, z: 0}
-  ExtraCorrectionOptions: 0
-  ExtraFromDirection: {x: 0, y: 0, z: 1}
-  ExtraToDirection: {x: 0, y: 0, z: 1}
-  AddTailReferences: 0
-  UpdateClock: 0
-  SmoothDeltaTime: 1
-  RefreshHelpers: 0
-  QueueToLastUpdate: 1
-  UseCollision: 0
-  CollideWithOtherTails: 0
-  CollidersType: 1
-  CollidersScale:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  CollidersScaleMul: 6.5
-  BoxesDimensionsMul: {x: 1, y: 1, z: 1}
-  IgnoredColliders: []
-  CollidersSameLayer: 1
-  CollidersAddRigidbody: 1
-  CollidersLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  DifferenceScaleFactor: 1
-  GravityPower: {x: 0, y: 0}
-  CollisionLookBack: 1
-  drawGizmos: 0
-  UseWaving: 1
-  CosinusAdd: 0
-  WavingSpeed: 3
-  WavingRange: 0.5
-  WavingAxis: {x: 1, y: 0, z: 1}
-  TailRotationOffset: {x: 0, y: 0, z: 0}
-  WavingType: 0
-  AlternateWave: 1
-  DisconnectTransforms: 0
 --- !u!1 &6677390346714896481
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,8 +168,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677390346714896489}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.47888494}
+  m_LocalRotation: {x: 0.000000028078826, y: 0.0000000055297273, z: 0.00000006043068,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.47888505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6677390346715382859}
@@ -281,8 +199,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677390346714896491}
-  m_LocalRotation: {x: 0.000004451622, y: -0.00085022463, z: -1.6825637e-10, w: 0.99999964}
-  m_LocalPosition: {x: -6.82121e-10, y: 9.895302e-10, z: 0.41048047}
+  m_LocalRotation: {x: 0.0000044143735, y: -0.0008502191, z: -0.00000006068829, w: 0.99999964}
+  m_LocalPosition: {x: 0, y: 0, z: 0.41048056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6677390346715382857}
@@ -390,6 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6677390346715382865}
+  - component: {fileID: 3542466777331580302}
   m_Layer: 0
   m_Name: Bone.002
   m_TagString: Untagged
@@ -412,6 +331,92 @@ Transform:
   m_Father: {fileID: 2535647943361302508}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3542466777331580302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677390346714896497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd3a8c0c34ba4d4d9679edb4af4db76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TailTransforms:
+  - {fileID: 6677390346715382865}
+  - {fileID: 6677390346715382871}
+  - {fileID: 6677390346715382869}
+  - {fileID: 6677390346715382859}
+  - {fileID: 6677390346715382857}
+  RootToParent: 0
+  AutoGetWithOne: 0
+  InitBeforeAnimator: 0
+  PositionSpeed: 20
+  RotationSpeed: 20
+  UseAutoCorrectLookAxis: 1
+  FullCorrection: 0
+  RolledBones: 0
+  AnimateCorrections: 0
+  StretchMultiplier: 1
+  AxisCorrection: {x: 0, y: 0, z: 1}
+  AxisLookBack: {x: 0, y: 1, z: 0}
+  ExtraCorrectionOptions: 0
+  ExtraFromDirection: {x: 0, y: 0, z: 1}
+  ExtraToDirection: {x: 0, y: 0, z: 1}
+  AddTailReferences: 0
+  UpdateClock: 1
+  SmoothDeltaTime: 1
+  RefreshHelpers: 0
+  QueueToLastUpdate: 1
+  UseCollision: 0
+  CollideWithOtherTails: 0
+  CollidersType: 1
+  CollidersScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  CollidersScaleMul: 6.5
+  BoxesDimensionsMul: {x: 1, y: 1, z: 1}
+  IgnoredColliders: []
+  CollidersSameLayer: 1
+  CollidersAddRigidbody: 1
+  CollidersLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  DifferenceScaleFactor: 1
+  GravityPower: {x: 0, y: 0}
+  CollisionLookBack: 1
+  drawGizmos: 0
+  UseWaving: 1
+  CosinusAdd: 0
+  WavingSpeed: 3
+  WavingRange: 0.5
+  WavingAxis: {x: 1, y: 0, z: 1}
+  TailRotationOffset: {x: 0, y: 0, z: 0}
+  WavingType: 0
+  AlternateWave: 1
+  DisconnectTransforms: 0
 --- !u!1 &6677390346714896499
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,9 +470,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677390346714896501}
-  m_LocalRotation: {x: -0.00010701525, y: 0.020439096, z: -3.318953e-10, w: 0.9997911}
-  m_LocalPosition: {x: 0.0000000013460522, y: 3.7107384e-10, z: 0.3372981}
-  m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+  m_LocalRotation: {x: -0.00010697484, y: 0.020439116, z: 0.000000030144633, w: 0.99979115}
+  m_LocalPosition: {x: 0, y: 0, z: 0.337298}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6677390346715382859}
   m_Father: {fileID: 6677390346715382871}
@@ -496,9 +501,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677390346714896503}
-  m_LocalRotation: {x: -0.000046730693, y: 0.008925287, z: 8.2586754e-10, w: 0.9999602}
-  m_LocalPosition: {x: 1.8189894e-12, y: 1.0913936e-11, z: 0.31315023}
-  m_LocalScale: {x: 0.99999994, y: 1, z: 0.9999999}
+  m_LocalRotation: {x: -0.00004673004, y: 0.008925274, z: -0, w: 0.99996024}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3131506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6677390346715382869}
   m_Father: {fileID: 6677390346715382865}

@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ClickThroughPapers.cs" />
      <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FlyMovement.cs" />
      <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_FollowTarget.cs" />
      <Compile Include="Assets\FImpossible Games\FBasic Assets\Behaviours\Animations\FBasic_HoldPosition.cs" />
@@ -179,6 +178,7 @@
      <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
      <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
      <Compile Include="Assets\Scripts\Controls\EventControls\HitDoorWithLight.cs" />
+     <Compile Include="Assets\Scripts\Controls\MenuControls\ClickThroughPapers.cs" />
      <Compile Include="Assets\Scripts\Controls\MenuControls\ExitGameMenu.cs" />
      <Compile Include="Assets\Scripts\Controls\MenuControls\LoadGame.cs" />
      <Compile Include="Assets\Scripts\Controls\MenuControls\MenuItemCall.cs" />
