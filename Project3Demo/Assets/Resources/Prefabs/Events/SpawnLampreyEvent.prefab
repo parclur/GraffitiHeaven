@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7991144561750247222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7991144561750247226}
+  - component: {fileID: 7991144561750247227}
+  - component: {fileID: 7991144561750247224}
+  - component: {fileID: 7991144561750247225}
+  m_Layer: 0
+  m_Name: SpawnLampreyEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7991144561750247226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991144561750247222}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 14.897, y: -12.017002, z: 4.3079987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7991144561750247227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991144561750247222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63006ff01a08eb4a8a12eb82952c7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overridesCamera: 0
+--- !u!114 &7991144561750247224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991144561750247222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3075200ac7431e04194b7a8c1334b5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideCamera: {fileID: 0}
+  controller: {fileID: 0}
+  snapDuration: 5
+  focusDuration: 10
+  focalPoint: {fileID: 7991144561750247226}
+  checkLineOfSight: 1
+--- !u!114 &7991144561750247225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991144561750247222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea64da34dc4dd5d468a5154c97d5ab8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lamprey:
+  - {fileID: 0}
+  spawnTime: 0.1
+  openLampreyDoor: 1
+  deleteLamprey: 0
+  door: {fileID: 0}

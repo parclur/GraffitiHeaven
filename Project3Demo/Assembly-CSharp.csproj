@@ -200,6 +200,7 @@
      <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEvent.cs" />
      <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEventCameraOverride.cs" />
      <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEventZone.cs" />
+     <Compile Include="Assets\Scripts\Events\LevelEvents\BridgeProxEvent.cs" />
      <Compile Include="Assets\Scripts\Events\LevelEvents\CollapseEvent.cs" />
      <Compile Include="Assets\Scripts\Events\LevelEvents\DoorClosePlaceHolder.cs" />
      <Compile Include="Assets\Scripts\Events\LevelEvents\EnablerEvent.cs" />
