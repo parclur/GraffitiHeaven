@@ -22,7 +22,7 @@ public class CheckpointScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "diver")
+        if(other.tag == "Diver")
         {
             CheckPointManager.instance.SetActiveCheckpoint(this.gameObject); //When the player enters the trigger set this as the active checkpoint
         }
