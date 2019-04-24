@@ -102,6 +102,8 @@ public class PlayerDiverMovement : MonoBehaviour
 
     private bool firstMove = false;
 
+    public bool paused;
+
     private void Start()
     {
         Cursor.visible = false;
@@ -142,6 +144,17 @@ public class PlayerDiverMovement : MonoBehaviour
         }
 
         PostProcessingManager.instance.UpdateVingette(Vector3.Distance(transform.position, drone.position));
+
+        if(rewiredPlayer.GetButtonDown("Pause")){
+            SceneLoader.instance.diver = this;
+            paused = !paused;
+            if(paused){
+                Time.timeScale = 0f;
+            }
+            else {
+                Time.timeScale = 1f;
+            }
+        }
     }
 
     public void InitBox(Vector2 newAxis){
