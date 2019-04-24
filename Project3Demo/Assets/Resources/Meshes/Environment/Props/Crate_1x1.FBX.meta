@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 924382a23a79c7640b1710cd36fa63ce
+guid: 672e51171716dc746966ad7b43e9198c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
+    2100002: 01 - Default
     2300000: //RootNode
     3300000: //RootNode
     4300000: Box026

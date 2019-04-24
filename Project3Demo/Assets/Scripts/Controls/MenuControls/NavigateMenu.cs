@@ -14,17 +14,33 @@ public class NavigateMenu : MonoBehaviour{
 
     public UnityMenuItem[] menuItems;
 
-    int selectedItem = 0;
-    int selectedMenu = 0;
+    public int selectedItem = 0;
+    public int selectedMenu = 0;
 
     bool editingValue;
 
+    [SerializeField] bool additive;
+
+    float time;
+
     void Start(){
         diver = ReInput.players.GetPlayer("Diver");
-        InvokeRepeating("UpdateNumerical", 0f, .15f);
+        if(!additive) InvokeRepeating("UpdateNumerical", 0f, .15f);
     }
 
     void Update(){
+        if(additive){
+            if(time == 0){
+                time = 1;
+                UpdateNumerical();
+            }
+            else if(time == 1){
+                time = 2;
+            }
+            else time = 0;
+        }
+
+        
         MenuItemCall curItem = menuItems[selectedMenu].items[selectedItem];
         Image curImage = menuItems[selectedMenu].panel[selectedItem];
 

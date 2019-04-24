@@ -18,6 +18,7 @@ TagManager:
   - PatrolPoint
   - Ladder
   - FlareGun
+  - ParentMenu
   layers:
   - Default
   - TransparentFX
