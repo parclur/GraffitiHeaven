@@ -758,7 +758,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0621da90efbab4f429cbf1836bb97bf6, type: 3}
+  - {fileID: 2100000, guid: b07343f88c0c4bb4c9caca22970167c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1255,6 +1255,7 @@ MonoBehaviour:
   pullBox: {fileID: 0}
   pulling: 0
   climbing: 0
+  paused: 0
 --- !u!114 &1098735309753250748
 MonoBehaviour:
   m_ObjectHideFlags: 0
