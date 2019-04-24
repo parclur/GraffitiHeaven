@@ -29,14 +29,17 @@ public class NavigateMenu : MonoBehaviour{
     }
 
     void Update(){
-        if(time == 0){
-            time = 1;
-            UpdateNumerical();
+        if(additive){
+            if(time == 0){
+                time = 1;
+                UpdateNumerical();
+            }
+            else if(time == 1){
+                time = 2;
+            }
+            else time = 0;
         }
-        else if(time == 1){
-            time = 2;
-        }
-        else time = 0;
+
         
         MenuItemCall curItem = menuItems[selectedMenu].items[selectedItem];
         Image curImage = menuItems[selectedMenu].panel[selectedItem];

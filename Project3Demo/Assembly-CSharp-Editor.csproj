@@ -131,6 +131,12 @@
      <Compile Include="Assets\Technology\Rewired\Internal\Scripts\Editor\CustomInspectors\PlayerMouseInspector.cs" />
      <Compile Include="Assets\Technology\Rewired\Internal\Scripts\Editor\CustomInspectors\UserDataStore_PlayerPrefsInspector.cs" />
      <Compile Include="Assets\Technology\Rewired\Internal\Scripts\Editor\UnityEditorBridge.cs" />
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -140,26 +146,14 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+ <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
  <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
  <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
- <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
  <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
@@ -169,6 +163,12 @@
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
  <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.DataPrivacy">
+ <HintPath>D:/PruductionLads/Gaze/Project3Demo/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
