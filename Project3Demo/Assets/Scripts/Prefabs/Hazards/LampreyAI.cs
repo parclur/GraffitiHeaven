@@ -40,6 +40,7 @@ public class LampreyAI : MonoBehaviour {
             //If you can see the player, move to the player
             if(CanSeePlayer()){
                 if(!isLunging){
+                    findingPlayer = false;
                     agent.ResetPath();
                     StartCoroutine(JumpAtPlayer());
                 }
