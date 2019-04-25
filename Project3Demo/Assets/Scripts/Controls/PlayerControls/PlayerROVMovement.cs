@@ -15,6 +15,8 @@ public class PlayerROVMovement : MonoBehaviour
 
     [SerializeField] private float playerHorizontalRotateSpeed;
 
+    private bool canMove = true;
+
     private Player rewiredPlayer;
 
     private Transform playerTransform;
@@ -34,20 +36,45 @@ public class PlayerROVMovement : MonoBehaviour
         ReadInput();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "DiverFeet")
+        {
+            canMove = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "DiverFeet")
+        {
+            canMove = true;
+        }
+    }
+
     void ReadInput() //Interperates the input of the player
     {
-        //----------------------------------------MOVE DOWN----------------------------------------------
-
-        if(rewiredPlayer.GetButtonLongPress("ElevateDOWN")) 
+        if (canMove)
         {
-            MoveDown();
-        }
+            //----------------------------------------MOVE DOWN----------------------------------------------
 
-        //----------------------------------------MOVE UP----------------------------------------------
+            if (rewiredPlayer.GetButtonLongPress("ElevateDOWN"))
+            {
+                MoveDown();
+            }
 
-        if(rewiredPlayer.GetButtonLongPress("ElevateUP"))
-        {
-            MoveUp();
+            //----------------------------------------MOVE UP----------------------------------------------
+
+            if (rewiredPlayer.GetButtonLongPress("ElevateUP"))
+            {
+                MoveUp();
+            }
+
+            //----------------------------------------MOVE AXIS----------------------------------------------
+            float yAxisMove = rewiredPlayer.GetAxis("UpDownMovment");
+            float xAxisMove = rewiredPlayer.GetAxis("LeftRightMovement");
+
+            MoveDirectional(xAxisMove, yAxisMove);
         }
 
         //----------------------------------------ROTATE AXIS----------------------------------------------
@@ -55,12 +82,6 @@ public class PlayerROVMovement : MonoBehaviour
         float yAxisAim = rewiredPlayer.GetAxis("LeftRightAim");
 
         RotatePlayer(xAxisAim, yAxisAim);
-
-        //----------------------------------------MOVE AXIS----------------------------------------------
-        float yAxisMove = rewiredPlayer.GetAxis("UpDownMovment");
-        float xAxisMove = rewiredPlayer.GetAxis("LeftRightMovement");
-
-        MoveDirectional(xAxisMove, yAxisMove);
     }
 
     void MoveUp() //Moves them directly up (based on singular button input)

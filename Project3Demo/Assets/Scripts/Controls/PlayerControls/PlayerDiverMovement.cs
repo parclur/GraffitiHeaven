@@ -26,6 +26,8 @@ public class PlayerDiverMovement : MonoBehaviour
 
     [SerializeField] private float gravityModifyer = 1.0f; //Multiplys gravity when calculating
 
+    public bool canMove = true; //Public so scripts can easlity access
+
     [Header("Health Variables")]
 
     [SerializeField] private int hitsToDie;
@@ -167,7 +169,8 @@ public class PlayerDiverMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CheckGrounded();
-        MovePlayer();
+        if(canMove)
+            MovePlayer();
     }
 
     void MovePlayer()
