@@ -602,6 +602,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1664859972}
     m_Modifications:
+    - target: {fileID: 7441005816138134017, guid: e1fb56c07bccd664ebb728cde1c147c0,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneManager
+      objectReference: {fileID: 0}
     - target: {fileID: 7441005816138134019, guid: e1fb56c07bccd664ebb728cde1c147c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -657,15 +662,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7441005816138134017, guid: e1fb56c07bccd664ebb728cde1c147c0,
-        type: 3}
-      propertyPath: m_Name
-      value: SceneManager
-      objectReference: {fileID: 0}
     - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
         type: 3}
       propertyPath: levelName
-      value: NewspaperScene
+      value: master-level-dev
       objectReference: {fileID: 0}
     - target: {fileID: 7441005816138134016, guid: e1fb56c07bccd664ebb728cde1c147c0,
         type: 3}

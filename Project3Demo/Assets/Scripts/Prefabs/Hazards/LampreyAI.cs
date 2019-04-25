@@ -47,6 +47,7 @@ public class LampreyAI : MonoBehaviour {
             }
             //Else find a waypoint that can see the player
             else if(!findingPlayer){
+                isLunging = false;
                 findingPlayer = true;
                 agent.destination = chaseObject.transform.position;
                 //waypoints.Clear();
