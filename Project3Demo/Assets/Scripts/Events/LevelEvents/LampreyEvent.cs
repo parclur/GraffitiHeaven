@@ -24,8 +24,7 @@ public class LampreyEvent : MonoBehaviour, ITriggerable
     }
 
     public void TriggerEvent(){
-        
-        if (openLampreyDoor == true) {
+        if (openLampreyDoor == true){
             StartCoroutine(SpawnLamprey());
             door.GetComponent<HeavyDoor>().Activate();
             AudioManager.instance.PlayOneShot("MetalDoorUnlocked");
