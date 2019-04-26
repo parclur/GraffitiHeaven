@@ -8606,7 +8606,7 @@ PrefabInstance:
     - target: {fileID: 1176094812286884089, guid: bd164bc556ad23447a7bc50be4585486,
         type: 3}
       propertyPath: level5StartingCheckpoint
-      value: CheckPoint-Level5-Start
+      value: CheckPoint-Level1-Start
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd164bc556ad23447a7bc50be4585486, type: 3}
