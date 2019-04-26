@@ -149,7 +149,7 @@ public class PlayerDiverMovement : MonoBehaviour
         }
 
         PostProcessingManager.instance.UpdateVingette(Vector3.Distance(transform.position, drone.position));
-
+        
         if(rewiredPlayer.GetButtonDown("Pause")){
             SceneLoader.instance.diver = this;
             paused = !paused;

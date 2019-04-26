@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour {
 
     public PlayerDiverMovement diver;
 
-    GameObject parentMenu;
+    [SerializeField] GameObject parentMenu;
 
     bool inMenu;
 
@@ -58,6 +58,8 @@ public class SceneLoader : MonoBehaviour {
             if(diver.paused && !inMenu){
                 inMenu = true;
                 SceneManager.LoadScene("AdditiveTitle", LoadSceneMode.Additive);
+            }
+            if(diver.paused){
                 parentMenu = GameObject.FindGameObjectWithTag("ParentMenu");
             }
             if(!diver.paused && parentMenu){
