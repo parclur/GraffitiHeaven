@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cef38dca52f5c45a0f5a774f5cb7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis: {x: -1, y: 0}
+  axis: {x: 1, y: 0}
   pushSpeed: 10
 --- !u!1 &7340499061237366771
 GameObject:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cef38dca52f5c45a0f5a774f5cb7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis: {x: 0, y: -1}
+  axis: {x: 0, y: 1}
   pushSpeed: 10
 --- !u!1 &7340499061399323360
 GameObject:
