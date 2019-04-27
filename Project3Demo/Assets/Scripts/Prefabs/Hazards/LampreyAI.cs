@@ -34,9 +34,12 @@ public class LampreyAI : MonoBehaviour {
     void Update(){
         //Only activate when the door is open
         if(door.doorOpen){
-
+            float distanceToTarget = Vector3.Distance(agent.transform.position, chaseObject.transform.position);
+            if(distanceToTarget < 1.5){
+                SceneLoader.instance.LoseGame();
+            }
+            agent.destination = chaseObject.transform.position;
             AudioManager.instance.PlayOneShot("Monster1e", 1f);
-
             //If you can see the player, move to the player
             if(CanSeePlayer()){
                 if(!isLunging){
@@ -49,7 +52,6 @@ public class LampreyAI : MonoBehaviour {
             else if(!findingPlayer){
                 isLunging = false;
                 findingPlayer = true;
-                agent.destination = chaseObject.transform.position;
                 //waypoints.Clear();
                 //FindWaypointMap();
                 //StartCoroutine(MoveBetweenPoints());
