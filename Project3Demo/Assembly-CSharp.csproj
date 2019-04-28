@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Controls\MenuControls\BackToTitle.cs" />
      <Compile Include="Assets\Scripts\Controls\MenuControls\ClickThroughPapers.cs" />
      <Compile Include="Assets\Scripts\Controls\MenuControls\ExitGameMenu.cs" />
      <Compile Include="Assets\Scripts\Controls\MenuControls\LoadGame.cs" />
