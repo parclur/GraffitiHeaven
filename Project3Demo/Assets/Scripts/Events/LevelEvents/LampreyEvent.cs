@@ -39,7 +39,7 @@ public class LampreyEvent : MonoBehaviour, ITriggerable
             foreach(GameObject i in Lamprey){
                 if (i.activeSelf == false){
                     i.SetActive(true);
-                } if(deleteLamprey){
+                } else if(deleteLamprey){
                     Destroy(i);
                 }
             }
