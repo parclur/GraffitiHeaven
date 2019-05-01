@@ -11,6 +11,8 @@ public class LampreyAI : MonoBehaviour {
 
     [SerializeField] NavMeshAgent agent;
 
+    [SerializeField] bool final = false;
+
     public GameObject chaseObject;
 
     bool isLunging;
@@ -37,7 +39,14 @@ public class LampreyAI : MonoBehaviour {
         if(door.doorOpen){
             float distanceToTarget = Vector3.Distance(agent.transform.position, chaseObject.transform.position);
             if(distanceToTarget < 1.5){
-                SceneLoader.instance.LoseGame();
+                if(final == true)
+                {
+                    SceneLoader.instance.WinGame();
+                }
+                else
+                {
+                    SceneLoader.instance.LoseGame();
+                }
             }
             agent.destination = chaseObject.transform.position;
             AudioManager.instance.PlayOneShot("Monster1e", 1f);

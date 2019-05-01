@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Controls\PlayerControls\PlayerDiverMovement.cs" />
     <Compile Include="Assets\Scripts\Controls\PlayerControls\PlayerROVMovement.cs" />
     <Compile Include="Assets\Scripts\Controls\UIControls\WifiGoDown.cs" />
+    <Compile Include="Assets\Scripts\Events\EndEventTriggerScript.cs" />
     <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredAudioQueue.cs" />
     <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEvent.cs" />
     <Compile Include="Assets\Scripts\Events\EventSystem\TriggeredEventCameraOverride.cs" />
