@@ -247,4 +247,10 @@ public class HeavyDoor : MonoBehaviour {
             flareHit = true;
         }
     }
+
+    public void TriggerFlareOnDoor(){
+        if((flareStunsDoor || flareClosesDoor)){
+            flareHit = true;
+        }
+    }
 }
