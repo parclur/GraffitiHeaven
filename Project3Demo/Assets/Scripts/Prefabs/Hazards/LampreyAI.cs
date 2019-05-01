@@ -32,6 +32,7 @@ public class LampreyAI : MonoBehaviour {
     }
     
     void Update(){
+        if(!door) Debug.Log(name + " Doesn't have a door!");
         //Only activate when the door is open
         if(door.doorOpen){
             float distanceToTarget = Vector3.Distance(agent.transform.position, chaseObject.transform.position);
