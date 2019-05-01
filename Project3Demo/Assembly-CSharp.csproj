@@ -93,6 +93,7 @@
      <Compile Include="Assets\Scripts\Events\LevelEvents\SpawnKey.cs" />
      <Compile Include="Assets\Scripts\Events\LevelEvents\StuckInGap.cs" />
      <Compile Include="Assets\Scripts\Events\LevelEvents\TriggerBeamEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\LevelEvents\TutorialLampreyEvent.cs" />
      <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Managers\CheckPointManager.cs" />
      <Compile Include="Assets\Scripts\Managers\LevelSelectManager.cs" />
