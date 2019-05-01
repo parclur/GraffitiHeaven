@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Rewired;
 
 public class PlayerROVMovement : MonoBehaviour
@@ -23,12 +25,14 @@ public class PlayerROVMovement : MonoBehaviour
 
     private Rigidbody playerRidgedBody;
 
+    public GameObject diver;
+
     private void Start()
     {
         rewiredPlayer = ReInput.players.GetPlayer(playerControlling); //Gets the rewire player
         playerRidgedBody = gameObject.GetComponent<Rigidbody>();
         playerTransform = gameObject.transform;
-        
+        diver = GameObject.FindGameObjectWithTag("Diver");
     }
 
     private void Update()
@@ -107,7 +111,7 @@ public class PlayerROVMovement : MonoBehaviour
         playerRidgedBody.AddForce(direction * playerDirectionalSpeed);
     }
 
-    void RotatePlayer(float xAxis, float yAxis) //Rotates them in a dirction based on the axis input
+    void RotatePlayer(float xAxis, float yAxis) //Rotates them in a direction based on the axis input
     {
         Quaternion direction = playerTransform.rotation;
 
@@ -128,5 +132,29 @@ public class PlayerROVMovement : MonoBehaviour
         direction = Quaternion.Euler(new Vector3(x, y, 0.0f)); //* Time.time;
 
         playerTransform.rotation = direction;
+    }
+
+    public IEnumerator StartCutscene(){
+        Start();
+        Transform diverTransform = diver.transform;
+        diver.GetComponent<PlayerDiverMovement>().canMove = false;
+        Vector3 currentPos = playerTransform.position;
+        float elapsedTime = 0.0f;
+        while (elapsedTime < 2){
+            playerTransform.position = Vector3.Lerp(currentPos, new Vector3(currentPos.x + 2, currentPos.y, diverTransform.position.z), (elapsedTime / 2));
+            playerTransform.LookAt(new Vector3(diverTransform.position.x, diverTransform.position.y + 2, diverTransform.position.z));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        currentPos = playerTransform.position;
+        elapsedTime = 0.0f;
+        while (elapsedTime < 2){
+            playerTransform.position = Vector3.Lerp(currentPos, new Vector3(diverTransform.position.x, currentPos.y, diverTransform.position.z - 2), (elapsedTime / 2));
+            playerTransform.LookAt(new Vector3(diverTransform.position.x, diverTransform.position.y + 2, diverTransform.position.z));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        diver.GetComponent<PlayerDiverMovement>().canMove = true;
     }
 }

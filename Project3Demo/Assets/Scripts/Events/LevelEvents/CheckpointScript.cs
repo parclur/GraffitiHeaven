@@ -35,6 +35,9 @@ public class CheckpointScript : MonoBehaviour
         droneGameObject = drone;
         diver.transform.position = diverSpawnPoint.position;
         drone.transform.position = droneSpawnPoint.position;
-
+        
+        if(name == "CheckPoint-Level1-Start"){
+            StartCoroutine(drone.GetComponent<PlayerROVMovement>().StartCutscene());
+        }
     }
 }
